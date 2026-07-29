@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noondigital.co/sitemap.xml
