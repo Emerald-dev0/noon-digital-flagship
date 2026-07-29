@@ -2,24 +2,24 @@ import { motion } from 'framer-motion';
 
 const OBJECTIONS = [
   {
-    question: 'Is this halal?',
-    answer: 'Absolutely. Mubarak speaks about his Islam openly. Content is transparent, honest, and rooted in real values. No manipulation, no hype.',
+    question: 'I don\'t have ideas to film.',
+    answer: '"I can\'t go out and just film, because I don\'t have the ideas there." We hear this on every call. Ideation is the bottleneck, not filming. We build the pipeline, you just hit record.',
   },
   {
-    question: "I don't want to be a creator.",
-    answer: "You won't be. You're a business owner using YouTube as a lever. We handle strategy, research, scripting, editing, and packaging. You just record.",
+    question: 'If I give it all away free, why would anyone pay me?',
+    answer: 'People don\'t buy information — they buy speed, systems, and a hand to hold. A client gave away a 1-hour course and did 16k in 10 days.',
   },
   {
-    question: "I can't show my face.",
-    answer: "We build high-converting faceless channels using screen recordings, motion graphics, and voiceover. Dense, valuable content — not a face.",
+    question: "I can't show lifestyle from a bedroom.",
+    answer: '"I\'m in my room, bro." You don\'t need a skyline. You need a camera pointed at what you already do all day. A client\'s best content is literally his Zoom calls.',
   },
   {
-    question: "What if it doesn't work?",
-    answer: "Start with the YouTube Test Video. It validates the approach and proves the concept before committing to a larger retainer. Zero risk.",
+    question: "More videos equals more growth, right?",
+    answer: "Wrong. A client wanted 3 videos a week. We told him no — and then signed a $12k client from video #2. Four bangers a month beats 12 mediocre uploads.",
   },
   {
-    question: "I don't have a studio.",
-    answer: "A client films in his bedroom with an iPhone and out-converts the studio guys. Setup is not your problem — the blank page is. We solve the blank page.",
+    question: "I don't have a studio setup.",
+    answer: "Stop buying green screens. A client films in his bedroom with a window and an iPhone and out-converts the studio guys. Setup is not your problem.",
   }
 ];
 

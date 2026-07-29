@@ -45,11 +45,13 @@ export function Scene4() {
               The Paradigm Shift
             </span>
             <h2 className="font-display font-bold text-6xl md:text-8xl leading-[0.85] tracking-tighter uppercase mb-8">
-              Why <br/>YouTube <br/>
-              <span className="font-accent italic text-[#8f56ff] lowercase">changes everything.</span>
+              Rented Land <br/>vs.<br/>
+              <span className="font-accent italic text-[#8f56ff] lowercase">Owned Garden.</span>
             </h2>
             <p className="font-body text-xl text-black/60 leading-relaxed max-w-md">
-              Five reasons the Garden outperforms every other channel. It’s the difference between renting attention and owning it.
+              "Meta shadowbanned my account... nobody sees my reels... I can't be on Instagram only. It is very, very dangerous for my business." 
+              <br/><br/>
+              Here is why the Garden outperforms every other channel.
             </p>
           </motion.div>
         </div>

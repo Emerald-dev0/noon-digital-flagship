@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
-// Create a staggered array of all 18 thumbnails for the background collage
-const THUMBNAILS = Array.from({ length: 18 }, (_, i) => `/images/thumbnail${i + 1}.png`);
+// Create a staggered array of all 24 thumbnails for the background collage
+const THUMBNAILS = Array.from({ length: 24 }, (_, i) => `/images/thumbnails/image${i + 1}.png`);
 
 export function Scene0() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,7 +52,7 @@ export function Scene0() {
           </motion.div>
 
           <motion.div style={{ y: yCol4 }} className="hidden md:flex flex-col gap-4">
-            {THUMBNAILS.slice(15, 18).concat(THUMBNAILS.slice(0, 2)).map((src, i) => (
+            {THUMBNAILS.slice(15, 20).concat(THUMBNAILS.slice(20, 24)).map((src, i) => (
               <img key={i} src={src} alt="" className="w-full h-auto rounded-lg object-cover grayscale opacity-60" />
             ))}
           </motion.div>
@@ -71,8 +71,8 @@ export function Scene0() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="font-display font-bold text-[18vw] sm:text-[10vw] md:text-[8vw] leading-[0.85] tracking-tighter text-white uppercase mix-blend-difference mb-4 md:mb-6">
-              Stop renting<br />attention.
+            <h1 className="font-display font-bold text-[15vw] sm:text-[9vw] md:text-[7vw] leading-[0.85] tracking-tighter text-white uppercase mix-blend-difference mb-4 md:mb-6">
+              You know YouTube<br />is the move.
             </h1>
           </motion.div>
           
@@ -81,8 +81,8 @@ export function Scene0() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="font-accent italic text-4xl md:text-5xl text-[#ff69c5] mb-8 md:mb-12 mix-blend-screen">
-              Own your audience.
+            <p className="font-accent italic text-3xl md:text-5xl text-[#ff69c5] mb-8 md:mb-12 mix-blend-screen">
+              So why aren't you posting?
             </p>
           </motion.div>
 
@@ -92,8 +92,8 @@ export function Scene0() {
             transition={{ duration: 1, delay: 0.8 }}
             className="font-body font-medium text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-12"
           >
-            We transform stagnant channels into automated client acquisition engines. 
-            No gimmicks. No viral chasing. Just search-first ecosystems that rank, nurture, and convert.
+            It’s not discipline. It’s ideation. We build the pipeline, you just film. 
+            Stop guessing at ideas and start building a predictable client acquisition system.
           </motion.p>
 
           <motion.div

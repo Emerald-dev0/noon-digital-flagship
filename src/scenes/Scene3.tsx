@@ -3,40 +3,34 @@ import { useRef, useState, MouseEvent } from 'react';
 
 const PROOF_DATA = [
   {
-    id: 'appointment',
-    client: 'Appointment Clicks',
-    niche: 'Appointment Setting',
-    thumbnail: '/images/appointmentsetting.jpg',
-    analytics: '/images/analytics1.png',
-    headline: 'From Zero to #1 in Search',
-    body: 'Targeting high-intent B2B buyers searching for appointment setters led to dominating the top spot and a 340% increase in qualified pipeline over 90 days.',
+    id: 'arabic',
+    client: 'Shaf',
+    niche: 'Arabic Coach',
+    thumbnail: '/images/11-shaf-arabic-coach/image14.png',
+    analytics: '/images/11-shaf-arabic-coach/image22.png',
+    headline: '16K in 10 Days from One Course',
+    body: 'We didn\'t build a massive funnel. We simply positioned the right content where high-intent buyers were already looking. The result? Pure inbound conversion.',
+    avatar: '/people/avatar-image11.png'
   },
   {
     id: 'techsales',
     client: 'Tech Sales Mentor',
     niche: 'Tech Sales Course',
-    thumbnail: '/images/techsalecourse.jpg',
-    analytics: '/images/analytics2.png',
-    headline: '$120K Pipeline from ONE Video',
-    body: 'Built an educational funnel for career switchers. By ranking for specific pain points, a single video generated six figures without spending a dime on ads.',
+    thumbnail: '/images/03-how-does-the-youtube-garden-work/image1.jpg',
+    analytics: '/images/03-how-does-the-youtube-garden-work/image4.jpg',
+    headline: 'Dominated The Search Engine',
+    body: 'By building out the "YouTube Garden," we captured the exact queries their ideal clients were searching for. Now they rank top-3 for their most profitable keywords.',
+    avatar: '/people/avatar-image12.png'
   },
   {
-    id: 'miro',
-    client: 'Miro Boards',
-    niche: 'Instagram Strategy',
-    thumbnail: '/images/miroboards.jpg',
-    analytics: '/images/analytics3.png',
-    headline: '15K Subs & Top-3 Domination',
-    body: 'Template-driven tutorials completely captured tool-specific queries, securing top-3 rankings across 8 different high-volume search terms.',
-  },
-  {
-    id: 'arabic',
-    client: 'Arabic Grammar',
-    niche: 'Language Education',
-    thumbnail: '/images/arabicgrammar.jpg',
-    analytics: '/images/analytics1.png',
-    headline: '$40K Revenue on Autopilot',
-    body: 'Implemented a progressive curriculum series. The channel grew a highly engaged 6K subscriber base that translated directly to massive course sales.',
+    id: 'appointment',
+    client: 'B2B Founder',
+    niche: 'Appointment Setting',
+    thumbnail: '/images/thumbnails/image14.png',
+    analytics: '/images/thumbnails/image1.png',
+    headline: 'Zero Outbound. Pure Inbound.',
+    body: 'When your content system dismantles objections before the call, you stop having to sell. They show up asking "how do we start?".',
+    avatar: '/people/avatar-image7.png'
   }
 ];
 
@@ -76,11 +70,11 @@ export function Scene3() {
                     <img 
                       src={item.thumbnail} 
                       alt={item.client} 
-                      className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+                      className="w-full h-full object-cover grayscale-0 opacity-100 md:grayscale md:opacity-80 md:group-hover:grayscale-0 md:group-hover:opacity-100 transition-all duration-700" 
                     />
                     
                     {/* Analytics floating overlay */}
-                    <div className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 w-3/5 md:w-1/2 aspect-video rounded-lg overflow-hidden shadow-floating border border-white/20 transform md:group-hover:-translate-y-4 transition-transform duration-500">
+                    <div className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 w-3/5 md:w-1/2 aspect-video rounded-lg overflow-hidden shadow-floating border border-white/20 transform md:group-hover:-translate-y-4 transition-transform duration-500 block">
                       <img src={item.analytics} className="w-full h-full object-cover" alt="Analytics" />
                     </div>
                   </div>
@@ -92,6 +86,9 @@ export function Scene3() {
                 <div className="flex items-center gap-4 mb-6">
                   <span className="font-accent italic text-3xl text-[#8f56ff]">0{index + 1}</span>
                   <div className="h-[1px] w-12 bg-white/20" />
+                  {item.avatar && (
+                    <img src={item.avatar} alt={item.client} className="w-8 h-8 rounded-full border border-white/20 object-cover" />
+                  )}
                   <span className="font-mono text-xs uppercase tracking-widest text-white/50">{item.client}</span>
                 </div>
                 <h3 className="font-display font-bold text-4xl md:text-5xl uppercase tracking-tighter leading-[0.9] text-white mb-6">

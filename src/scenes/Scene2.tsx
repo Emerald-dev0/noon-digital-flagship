@@ -4,17 +4,17 @@ import { useRef } from 'react';
 const STAGES = [
   {
     num: '01',
-    title: 'Demand Detection',
+    title: 'The Fertilizer (Discovery)',
     desc: 'Most agencies create content and hope it gets discovered. We start by finding the high-intent queries your ideal clients are actively typing into search engines. We target intent before we shoot a single frame.'
   },
   {
     num: '02',
-    title: 'Ecosystem Nurture',
+    title: 'The Seeds (Nurture)',
     desc: 'Getting found is only step one. Once prospects discover you, we strategically guide them deeper into your content ecosystem. Interlocking case studies, tutorials, and framework breakdowns build trust automatically.'
   },
   {
     num: '03',
-    title: 'Conversion Architecture',
+    title: 'The Roots (Conversion)',
     desc: 'Before someone buys, they need to believe the vehicle works and that you are the driver to get them there. Every piece of content dismantles these objections so prospects arrive on sales calls completely sold.'
   }
 ];
