@@ -1,56 +1,55 @@
-# Implementation Plan - Noon Digital: "High-Craft" Multi-Page Iteration
+# Implementation Plan - Noon Digital: "Media-Rich" Visual Overhaul
 
-Complete overhaul of the project to match the "Straight-Talk" copy and "Visual-First" philosophy of the flagship site, transforming it into a definitive, multi-page showcase.
+Transform the site into a media-dominant experience where high-impact assets (images, videos, embeds) are integrated side-by-side with the "Straight-Talk" copy.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> I am adding a new **About Page (`/about`)** and significantly expanding the **Home Page** to include the full narrative: "Blank Page Problem", "Straight Answer", "Rented Land", and "Fit Check".
+> I am removing the **YouTube Scrubber** as requested. Navigation will now be purely via the Navbar and Footer.
 
 > [!TIP]
-> **"Visual Dominance"**: Every major text block will now be paired with a "Visual Anchor" (Massive thumbnail, Case Study graphic, or Mock Search Result) to ensure the site "Shows" more than it "Speaks".
+> I will replace static thumbnails with **YouTube Embeds** for the primary case studies and client channels to provide an immersive "browser within browser" feel.
 
 ## Proposed Changes
 
-### 1. Home Page Overhaul (`/`)
-- **Hero**: Updated copy "Your offer works. Nobody's watching."
-- **[NEW] Proof Strip**: Immediate horizontal scroll/strip of "Search rankings hold top-3" for the four core keywords.
-- **[NEW] The Bottleneck Section**: "Ideas are the bottleneck." Paired with a "Blank Page" visual.
-- **[NEW] Straight Answer Grid**: A high-contrast grid debunking "Editing Quality", "Posting Volume", etc.
-- **[NEW] Rented Land Section**: Visual comparison between "Algorithm Volatility" (Instagram) vs. "Search Compound" (YouTube).
-- **[NEW] Fit Matrix**: A "Good Fit / Not a Good Fit" split screen with visual iconography.
+### 1. Branding & Theme Update
+- **[MODIFY] [tailwind.config.js](file:///C:/Users/hp/Documents/Code Projects/Noon Digital/tailwind.config.js)**: Update the color palette to:
+    - **Black**: `#000000` (Background)
+    - **White**: `#ffffff` (Text)
+    - **Purple**: `#8f56ff` (Primary Accent)
+    - **Pink**: `#ff69c5` (Secondary Accent)
+- **[MODIFY] [Logo.tsx](file:///C:/Users/hp/Documents/Code Projects/Noon Digital/src/components/primitives/Logo.tsx)**: Replace the image logo with the Arabic character **ن** (Noon), styled as a high-end mark.
 
-### 2. New Page: About (`/about`)
-- **Mubarak's Story**: From editing to accident to YouTube strategy.
-- **Core Values**: "Honesty, transparency, work no matter what."
-- **The Obvious Question**: "How is your own channel doing?" (Fixed in public).
+### 2. Multi-Page Layout Refactor
+- **Side-by-Side Layouts**: Restructure every major section across all pages to follow a 50/50 or 60/40 split between **Visual Proof** and **Copy**.
 
-### 3. Garden Page Refinement (`/garden`)
-- Deep dive into **Fertilizer**, **Seeds**, and **Roots** using the provided copy.
-- Add "A challenge, rather than a claim" section.
+#### [MODIFY] [Home.tsx](file:///C:/Users/hp/Documents/Code Projects/Noon Digital/src/pages/Home.tsx)
+- **Hero**: Side-by-side with a high-impact video embed or massive thumbnail.
+- **The Bottleneck**: Large image anchor (Blank Page) beside the copy.
+- **Rented Land**: Interactive comparison visual.
 
-### 4. Work Page Refinement (`/work`)
-- **"Wall of Evidence"**: Organized into Search Rankings, Client Channels, and Highlight Edits.
-- Use the specific video URLs and client names provided (Markaz Shafi'ee, Zakariya, Sales with Aqib).
+#### [MODIFY] [Work.tsx](file:///C:/Users/hp/Documents/Code Projects/Noon Digital/src/pages/Work.tsx)
+- **YouTube Embeds**: Use `<iframe>` components for:
+    - How This Arabic Coach Made $16K
+    - Arabic Vocabulary Is Hard
+    - Killer Loom Application Video
+    - Cold Calling Psychology
+- **Ranking Proof**: Side-by-side screenshots of search results next to the verification text.
 
-### 5. Shared Components & Navigation
-- **Navbar**: Add "About" link.
-- **Footer**: Refined to match the "Check the work" and "Elsewhere" layout from the copy.
-- **YouTube Scrubber**: Retain and polish the chapter preview logic.
+#### [MODIFY] [Garden.tsx](file:///C:/Users/hp/Documents/Code Projects/Noon Digital/src/pages/Garden.tsx)
+- Use images from `03-how-does-the-youtube-garden-work/` as side-anchors for the Fertilizer/Seeds/Roots sections.
+
+### 3. Cleanup
+- **[DELETE] [YouTubeScrubber.tsx](file:///C:/Users/hp/Documents/Code Projects/Noon Digital/src/components/special/YouTubeScrubber.tsx)**
+- **[MODIFY] [MainLayout.tsx](file:///C:/Users/hp/Documents/Code Projects/Noon Digital/src/components/layout/MainLayout.tsx)**: Remove Scrubber import and usage.
 
 ## Verification Plan
 
 ### Automated Tests
-- `npm run build`: Ensure the full multi-page architecture compiles.
+- `npm run build`: Ensure no build errors after removing the scrubber and adding embeds.
 
 ### Manual Verification
-- Verify all outbound YouTube links open in new tabs.
-- Ensure "Visual Anchors" are responsive across mobile and desktop.
-- Test the "Fit matrix" readability on small screens.
-- Confirm the "YouTube Scrubber" correctly identifies chapters across different pages.
-
-## Asset Mapping
-- **Fertilizer/Seeds/Roots**: Use images from `03-how-does-the-youtube-garden-work/`.
-- **Arabic Coach Case Study**: Use images from `11-shaf-arabic-coach/`.
-- **Thumbnails**: Use images from `thumbnails/`.
-- **Search Rankings**: Build custom SVG/CSS components for the search result visuals.
+- Verify all YouTube embeds load and play correctly.
+- Check the "Side-by-Side" responsiveness on mobile (should stack vertically).
+- Confirm the new color theme is applied consistently.
+- Verify the new "ن" logo looks premium.

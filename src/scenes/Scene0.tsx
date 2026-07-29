@@ -4,7 +4,7 @@ import { useRef } from 'react';
 // Create a staggered array of all 24 thumbnails for the background collage
 const THUMBNAILS = Array.from({ length: 24 }, (_, i) => `/images/thumbnails/image${i + 1}.png`);
 
-export function Scene0() {
+export function Scene0({ hideText = false }: { hideText?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -61,55 +61,57 @@ export function Scene0() {
       </div>
 
       {/* Hero Typography */}
-      <div className="absolute top-0 left-0 w-full h-screen flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 z-20 pointer-events-none">
-        <motion.div 
-          style={{ y: yText, opacity: opacityText }}
-          className="max-w-6xl w-full flex flex-col items-center text-center pointer-events-auto mt-24 md:mt-0"
-        >
+      {!hideText && (
+        <div className="absolute top-0 left-0 w-full h-screen flex flex-col justify-center items-center px-6 md:px-16 lg:px-24 z-20 pointer-events-none">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            style={{ y: yText, opacity: opacityText }}
+            className="max-w-6xl w-full flex flex-col items-center text-center pointer-events-auto mt-24 md:mt-0"
           >
-            <h1 className="font-display font-bold text-[15vw] sm:text-[9vw] md:text-[7vw] leading-[0.85] tracking-tighter text-white uppercase mix-blend-difference mb-4 md:mb-6">
-              You know YouTube<br />is the move.
-            </h1>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <p className="font-accent italic text-3xl md:text-5xl text-[#ff69c5] mb-8 md:mb-12 mix-blend-screen">
-              So why aren't you posting?
-            </p>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="font-body font-medium text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-12"
-          >
-            It’s not discipline. It’s ideation. We build the pipeline, you just film. 
-            Stop guessing at ideas and start building a predictable client acquisition system.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <a 
-              href="#garden" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-display font-bold text-sm tracking-widest uppercase rounded-full hover:bg-[#8f56ff] hover:text-white transition-colors duration-300"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              Enter The Garden
-            </a>
+              <h1 className="font-display font-bold text-[15vw] sm:text-[9vw] md:text-[7vw] leading-[0.85] tracking-tighter text-white uppercase mix-blend-difference mb-4 md:mb-6">
+                You know YouTube<br />is the move.
+              </h1>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <p className="font-accent italic text-3xl md:text-5xl text-[#ff69c5] mb-8 md:mb-12 mix-blend-screen">
+                So why aren't you posting?
+              </p>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              className="font-body font-medium text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed mb-12"
+            >
+              It’s not discipline. It’s ideation. We build the pipeline, you just film.
+              Stop guessing at ideas and start building a predictable client acquisition system.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1 }}
+            >
+              <a
+                href="#garden"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-black font-display font-bold text-sm tracking-widest uppercase rounded-full hover:bg-[#8f56ff] hover:text-white transition-colors duration-300"
+              >
+                Enter The Garden
+              </a>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      </div>
+        </div>
+      )}
 
     </section>
   );

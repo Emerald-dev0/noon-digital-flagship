@@ -8,16 +8,16 @@ export default {
     extend: {
       colors: {
         'brand': {
-          'core': '#8f56ff',
+          'core': '#8f56ff', // Purple
           '500': '#8f56ff',
           '600': '#8f56ff',
         },
         'accent': {
-          'pink': '#ff69c5',
+          'pink': '#ff69c5', // Pink
         },
         'surface': {
-          'base': '#000000',
-          'white': '#ffffff',
+          'base': '#000000', // Black
+          'white': '#ffffff', // White
           'card': '#0a0a0a',
           'elevated': '#111111',
           'muted': '#1a1a1a',
@@ -45,16 +45,16 @@ export default {
         'mono': ['"SF Mono"', '"Fira Code"', '"Cascadia Code"', 'monospace'],
       },
       fontSize: {
-        'display-2xl': ['80px', { lineHeight: '0.95', letterSpacing: '-0.04em', fontWeight: '900' }],
-        'display-xl': ['64px', { lineHeight: '1.0', letterSpacing: '-0.035em', fontWeight: '800' }],
+        'display-2xl': ['72px', { lineHeight: '0.95', letterSpacing: '-0.04em', fontWeight: '900' }],
+        'display-xl': ['60px', { lineHeight: '1.0', letterSpacing: '-0.035em', fontWeight: '800' }],
         'display-lg': ['48px', { lineHeight: '1.05', letterSpacing: '-0.03em', fontWeight: '700' }],
-        'display-md': ['36px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'display-sm': ['28px', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
-        'body-xl': ['20px', { lineHeight: '1.6' }],
-        'body-lg': ['18px', { lineHeight: '1.6' }],
-        'body-md': ['16px', { lineHeight: '1.6' }],
-        'body-sm': ['14px', { lineHeight: '1.5' }],
-        'label': ['12px', { lineHeight: '1.4', letterSpacing: '0.08em', fontWeight: '500' }],
+        'display-md': ['32px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display-sm': ['24px', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'body-xl': ['18px', { lineHeight: '1.6' }],
+        'body-lg': ['16px', { lineHeight: '1.6' }],
+        'body-md': ['14px', { lineHeight: '1.6' }],
+        'body-sm': ['12px', { lineHeight: '1.5' }],
+        'label': ['11px', { lineHeight: '1.4', letterSpacing: '0.08em', fontWeight: '500' }],
       },
       spacing: {
         'section': '120px',

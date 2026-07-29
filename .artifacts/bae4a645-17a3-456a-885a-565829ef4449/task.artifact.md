@@ -1,24 +1,24 @@
-# Task: Noon Digital High-Craft Iteration
+# Task: Noon Digital Media-Rich Overhaul
 
-- [ ] Core Setup & Routing
-    - [ ] Add `About.tsx` page
-    - [ ] Update `App.tsx` and `Navbar.tsx` for the new page
-- [ ] Home Page Overhaul (`/`)
-    - [ ] Update Hero with "Your offer works. Nobody's watching."
-    - [ ] Implement "Search Proof" strip
-    - [ ] Add "Ideas are the Bottleneck" section
-    - [ ] Add "Straight Answer" (What doesn't matter) grid
-    - [ ] Add "Rented Land" vs "Search-Led" section
-    - [ ] Add "Fit Check" visual matrix
-- [ ] Refine Subpages
-    - [ ] Update `Garden.tsx` with full "Fertilizer/Seeds/Roots" copy
-    - [ ] Update `Work.tsx` with specific client channels and video links
-    - [ ] Update `Pricing.tsx` with "Ways In" descriptions
-- [ ] New Page: `About.tsx`
-    - [ ] Implement Mubarak's story and "Honesty" section
-- [ ] Visual Polish
-    - [ ] Ensure "Visual Anchors" are present in every major section
-    - [ ] Update Footer to match flagship site
-- [ ] Verification & Push
-    - [ ] Run `npm run build`
-    - [ ] Push to GitHub
+- [x] Theme & Branding Update
+    - [x] Update `tailwind.config.js` colors
+    - [x] Modify `Logo.tsx` to use the character **ن**
+- [x] Cleanup
+    - [x] Remove `YouTubeScrubber.tsx`
+    - [x] Remove Scrubber references in `MainLayout.tsx`
+- [x] Page Refactor (Visuals side-by-side with Copy)
+    - [x] **Home Page (`Home.tsx`)**:
+        - [x] Hero: Copy + Media split
+        - [x] Bottleneck: Copy + Image split
+        - [x] Rented Land: Copy + Comparison visual split
+    - [x] **Garden Page (`Garden.tsx`)**:
+        - [x] Refactor stages into side-by-side layouts with `03-how-does-the-youtube-garden-work/` images
+    - [x] **Work Page (`Work.tsx`)**:
+        - [x] Integrate YouTube `<iframe>` embeds for key videos
+        - [x] Refactor Search Proof into side-by-side screenshots
+    - [x] **Pricing Page (`Pricing.tsx`)**:
+        - [x] Add visual anchors for deliverables
+- [ ] Final Polish & Build
+    - [ ] Verify responsive layouts
+    - [x] Run `npm run build`
+    - [x] Push to GitHub

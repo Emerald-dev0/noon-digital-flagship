@@ -21,24 +21,40 @@ export function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              <NavLink
-                key={link.href}
-                to={link.href}
-                className={({ isActive }) => `
-                  px-4 py-2 text-body-sm font-medium transition-colors duration-300 rounded-lg
-                  ${isActive ? 'text-white bg-white/[0.08]' : 'text-white/50 hover:text-white hover:bg-white/[0.04]'}
-                `}
-              >
-                {link.label}
-              </NavLink>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isExternal = link.href.startsWith('http');
+              if (isExternal) {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 text-body-sm font-medium text-white/50 hover:text-white transition-colors duration-300 rounded-lg hover:bg-white/[0.04]"
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              return (
+                <NavLink
+                  key={link.href}
+                  to={link.href}
+                  className={({ isActive }) => `
+                    px-4 py-2 text-body-sm font-medium transition-colors duration-300 rounded-lg
+                    ${isActive ? 'text-white bg-white/[0.08]' : 'text-white/50 hover:text-white hover:bg-white/[0.04]'}
+                  `}
+                >
+                  {link.label}
+                </NavLink>
+              );
+            })}
           </div>
 
           <div className="flex items-center gap-3">
             <Link
               to="/pricing"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f0531c] text-white text-body-sm font-semibold hover:bg-[#ff6c3a] transition-colors duration-300 shadow-subtle"
+              className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#8f56ff] text-white text-body-sm font-semibold hover:bg-[#ff69c5] transition-colors duration-300 shadow-glow"
             >
               Start Here
             </Link>
@@ -77,23 +93,39 @@ export function Navbar() {
             className="fixed top-16 left-0 right-0 z-50 md:hidden border-b border-white/[0.06]"
           >
             <div className="bg-black/95 backdrop-blur-xl">
-              {NAV_LINKS.map((link) => (
-                <NavLink
-                  key={link.href}
-                  to={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={({ isActive }) => `
-                    block px-5 py-3 text-body-md font-medium transition-colors
-                    ${isActive ? 'text-white bg-white/[0.08]' : 'text-white/50 hover:text-white hover:bg-white/[0.04]'}
-                  `}
-                >
-                  {link.label}
-                </NavLink>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const isExternal = link.href.startsWith('http');
+                if (isExternal) {
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-5 py-3 text-body-md font-medium text-white/50 hover:text-white transition-colors hover:bg-white/[0.04]"
+                    >
+                      {link.label}
+                    </a>
+                  );
+                }
+                return (
+                  <NavLink
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={({ isActive }) => `
+                      block px-5 py-3 text-body-md font-medium transition-colors
+                      ${isActive ? 'text-white bg-white/[0.08]' : 'text-white/50 hover:text-white hover:bg-white/[0.04]'}
+                    `}
+                  >
+                    {link.label}
+                  </NavLink>
+                );
+              })}
               <Link
                 to="/pricing"
                 onClick={() => setMobileOpen(false)}
-                className="block mx-5 my-3 px-5 py-3 text-center rounded-xl bg-[#f0531c] text-white font-semibold hover:bg-[#ff6c3a] transition-colors"
+                className="block mx-5 my-3 px-5 py-3 text-center rounded-xl bg-[#8f56ff] text-white font-semibold hover:bg-[#ff69c5] transition-colors shadow-glow"
               >
                 Start Here
               </Link>

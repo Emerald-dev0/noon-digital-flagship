@@ -19,6 +19,7 @@ export const NAV_LINKS = [
   { label: 'Services', href: '/pricing' },
   { label: 'Work', href: '/work' },
   { label: 'About', href: '/about' },
+  { label: 'Book a call', href: 'https://calendly.com/noondigital' }, // Adding Book a call
 ] as const;
 
 export const ACT_TITLES = {

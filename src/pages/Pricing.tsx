@@ -50,10 +50,10 @@ export function Pricing() {
           className="max-w-4xl"
         >
           <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#f0531c] mb-6 block">Working together</span>
-          <h1 className="font-display font-bold text-[10vw] md:text-8xl uppercase tracking-tighter leading-[0.85] mb-8">
+          <h1 className="font-display font-bold text-4xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[0.85] mb-8">
             Four ways in.<br />Prices on the page.
           </h1>
-          <p className="font-body text-xl md:text-2xl text-white/60 leading-relaxed">
+          <p className="font-body text-base md:text-xl text-white/60 leading-relaxed">
             Every engagement runs on the same method. What changes is how much of it we do and how much you do.
           </p>
         </motion.div>
@@ -94,7 +94,7 @@ export function Pricing() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
             <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#f0531c] mb-6 block">Before you ask</span>
-            <h2 className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4">The things people<br />push back on.</h2>
+            <h2 className="font-display text-3xl md:text-6xl font-bold uppercase tracking-tighter mb-4">The things people<br />push back on.</h2>
           </div>
 
           <div className="space-y-px bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
@@ -121,8 +121,8 @@ export function Pricing() {
       {/* CTA */}
       <section className="py-24 px-6 md:px-16 lg:px-24">
          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="font-display text-4xl md:text-6xl uppercase tracking-tighter italic mb-12 underline decoration-[#f0531c] decoration-2 underline-offset-8">Research first, then cameras.</h2>
-            <p className="font-body text-xl text-white/40 mb-12">YouTube strategy for businesses that already know how to sell.</p>
+            <h2 className="font-display text-3xl md:text-5xl uppercase tracking-tighter italic mb-12 italic underline decoration-[#f0531c] decoration-2 underline-offset-8">Research first, then cameras.</h2>
+            <p className="font-body text-lg md:text-xl text-white/40 mb-12">YouTube strategy for businesses that already know how to sell.</p>
             <button className="px-12 py-6 bg-white text-black font-display font-bold uppercase tracking-[0.2em] rounded-2xl hover:bg-[#f0531c] hover:text-white transition-all transform hover:scale-105 shadow-2xl">
               Book a call
             </button>

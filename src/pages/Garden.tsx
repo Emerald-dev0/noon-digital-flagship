@@ -6,30 +6,33 @@ const STAGES = [
     title: 'Fertilizer',
     time: '04:12',
     subtitle: 'Find the demand before you make anything.',
-    desc: 'Before we create a single video, we identify what your ideal clients are actively searching for on YouTube, and build around those searches. These aren’t people scrolling. They are people looking for a solution right now. Instead of chasing prospects, we put your content where buyers are already looking.',
-    image: '/images/thumbnails/image6.png'
+    desc: 'We work out what your buyers are already typing into YouTube, then build around those searches. Not what worked for a channel in your niche. What your specific buyers are looking for, right now.',
+    image: '/images/03-how-does-the-youtube-garden-work/image2.jpg',
+    color: '#8f56ff'
   },
   {
     num: '02',
     title: 'Seeds',
     time: '08:31',
-    subtitle: 'Getting found is only half of it.',
-    desc: 'Someone finding your video does not make them a client. Once they arrive through a ranking video, we guide them deeper into the rest of your content on purpose. The longer someone stays in your world, the more they trust you. Trust is what converts.',
-    image: '/images/thumbnails/image7.png'
+    subtitle: 'Give people a reason to stay.',
+    desc: 'Case studies, teardowns, frameworks. Videos built to hold attention and earn the next click, so the channel compounds instead of spiking once and flattening.',
+    image: '/images/03-how-does-the-youtube-garden-work/image3.jpg',
+    color: '#ff69c5'
   },
   {
     num: '03',
     title: 'Roots',
     time: '12:06',
-    subtitle: 'This is the part that converts.',
-    desc: 'Fertilizer gets you discovered. Seeds get people interested. Roots turn them into clients. Before someone buys, they only need to believe two things: that the method works, and that the person teaching it can help them.',
-    image: '/images/thumbnails/image8.png'
+    subtitle: 'Sell the vehicle and the driver.',
+    desc: 'Before anyone buys, they need to believe two things: that the model works, and that you are the person to run it with. Content that does both is what turns a subscriber into a booked call.',
+    image: '/images/03-how-does-the-youtube-garden-work/image4.jpg',
+    color: '#ffffff'
   }
 ];
 
 export function Garden() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black text-white min-h-screen">
       {/* Header */}
       <section className="pt-40 pb-20 px-6 md:px-16 lg:px-24">
         <motion.div
@@ -37,37 +40,40 @@ export function Garden() {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#f0531c] mb-6 block">The method</span>
-          <h1 className="font-display font-bold text-[10vw] md:text-8xl uppercase tracking-tighter leading-[0.85] mb-8">
-            The YouTube<br />Garden<span className="text-[#f0531c]">™</span>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#ff69c5] mb-6 block">The Method</span>
+          <h1 className="font-display font-bold text-4xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[0.85] mb-8">
+            The YouTube<br /><span className="text-[#8f56ff]">Garden.</span>
           </h1>
-          <p className="font-body text-xl md:text-2xl text-white/60 leading-relaxed">
+          <p className="font-body text-lg md:text-xl text-white/60 leading-relaxed max-w-2xl">
             Most agencies make content and hope it gets discovered. We start by finding demand that already exists. Three stages, run in order.
           </p>
         </motion.div>
       </section>
 
-      {/* The Stages */}
+      {/* The Stages - Side-by-Side Visuals */}
       <section className="pb-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto space-y-32 md:space-y-64">
           {STAGES.map((stage, i) => (
-            <div key={i} className={`flex flex-col md:flex-row gap-16 md:gap-32 items-center ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-              <div className="w-full md:w-1/2">
-                <div className="flex items-center gap-6 mb-8">
-                  <span className="font-display text-5xl md:text-7xl font-bold text-[#f0531c]/20">{stage.num}</span>
+            <div key={i} className={`flex flex-col lg:flex-row gap-16 md:gap-32 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+              <div className="w-full lg:w-1/2">
+                <div className="flex items-center gap-6 mb-10">
+                  <span className="font-display text-7xl md:text-9xl font-bold opacity-10" style={{ color: stage.color }}>{stage.num}</span>
                   <div className="h-px flex-1 bg-white/10" />
-                  <span className="font-mono text-sm text-[#f0531c]">{stage.time}</span>
+                  <span className="font-mono text-sm uppercase tracking-widest text-white/40">{stage.time}</span>
                 </div>
-                <h2 className="font-display text-4xl md:text-6xl font-bold uppercase tracking-tight mb-4">{stage.title}</h2>
-                <h3 className="font-display text-xl md:text-2xl uppercase italic text-white/40 mb-8">{stage.subtitle}</h3>
-                <p className="font-body text-lg md:text-xl text-white/60 leading-relaxed">
-                  {stage.desc}
+                <h2 className="font-display text-3xl md:text-6xl font-bold uppercase tracking-tight mb-4">{stage.title}</h2>
+                <h3 className="font-display text-lg md:text-2xl uppercase italic text-[#ff69c5] mb-10 leading-tight">{stage.subtitle}</h3>
+                <p className="font-body text-base md:text-xl text-white/60 leading-relaxed italic">
+                  “{stage.desc}”
                 </p>
               </div>
-              <div className="w-full md:w-1/2">
-                <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                   <img src={stage.image} alt={stage.title} className="w-full h-full object-cover opacity-60" />
+              <div className="w-full lg:w-1/2">
+                <div className="relative aspect-video rounded-[40px] overflow-hidden border border-white/10 shadow-glow group">
+                   <img src={stage.image} alt={stage.title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0" />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                   <div className="absolute top-10 right-10 w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center justify-center">
+                      <span className="font-mono text-xs font-bold" style={{ color: stage.color }}>Phase {stage.num}</span>
+                   </div>
                 </div>
               </div>
             </div>
@@ -75,68 +81,38 @@ export function Garden() {
         </div>
       </section>
 
-      {/* A Challenge, rather than a claim */}
-      <section className="py-24 md:py-40 px-6 md:px-16 lg:px-24 bg-white/5 border-y border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mb-20">
-            <h2 className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-8">
-              A challenge,<br />rather than a claim.
-            </h2>
-            <p className="font-body text-xl text-white/60">
-              Search these four on YouTube. Our clients hold top-3 positions for each.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { num: '01', query: 'appointment setting', niche: 'Appointment setting' },
-              { num: '02', query: 'tech sales course', niche: 'Tech sales' },
-              { num: '03', query: 'how to make miro boards', niche: 'Agency operations' },
-              { num: '04', query: 'arabic grammar for beginners', niche: 'Arabic teaching' }
-            ].map((item, i) => (
-              <div key={i} className="group p-8 bg-black border border-white/10 rounded-2xl hover:border-[#f0531c] transition-all">
-                <span className="font-mono text-[10px] text-white/30 uppercase tracking-widest block mb-4">{item.num}</span>
-                <h3 className="font-display text-xl uppercase tracking-tight mb-2 italic">“{item.query}”</h3>
-                <p className="font-mono text-[10px] text-[#f0531c] uppercase tracking-widest">{item.niche}</p>
-              </div>
-            ))}
-          </div>
+      {/* Deep Dive Grid */}
+      <section className="py-24 md:py-40 px-6 md:px-16 lg:px-24 bg-[#050505] border-t border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+           {[
+             { title: 'The Fertilizer', items: ['Market identification', 'Intent search research', 'Keyword mapping', 'Search-first scripting'] },
+             { title: 'The Seeds', items: ['Case studies', 'How-to tutorials', 'Framework breakdowns', 'Teardowns'] },
+             { title: 'The Roots', items: ['Vehicle belief', 'Driver authority', 'Conversion architecture', 'Lead nurture'] }
+           ].map((col, i) => (
+             <div key={i} className="p-12 bg-white/5 border border-white/10 rounded-3xl">
+                <h4 className="font-display text-3xl uppercase tracking-tight mb-10 text-[#8f56ff]">{col.title}</h4>
+                <ul className="space-y-4">
+                   {col.items.map((item, idx) => (
+                     <li key={idx} className="font-body text-lg text-white/60 flex gap-3">
+                        <span className="text-[#ff69c5]">→</span>
+                        {item}
+                     </li>
+                   ))}
+                </ul>
+             </div>
+           ))}
         </div>
       </section>
 
-      {/* Roots Deep Dive */}
-      <section className="py-24 md:py-40 px-6 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-            <div>
-              <h2 className="font-display text-4xl uppercase tracking-tighter mb-12">The Vehicle</h2>
-              <p className="font-body text-white/40 mb-8 uppercase tracking-widest text-xs">The business model itself works.</p>
-              <ul className="space-y-6">
-                 {[
-                   'How appointment setting works',
-                   'Why organic content beats paid ads',
-                   'How to land your first tech sales job',
-                   'The exact system we use to generate leads'
-                 ].map((li, i) => (
-                   <li key={i} className="font-display text-2xl uppercase border-b border-white/5 pb-4 opacity-70">{li}</li>
-                 ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="font-display text-4xl uppercase tracking-tighter mb-12">The Driver</h2>
-              <p className="font-body text-white/40 mb-8 uppercase tracking-widest text-xs">The person behind it can actually help me.</p>
-              <ul className="space-y-6">
-                 {[
-                   'How I built a six-figure tutoring business',
-                   'How this Arabic coach scaled to $16k/mo',
-                   'Watch me book 5 meetings in 30 minutes'
-                 ].map((li, i) => (
-                   <li key={i} className="font-display text-2xl uppercase border-b border-white/5 pb-4 opacity-70">{li}</li>
-                 ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+      {/* Final Call */}
+      <section className="py-40 px-6 md:px-16 lg:px-24 text-center">
+         <div className="max-w-4xl mx-auto">
+            <h2 className="font-display text-3xl md:text-5xl uppercase tracking-tighter italic mb-12 italic underline decoration-[#8f56ff] decoration-2 underline-offset-8">Research first, then cameras.</h2>
+            <p className="font-body text-base md:text-xl text-white/40 mb-12">Stop guessing at ideas and start building a predictable system.</p>
+            <a href="#book" className="inline-flex px-12 py-6 bg-white text-black font-display font-bold uppercase tracking-[0.2em] rounded-2xl hover:bg-[#8f56ff] hover:text-white transition-all transform hover:scale-105 shadow-glow">
+              Book a call
+            </a>
+         </div>
       </section>
     </div>
   );
