@@ -1,0 +1,21 @@
+# Task: Noon Digital Multi-Page & Visual-First Iteration
+
+- [ ] Initialize Routing & Layout
+    - [ ] Install `react-router-dom`
+    - [ ] Create `src/pages` directory
+    - [ ] Create `src/components/layout/MainLayout.tsx`
+    - [ ] Create `src/components/special/YouTubeScrubber.tsx`
+- [ ] Implement Pages
+    - [ ] `Home.tsx` (Manifesto & Visual Hero)
+    - [ ] `Garden.tsx` (Visual Blueprint)
+    - [ ] `Work.tsx` (Wall of Proof)
+    - [ ] `Pricing.tsx` (Fit Check Terminal)
+- [ ] Refactor Components for "Show, Don't Speak"
+    - [ ] Update `Navbar.tsx` for `react-router-dom`
+    - [ ] Create `VisualAnchor` component for recurring asset placement
+- [ ] Polish & Interactions
+    - [ ] Implement "Chapter Previews" on Scrubber
+    - [ ] Add transition animations between pages
+- [ ] Final Verification & Deploy
+    - [ ] Run `npm run build`
+    - [ ] Push to GitHub

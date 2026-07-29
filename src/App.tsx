@@ -1,28 +1,22 @@
-import { Navbar } from './components/layout/Navbar';
-import { ScrollProgress } from './components/primitives/ScrollProgress';
-import { Scene0 } from './scenes/Scene0';
-import { Scene2 } from './scenes/Scene2';
-import { Scene3 } from './scenes/Scene3';
-import { SceneGallery } from './scenes/SceneGallery';
-import { Scene4 } from './scenes/Scene4';
-import { Scene5 } from './scenes/Scene5';
-import { Scene6 } from './scenes/Scene6';
-import { Scene7 } from './scenes/Scene7';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { MainLayout } from './components/layout/MainLayout';
+import { Home } from './pages/Home';
+import { Garden } from './pages/Garden';
+import { Work } from './pages/Work';
+import { Pricing } from './pages/Pricing';
 
 function App() {
   return (
-    <main className="relative min-h-screen bg-brand-950 text-white overflow-x-hidden">
-      <ScrollProgress />
-      <Navbar />
-      <Scene0 />
-      <Scene2 />
-      <Scene3 />
-      <SceneGallery />
-      <Scene4 />
-      <Scene5 />
-      <Scene6 />
-      <Scene7 />
-    </main>
+    <Router>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/garden" element={<Garden />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/pricing" element={<Pricing />} />
+        </Routes>
+      </MainLayout>
+    </Router>
   );
 }
 

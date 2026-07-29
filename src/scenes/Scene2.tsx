@@ -21,10 +21,6 @@ const STAGES = [
 
 export function Scene2() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start center', 'end center']
-  });
 
   return (
     <section ref={containerRef} className="relative min-h-[150vh] w-full bg-black px-6 md:px-16 lg:px-24 py-16 md:py-32" id="methodology">
@@ -43,8 +39,8 @@ export function Scene2() {
       </div>
 
       <div className="max-w-7xl mx-auto flex flex-col gap-24 md:gap-32 relative z-10">
-        {STAGES.map((stage, i) => (
-          <StageBlock key={stage.num} stage={stage} index={i} progress={scrollYProgress} />
+        {STAGES.map((stage) => (
+          <StageBlock key={stage.num} stage={stage} />
         ))}
       </div>
       
@@ -52,7 +48,7 @@ export function Scene2() {
   );
 }
 
-function StageBlock({ stage, index, progress }: { stage: any, index: number, progress: any }) {
+function StageBlock({ stage }: { stage: any }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,

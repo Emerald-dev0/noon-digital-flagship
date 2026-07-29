@@ -15,11 +15,9 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: 'The Garden', href: '#garden' },
-  { label: 'Channels', href: '#channels' },
-  { label: 'Why YouTube', href: '#why' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'The Garden', href: '/garden' },
+  { label: 'Work', href: '/work' },
+  { label: 'Pricing', href: '/pricing' },
 ] as const;
 
 export const ACT_TITLES = {

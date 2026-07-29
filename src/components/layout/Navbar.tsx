@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Logo } from '../primitives/Logo';
 import { NAV_LINKS } from '@/constants/content';
+import { NavLink, Link } from 'react-router-dom';
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,32 +13,35 @@ export function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06]"
+        className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-black/50 backdrop-blur-lg"
       >
         <div className="max-w-[1200px] mx-auto flex items-center justify-between px-5 md:px-8 h-16">
-          <a href="#top" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0">
             <Logo />
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
-              <a
+              <NavLink
                 key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-body-sm font-medium text-white/50 hover:text-white transition-colors duration-300 rounded-lg hover:bg-white/[0.04]"
+                to={link.href}
+                className={({ isActive }) => `
+                  px-4 py-2 text-body-sm font-medium transition-colors duration-300 rounded-lg
+                  ${isActive ? 'text-white bg-white/[0.08]' : 'text-white/50 hover:text-white hover:bg-white/[0.04]'}
+                `}
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
           </div>
 
           <div className="flex items-center gap-3">
-            <a
-              href="#invest"
-              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 text-white text-body-sm font-semibold hover:bg-brand-700 transition-colors duration-300 shadow-subtle"
+            <Link
+              to="/pricing"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#f0531c] text-white text-body-sm font-semibold hover:bg-[#ff6c3a] transition-colors duration-300 shadow-subtle"
             >
               Start Here
-            </a>
+            </Link>
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -72,24 +76,27 @@ export function Navbar() {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="fixed top-16 left-0 right-0 z-50 md:hidden border-b border-white/[0.06]"
           >
-            <div className="bg-black/90 backdrop-blur-xl">
+            <div className="bg-black/95 backdrop-blur-xl">
               {NAV_LINKS.map((link) => (
-                <a
+                <NavLink
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-5 py-3 text-body-md font-medium text-white/50 hover:text-white hover:bg-white/[0.04] transition-colors"
+                  className={({ isActive }) => `
+                    block px-5 py-3 text-body-md font-medium transition-colors
+                    ${isActive ? 'text-white bg-white/[0.08]' : 'text-white/50 hover:text-white hover:bg-white/[0.04]'}
+                  `}
                 >
                   {link.label}
-                </a>
+                </NavLink>
               ))}
-              <a
-                href="#invest"
+              <Link
+                to="/pricing"
                 onClick={() => setMobileOpen(false)}
-                className="block mx-5 my-3 px-5 py-3 text-center rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 transition-colors"
+                className="block mx-5 my-3 px-5 py-3 text-center rounded-xl bg-[#f0531c] text-white font-semibold hover:bg-[#ff6c3a] transition-colors"
               >
                 Start Here
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
