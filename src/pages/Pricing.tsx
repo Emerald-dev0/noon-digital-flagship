@@ -1,26 +1,45 @@
-import { Scene6 } from '../scenes/Scene6';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+
+const OFFERS = [
+  {
+    name: 'YouTube Test Video',
+    price: '$597',
+    period: 'One-time',
+    tagline: 'Validate YouTube as a client acquisition channel with minimal risk.',
+    includes: ['Market research', 'Topic selection & positioning', 'Full script writing', 'Professional video editing', 'Custom thumbnail design', 'YouTube SEO optimisation'],
+    cta: 'Start with a test video',
+    popular: true
+  },
+  {
+    name: 'Growth Consulting',
+    price: '$3,000',
+    period: '6-month contract',
+    tagline: 'You want to execute internally while getting direct guidance. You execute, we consult.',
+    includes: ['Weekly 1-on-1 strategy calls', 'Content roadmap', 'Channel reviews', 'Packaging feedback', 'Content strategy', 'Access to all training modules & AI templates'],
+    cta: 'Talk about Consulting',
+    popular: false
+  },
+  {
+    name: 'Done With You',
+    price: '$4,000',
+    period: '3-month min + 10% rev share',
+    tagline: 'Lower upfront cost + our systems and team running behind it.',
+    includes: ['Our systems & expertise applied', 'We source, train & manage the team', 'Quality-control on all edits', '10% of cash collected via YouTube'],
+    cta: 'Talk about DWY',
+    popular: false
+  },
+  {
+    name: 'Full Service',
+    price: '$7,000',
+    period: '3-month min contract',
+    tagline: 'You want to show up, talk, and have everything else handled.',
+    includes: ['Strategy & ideation', 'Research & scripting', 'Slides & presentation prep', 'Full production (Editing/Design)', 'Channel management', 'Monthly analytics & Weekly calls'],
+    cta: 'Talk about Full Service',
+    popular: false
+  }
+];
 
 export function Pricing() {
-  const [fitScore, setFitScore] = useState(0);
-  const [step, setStep] = useState(0);
-
-  const questions = [
-    { q: "Do you have a validated high-ticket offer?", weight: 40 },
-    { q: "Can someone on your team be on camera?", weight: 30 },
-    { q: "Are you willing to commit to 3 months of consistency?", weight: 30 }
-  ];
-
-  const handleAnswer = (answer: boolean) => {
-    if (answer) setFitScore(prev => prev + questions[step].weight);
-    if (step < questions.length - 1) {
-      setStep(prev => prev + 1);
-    } else {
-      setStep(prev => prev + 1); // Go to results
-    }
-  };
-
   return (
     <div className="bg-black min-h-screen">
       {/* Header */}
@@ -30,106 +49,84 @@ export function Pricing() {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#f0531c] mb-6 block">The Entry Points</span>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#f0531c] mb-6 block">Working together</span>
           <h1 className="font-display font-bold text-[10vw] md:text-8xl uppercase tracking-tighter leading-[0.85] mb-8">
-            Invest in the<br />Ecosystem.
+            Four ways in.<br />Prices on the page.
           </h1>
           <p className="font-body text-xl md:text-2xl text-white/60 leading-relaxed">
-            Transparent pricing. No long-term contracts. Just results.
+            Every engagement runs on the same method. What changes is how much of it we do and how much you do.
           </p>
         </motion.div>
       </section>
 
-      {/* The Fit Check Terminal (Unorthodox Interaction) */}
-      <section className="py-12 px-6 md:px-16 lg:px-24">
-        <div className="max-w-3xl mx-auto bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-          <div className="h-10 bg-white/5 border-b border-white/5 flex items-center px-4 gap-2">
-             <div className="w-3 h-3 rounded-full bg-red-500/50" />
-             <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-             <div className="w-3 h-3 rounded-full bg-green-500/50" />
-             <span className="ml-4 font-mono text-[10px] text-white/20 uppercase tracking-widest">fit_check.sh</span>
+      {/* The Tiers */}
+      <section className="pb-24 px-6 md:px-16 lg:px-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {OFFERS.map((offer, i) => (
+            <div key={i} className={`p-8 rounded-3xl border flex flex-col h-full ${offer.popular ? 'bg-white/10 border-[#f0531c] shadow-[0_0_40px_rgba(240,83,28,0.2)]' : 'bg-white/5 border-white/10'}`}>
+              <div className="mb-8">
+                <h3 className="font-display text-2xl uppercase tracking-tight mb-2">{offer.name}</h3>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-4xl font-bold">{offer.price}</span>
+                  <span className="font-mono text-[10px] text-white/30 uppercase tracking-widest">{offer.period}</span>
+                </div>
+              </div>
+              <p className="font-body text-sm text-white/50 mb-8 leading-relaxed italic">“{offer.tagline}”</p>
+              <div className="space-y-4 mb-12 flex-1">
+                <p className="font-mono text-[10px] text-white/30 uppercase tracking-widest">What's included</p>
+                {offer.includes.map((item, idx) => (
+                  <div key={idx} className="flex gap-3 text-sm font-body text-white/70">
+                    <span className="text-[#f0531c]">→</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <button className={`w-full py-4 rounded-xl font-display font-bold uppercase tracking-widest transition-all ${offer.popular ? 'bg-[#f0531c] text-white hover:bg-[#ff6c3a]' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+                {offer.cta}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ / Before you ask */}
+      <section className="py-24 md:py-40 px-6 md:px-16 lg:px-24 bg-[#050505] border-y border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-20">
+            <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#f0531c] mb-6 block">Before you ask</span>
+            <h2 className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-4">The things people<br />push back on.</h2>
           </div>
-          <div className="p-8 md:p-12 font-mono">
-             {step < questions.length ? (
-               <div className="space-y-8">
-                  <div className="flex gap-4">
-                    <span className="text-[#f0531c]">root:~$</span>
-                    <span className="text-white/80">{questions[step].q}</span>
-                  </div>
-                  <div className="flex gap-4">
-                    <button
-                      onClick={() => handleAnswer(true)}
-                      className="px-6 py-2 border border-white/20 rounded hover:bg-white/10 transition-colors uppercase text-sm"
-                    >
-                      [ YES ]
-                    </button>
-                    <button
-                      onClick={() => handleAnswer(false)}
-                      className="px-6 py-2 border border-white/20 rounded hover:bg-white/10 transition-colors uppercase text-sm"
-                    >
-                      [ NO ]
-                    </button>
-                  </div>
-               </div>
-             ) : (
-               <motion.div
-                 initial={{ opacity: 0 }}
-                 animate={{ opacity: 1 }}
-                 className="space-y-6"
-               >
-                  <div className="flex gap-4">
-                    <span className="text-[#f0531c]">root:~$</span>
-                    <span className="text-white">Calculating compatibility...</span>
-                  </div>
-                  <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${fitScore}%` }}
-                      className="h-full bg-[#f0531c]"
-                    />
-                  </div>
-                  <div className="text-2xl text-white uppercase font-display italic">
-                    {fitScore >= 70 ? "RESULT: HIGH COMPATIBILITY. PROCEED TO BOOKING." : "RESULT: LOW COMPATIBILITY. WATCH MORE CONTENT."}
-                  </div>
-                  {fitScore >= 70 && (
-                    <a href="#contact" className="inline-block mt-4 text-[#f0531c] underline underline-offset-8 decoration-2 hover:text-white transition-colors">
-                      {'>'} INITIATE CONTACT
-                    </a>
-                  )}
-               </motion.div>
-             )}
+
+          <div className="space-y-px bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
+            {[
+              { q: "If I give the good stuff away free, why would anyone pay me?", a: "This assumes people buy information. They don't. They buy speed, a system, and someone to hold the thing steady while they do it. Giving away the what is what proves you can be trusted with the how." },
+              { q: "I'm not a natural at coming up with ideas.", a: "Good, because that is the part we take off you. Ideation is not a personality trait, it is a research job, and it is the specific reason most people who know they should be on YouTube still aren't." },
+              { q: "I need a better setup first. Studio, lighting, etc.", a: "Every version of 'once I have a proper setup' is a reason to not start. Your room is fine. A search-led video that answers a real question beats a studio-shot video that doesn't." },
+              { q: "How long until this actually books calls?", a: "Longer than paid ads and shorter than SEO. The first quarter is mostly building the foundation. If you need pipeline this month, buy ads instead." }
+            ].map((item, i) => (
+              <details key={i} className="group bg-black">
+                <summary className="p-8 flex items-center justify-between cursor-pointer list-none hover:bg-white/[0.02] transition-colors">
+                  <span className="font-display text-xl md:text-2xl uppercase tracking-tight pr-8">{item.q}</span>
+                  <span className="font-mono text-2xl text-[#f0531c] transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <div className="px-8 pb-8 font-body text-lg text-white/50 leading-relaxed border-t border-white/5 pt-4">
+                  {item.a}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* The Tiers (Scene 6) */}
-      <Scene6 />
-
-      {/* Visual Anchor: The Deliverables */}
-      <section className="py-24 px-6 md:px-16 lg:px-24 border-t border-white/5 bg-black">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl uppercase tracking-tighter mb-4">What you actually get.</h2>
-            <p className="text-white/40 font-mono text-sm tracking-widest uppercase">The Visual Output</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="aspect-[16/10] bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-end group hover:border-[#f0531c] transition-all">
-               <img src="/images/thumbnails/image10.png" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
-               <span className="relative z-10 font-mono text-[10px] text-[#f0531c] uppercase mb-2">Deliverable 01</span>
-               <h3 className="relative z-10 font-display text-2xl uppercase italic">Market-Validated Topic Selection</h3>
-            </div>
-            <div className="aspect-[16/10] bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-end group hover:border-[#f0531c] transition-all">
-               <img src="/images/thumbnails/image11.png" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
-               <span className="relative z-10 font-mono text-[10px] text-[#f0531c] uppercase mb-2">Deliverable 02</span>
-               <h3 className="relative z-10 font-display text-2xl uppercase italic">Conversion-First Scripting</h3>
-            </div>
-            <div className="aspect-[16/10] bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-end group hover:border-[#f0531c] transition-all">
-               <img src="/images/thumbnails/image12.png" className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" />
-               <span className="relative z-10 font-mono text-[10px] text-[#f0531c] uppercase mb-2">Deliverable 03</span>
-               <h3 className="relative z-10 font-display text-2xl uppercase italic">High-CTR Packaging (Design)</h3>
-            </div>
-          </div>
-        </div>
+      {/* CTA */}
+      <section className="py-24 px-6 md:px-16 lg:px-24">
+         <div className="max-w-5xl mx-auto text-center">
+            <h2 className="font-display text-4xl md:text-6xl uppercase tracking-tighter italic mb-12 underline decoration-[#f0531c] decoration-2 underline-offset-8">Research first, then cameras.</h2>
+            <p className="font-body text-xl text-white/40 mb-12">YouTube strategy for businesses that already know how to sell.</p>
+            <button className="px-12 py-6 bg-white text-black font-display font-bold uppercase tracking-[0.2em] rounded-2xl hover:bg-[#f0531c] hover:text-white transition-all transform hover:scale-105 shadow-2xl">
+              Book a call
+            </button>
+         </div>
       </section>
     </div>
   );

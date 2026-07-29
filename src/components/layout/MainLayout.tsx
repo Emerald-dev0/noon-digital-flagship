@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Navbar } from './Navbar';
+import { Footer } from './Footer';
 import { YouTubeScrubber } from '../special/YouTubeScrubber';
 import { ScrollProgress } from '../primitives/ScrollProgress';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -30,6 +31,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         </motion.main>
       </AnimatePresence>
 
+      <Footer />
       <YouTubeScrubber />
     </div>
   );

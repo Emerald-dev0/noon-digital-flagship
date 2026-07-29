@@ -16,8 +16,9 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { label: 'The Garden', href: '/garden' },
+  { label: 'Services', href: '/pricing' },
   { label: 'Work', href: '/work' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'About', href: '/about' },
 ] as const;
 
 export const ACT_TITLES = {

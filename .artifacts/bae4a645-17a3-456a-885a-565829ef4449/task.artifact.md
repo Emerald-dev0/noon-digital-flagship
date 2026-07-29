@@ -1,21 +1,24 @@
-# Task: Noon Digital Multi-Page & Visual-First Iteration
+# Task: Noon Digital High-Craft Iteration
 
-- [ ] Initialize Routing & Layout
-    - [ ] Install `react-router-dom`
-    - [ ] Create `src/pages` directory
-    - [ ] Create `src/components/layout/MainLayout.tsx`
-    - [ ] Create `src/components/special/YouTubeScrubber.tsx`
-- [ ] Implement Pages
-    - [ ] `Home.tsx` (Manifesto & Visual Hero)
-    - [ ] `Garden.tsx` (Visual Blueprint)
-    - [ ] `Work.tsx` (Wall of Proof)
-    - [ ] `Pricing.tsx` (Fit Check Terminal)
-- [ ] Refactor Components for "Show, Don't Speak"
-    - [ ] Update `Navbar.tsx` for `react-router-dom`
-    - [ ] Create `VisualAnchor` component for recurring asset placement
-- [ ] Polish & Interactions
-    - [ ] Implement "Chapter Previews" on Scrubber
-    - [ ] Add transition animations between pages
-- [ ] Final Verification & Deploy
+- [ ] Core Setup & Routing
+    - [ ] Add `About.tsx` page
+    - [ ] Update `App.tsx` and `Navbar.tsx` for the new page
+- [ ] Home Page Overhaul (`/`)
+    - [ ] Update Hero with "Your offer works. Nobody's watching."
+    - [ ] Implement "Search Proof" strip
+    - [ ] Add "Ideas are the Bottleneck" section
+    - [ ] Add "Straight Answer" (What doesn't matter) grid
+    - [ ] Add "Rented Land" vs "Search-Led" section
+    - [ ] Add "Fit Check" visual matrix
+- [ ] Refine Subpages
+    - [ ] Update `Garden.tsx` with full "Fertilizer/Seeds/Roots" copy
+    - [ ] Update `Work.tsx` with specific client channels and video links
+    - [ ] Update `Pricing.tsx` with "Ways In" descriptions
+- [ ] New Page: `About.tsx`
+    - [ ] Implement Mubarak's story and "Honesty" section
+- [ ] Visual Polish
+    - [ ] Ensure "Visual Anchors" are present in every major section
+    - [ ] Update Footer to match flagship site
+- [ ] Verification & Push
     - [ ] Run `npm run build`
     - [ ] Push to GitHub

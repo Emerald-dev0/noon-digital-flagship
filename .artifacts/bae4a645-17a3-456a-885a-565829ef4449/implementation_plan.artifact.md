@@ -1,47 +1,56 @@
-# Implementation Plan - Noon Digital: "Visual-First" Multi-Page Iteration
+# Implementation Plan - Noon Digital: "High-Craft" Multi-Page Iteration
 
-Transform the project into a high-end, multi-page editorial experience where **visual assets (images, videos, thumbnails)** are the dominant, repeated factor, following a "Show, Don't Speak" philosophy.
+Complete overhaul of the project to match the "Straight-Talk" copy and "Visual-First" philosophy of the flagship site, transforming it into a definitive, multi-page showcase.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> This iteration shifts the focus from text-heavy sections to **Visual Anchors**. Every page will be dominated by large-scale media, galleries, and interactive proof.
+> I am adding a new **About Page (`/about`)** and significantly expanding the **Home Page** to include the full narrative: "Blank Page Problem", "Straight Answer", "Rented Land", and "Fit Check".
 
 > [!TIP]
-> I will implement a **"Cinematic Content Loop"** for the background of major sections, ensuring that the user is constantly seeing "The Work" (thumbnails, rankings, analytics) while navigating.
+> **"Visual Dominance"**: Every major text block will now be paired with a "Visual Anchor" (Massive thumbnail, Case Study graphic, or Mock Search Result) to ensure the site "Shows" more than it "Speaks".
 
 ## Proposed Changes
 
-### 1. Visual-Dominant Architecture
-- **[MODIFY] Hero Section**: Enhance the current thumbnail montage with more motion and higher density. Use it as a recurring background element across pages but with different "filters" (e.g., blurred on subpages).
-- **[NEW] "The Showroom" (Gallery)**: A recurring component that displays dynamic, interactive thumbnails. This will appear on almost every page in different configurations (grid, slider, scattered).
+### 1. Home Page Overhaul (`/`)
+- **Hero**: Updated copy "Your offer works. Nobody's watching."
+- **[NEW] Proof Strip**: Immediate horizontal scroll/strip of "Search rankings hold top-3" for the four core keywords.
+- **[NEW] The Bottleneck Section**: "Ideas are the bottleneck." Paired with a "Blank Page" visual.
+- **[NEW] Straight Answer Grid**: A high-contrast grid debunking "Editing Quality", "Posting Volume", etc.
+- **[NEW] Rented Land Section**: Visual comparison between "Algorithm Volatility" (Instagram) vs. "Search Compound" (YouTube).
+- **[NEW] Fit Matrix**: A "Good Fit / Not a Good Fit" split screen with visual iconography.
 
-### 2. Multi-Page Restructuring (Visual Focus)
-- **Home (`/`)**: "The Manifesto" — A high-impact video/image-led scrolling experience. Each "straight-talk" point is anchored by a massive visual proof.
-- **The Garden (`/garden`)**: "The Blueprint" — Instead of text stages, each phase (Fertilizer, Seeds, Roots) will be represented by a **Visual Case Study Card**.
-- **Work (`/work`)**: "The Wall of Proof" — A massive, interactive grid of thumbnails and search results. I'll implement a "Magnifier" effect when hovering over ranking screenshots.
-- **Pricing (`/pricing`)**: "The Entry" — Even the pricing tiers will be visually represented using the "Packaging" assets (thumbnails/graphics).
+### 2. New Page: About (`/about`)
+- **Mubarak's Story**: From editing to accident to YouTube strategy.
+- **Core Values**: "Honesty, transparency, work no matter what."
+- **The Obvious Question**: "How is your own channel doing?" (Fixed in public).
 
-### 3. Unorthodox Interactive Twists
-- **YouTube Scrubber Nav**: Persistent progress bar at the bottom. **New Twist**: Hovering over the bar shows "Chapter Previews" (thumbnails of the current page's sections).
-- **"Fit Check" Terminal**: A visual terminal interface. Instead of just text, it will display "Success Visuals" when the user answers correctly (e.g., a green 'Verified' badge popping up).
-- **Timeline Progression**: A vertical "Video Timeline" that links all sections, using thumbnail icons as the "dots" on the line.
+### 3. Garden Page Refinement (`/garden`)
+- Deep dive into **Fertilizer**, **Seeds**, and **Roots** using the provided copy.
+- Add "A challenge, rather than a claim" section.
 
-### 4. Implementation Details
-- **Routing**: Install `react-router-dom` and set up the `Routes`.
-- **Global Layout**: Create a `MainLayout` component that includes the `Navbar` and the `YouTubeScrubber`.
-- **Asset Management**: Optimize the loading of the massive image library to ensure the "Visual-First" approach doesn't compromise performance.
+### 4. Work Page Refinement (`/work`)
+- **"Wall of Evidence"**: Organized into Search Rankings, Client Channels, and Highlight Edits.
+- Use the specific video URLs and client names provided (Markaz Shafi'ee, Zakariya, Sales with Aqib).
+
+### 5. Shared Components & Navigation
+- **Navbar**: Add "About" link.
+- **Footer**: Refined to match the "Check the work" and "Elsewhere" layout from the copy.
+- **YouTube Scrubber**: Retain and polish the chapter preview logic.
 
 ## Verification Plan
 
 ### Automated Tests
-- `npm run build`: Ensure the new multi-page, asset-heavy structure builds correctly.
+- `npm run build`: Ensure the full multi-page architecture compiles.
 
 ### Manual Verification
-- Check all pages for "Visual Dominance" (ensure text doesn't overpower images).
-- Verify the "Chapter Preview" hover on the YouTube Scrubber.
-- Test the "Fit Check" terminal logic and visual feedback.
-- Confirm the site remains performant despite the increased asset density.
+- Verify all outbound YouTube links open in new tabs.
+- Ensure "Visual Anchors" are responsive across mobile and desktop.
+- Test the "Fit matrix" readability on small screens.
+- Confirm the "YouTube Scrubber" correctly identifies chapters across different pages.
 
-## GitHub Push
-- Sync all changes to `noon-digital-flagship`.
+## Asset Mapping
+- **Fertilizer/Seeds/Roots**: Use images from `03-how-does-the-youtube-garden-work/`.
+- **Arabic Coach Case Study**: Use images from `11-shaf-arabic-coach/`.
+- **Thumbnails**: Use images from `thumbnails/`.
+- **Search Rankings**: Build custom SVG/CSS components for the search result visuals.
