@@ -1,25 +1,37 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { MainLayout } from './components/layout/MainLayout';
-import { Home } from './pages/Home';
-import { Garden } from './pages/Garden';
-import { Work } from './pages/Work';
-import { Pricing } from './pages/Pricing';
-import { About } from './pages/About';
+import { Grain } from './components/ui/Grain'
+import { Nav } from './sections/Nav'
+import { Hero } from './sections/Hero'
+import { Ticker } from './sections/Ticker'
+import { TrustStats } from './sections/TrustStats'
+import { Problems } from './sections/Problems'
+import { Garden } from './sections/Garden'
+import { TestimonialWall } from './sections/TestimonialWall'
+import { Creators } from './sections/Creators'
+import { VideoTestimonials } from './sections/VideoTestimonials'
+import { Results } from './sections/Results'
+import { Pricing } from './sections/Pricing'
+import { Faq } from './sections/Faq'
+import { FinalCta } from './sections/FinalCta'
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <MainLayout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/garden" element={<Garden />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </MainLayout>
-    </Router>
-  );
+    <>
+      <Grain />
+      <Nav />
+      <main>
+        <Hero />
+        <Ticker />
+        <TrustStats />
+        <Problems />
+        <Garden />
+        <TestimonialWall />
+        <Creators />
+        <VideoTestimonials />
+        <Results />
+        <Pricing />
+        <Faq />
+        <FinalCta />
+      </main>
+    </>
+  )
 }
-
-export default App;
