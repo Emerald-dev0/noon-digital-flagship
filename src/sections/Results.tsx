@@ -23,41 +23,37 @@ function Frame({ src, caption }: { src: string; caption: string }) {
 }
 
 function Compare({ c }: { c: (typeof RESULTS.cases)[number] }) {
+  const rows = c.before.items.map((row, i) => ({
+    metric: row[0],
+    before: row[1],
+    after: c.after.items[i]?.[1] ?? '',
+  }))
+
   return (
-    <div className="grid gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.06] sm:grid-cols-2">
-      {[c.before, c.after].map((col, idx) => (
-        <div key={col.label} className={`bg-ink-900 p-5 ${idx === 1 ? 'relative' : ''}`}>
-          <p
-            className={`font-sans text-[10.5px] uppercase tracking-[0.18em] ${
-              idx === 1 ? 'text-violet-200' : 'text-white/30'
-            }`}
-          >
-            {col.label}
-          </p>
-          <dl className="mt-4 space-y-3">
-            {col.items.map(([k, v]) => (
-              <div key={k} className="flex items-baseline justify-between gap-3">
-                <dt className="text-[12px] text-white/[0.38]">{k}</dt>
-                <dd
-                  className={`num text-[14px] font-medium ${
-                    idx === 1 ? 'text-white' : 'text-white/45 line-through decoration-white/20'
-                  }`}
-                >
-                  {v}
-                </dd>
-              </div>
-            ))}
-          </dl>
-          {idx === 1 && (
-            <span
-              aria-hidden
-              className="absolute -left-[13px] top-1/2 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.12] bg-ink-850 sm:flex"
-            >
-              <svg viewBox="0 0 12 12" className="h-3 w-3 text-violet-300" fill="none" aria-hidden>
-                <path d="M2 6h7M6.5 3 9.5 6l-3 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-              </svg>
-            </span>
-          )}
+    <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-ink-900">
+      <div className="grid grid-cols-[1.25fr_0.9fr_1fr] items-center gap-3 border-b border-white/[0.08] px-5 py-3">
+        <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/25">Metric</span>
+        <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/25">{c.before.label}</span>
+        <span className="flex items-center gap-1.5 font-sans text-[10px] uppercase tracking-[0.18em] text-violet-200">
+          <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" aria-hidden>
+            <path d="M2 6h7M6.5 3 9.5 6l-3 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+          </svg>
+          {c.after.label}
+        </span>
+      </div>
+
+      {rows.map((r, i) => (
+        <div
+          key={r.metric}
+          className={`grid grid-cols-[1.25fr_0.9fr_1fr] items-center gap-3 px-5 py-3.5 ${
+            i < rows.length - 1 ? 'border-b border-white/[0.05]' : ''
+          }`}
+        >
+          <span className="text-[12.5px] leading-tight text-white/40">{r.metric}</span>
+          <span className="num text-[13px] leading-tight text-white/35 line-through decoration-white/20">
+            {r.before}
+          </span>
+          <span className="num text-[14px] font-medium leading-tight text-white">{r.after}</span>
         </div>
       ))}
     </div>
@@ -66,7 +62,7 @@ function Compare({ c }: { c: (typeof RESULTS.cases)[number] }) {
 
 export function Results() {
   return (
-    <section className="relative py-24 md:py-36">
+    <section className="relative py-20 md:py-28">
       <div className="shell">
         <Reveal className="max-w-[42rem]">
           <span className="eyebrow">{RESULTS.eyebrow}</span>
@@ -74,7 +70,7 @@ export function Results() {
           <p className="mt-6 max-w-[32rem] text-[15px] leading-relaxed text-white/45">{RESULTS.sub}</p>
         </Reveal>
 
-        <div className="mt-16 space-y-20 md:mt-24 md:space-y-32">
+        <div className="mt-14 space-y-16 md:mt-20 md:space-y-24">
           {RESULTS.cases.map((c, i) => {
             const flip = i % 2 === 1
             return (
@@ -86,7 +82,7 @@ export function Results() {
                   </p>
 
                   <p
-                    className={`num mt-5 font-display text-[clamp(3.2rem,9vw,5.6rem)] font-semibold leading-[0.85] tracking-[-0.055em] ${
+                    className={`num mt-5 flex flex-wrap items-baseline gap-x-3 font-display text-[clamp(2.9rem,7.6vw,4.9rem)] font-semibold leading-[0.9] tracking-[-0.055em] ${
                       c.hero.tone === 'ember' ? 'text-ember-400' : 'text-white'
                     }`}
                     style={
@@ -97,7 +93,7 @@ export function Results() {
                   >
                     <CountUp value={c.hero.value} />
                     {c.hero.unit && (
-                      <span className="ml-2 align-baseline font-display text-[0.3em] font-medium tracking-[-0.02em] text-white/35">
+                      <span className="font-display text-[0.26em] font-medium tracking-[-0.01em] text-white/35">
                         {c.hero.unit}
                       </span>
                     )}

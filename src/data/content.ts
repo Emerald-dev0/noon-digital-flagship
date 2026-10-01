@@ -78,6 +78,7 @@ export const TRUST = {
     { value: '6', label: 'channels actively managed', tone: 'plain' },
     { value: '9.3K hrs', label: 'watch time banked', tone: 'plain' },
     { value: '£2,907', label: 'rev-share paid on one quarter', tone: 'ember', placeholder: false },
+    { value: '14 days', label: 'from kickoff to first published video', tone: 'plain' },
   ],
   footnote: 'Pulled from YouTube Studio, 2025. Screenshots available on the call.',
 } as const
@@ -567,7 +568,7 @@ export const PRICING = {
 
 export const FAQ = {
   eyebrow: 'Fair questions',
-  title: 'The things you were going to email us anyway.',
+  title: 'Fair questions, straight answers.',
   items: [
     {
       q: 'I do not want to be a content creator.',

@@ -4,7 +4,7 @@ import { CountUp } from '../components/ui/CountUp'
 
 export function TrustStats() {
   return (
-    <section id="proof" className="relative py-24 md:py-36">
+    <section id="proof" className="relative overflow-hidden py-20 md:py-28">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
           {/* ---- asymmetric left: headline + the single hero number ------- */}
@@ -40,7 +40,9 @@ export function TrustStats() {
                 <Reveal
                   key={c.label}
                   delay={0.05 * i}
-                  className={`group relative bg-ink-900 p-6 md:p-7 ${i === 0 ? 'col-span-2 md:col-span-2' : ''}`}
+                  className={`group relative bg-ink-900 p-6 md:p-7 ${
+                    i === 0 || i === TRUST.cells.length - 1 ? 'col-span-2' : ''
+                  }`}
                 >
                   <div className="relative z-10">
                     <p

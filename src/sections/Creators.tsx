@@ -55,7 +55,7 @@ const PLATFORM_ICON: Record<string, JSX.Element> = {
 
 export function Creators() {
   return (
-    <section className="relative py-24 md:py-36">
+    <section className="relative py-20 md:py-28">
       <div className="shell">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-7">

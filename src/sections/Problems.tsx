@@ -8,7 +8,7 @@ export function Problems() {
   const reduced = useReducedMotion()
 
   return (
-    <section className="relative border-t border-white/[0.08] bg-ink-900/40 py-24 md:py-36">
+    <section className="relative overflow-hidden border-t border-white/[0.08] bg-ink-900/40 py-20 md:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute left-[-14rem] top-1/3 h-[34rem] w-[34rem] rounded-full bg-ember-600/[0.08] blur-[150px]"

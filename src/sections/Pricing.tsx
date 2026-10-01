@@ -4,7 +4,7 @@ import { MagneticButton, ArrowGlyph } from '../components/ui/MagneticButton'
 
 export function Pricing() {
   return (
-    <section id="pricing" className="relative overflow-hidden border-t border-white/[0.08] py-24 md:py-36">
+    <section id="pricing" className="relative overflow-hidden border-t border-white/[0.08] py-20 md:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/4 h-[40rem] w-[52rem] -translate-x-1/2 rounded-full bg-violet-700/[0.12] blur-[150px]"
@@ -27,7 +27,7 @@ export function Pricing() {
               <Reveal
                 key={tier.key}
                 delay={0.07 * i}
-                className={`h-full ${hot ? 'lg:-my-5 lg:z-10' : ''}`}
+                className={`h-full ${hot ? 'lg:-mt-9 lg:z-10' : ''}`}
               >
                 <article
                   className={`relative flex h-full flex-col overflow-hidden rounded-[24px] border p-6 md:p-8 ${
@@ -37,15 +37,17 @@ export function Pricing() {
                   }`}
                 >
                   {hot && (
-                    <>
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-violet-500/25 blur-[80px]"
-                      />
-                      <span className="absolute right-5 top-6 rounded-full border border-violet-300/35 bg-violet-500/20 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.14em] text-violet-100">
-                        {tier.badge}
-                      </span>
-                    </>
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-violet-500/25 blur-[80px]"
+                    />
+                  )}
+
+                  {hot && (
+                    <span className="relative mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-violet-300/35 bg-violet-500/20 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.14em] text-violet-100">
+                      <span className="h-1.5 w-1.5 rounded-full bg-violet-200 shadow-[0_0_10px_2px_rgba(189,162,255,0.7)]" />
+                      {tier.badge}
+                    </span>
                   )}
 
                   <h3 className="relative font-display text-[19px] font-semibold tracking-[-0.03em] text-white">

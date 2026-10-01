@@ -5,7 +5,7 @@ import { NoonMark, Wordmark } from '../components/ui/Logo'
 
 export function FinalCta() {
   return (
-    <section id="book" className="relative overflow-hidden pt-24 md:pt-36">
+    <section id="book" className="relative overflow-hidden pt-20 md:pt-28">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[44rem] bg-[radial-gradient(60%_60%_at_50%_100%,rgba(139,92,246,0.3),transparent_70%)]"
@@ -46,9 +46,9 @@ export function FinalCta() {
         </Reveal>
 
         {/* oversized watermark */}
-        <div aria-hidden className="pointer-events-none mt-16 select-none md:mt-24">
+        <div aria-hidden className="pointer-events-none mt-12 select-none">
           <div className="mask-fade-b flex justify-center">
-            <NoonMark className="h-[clamp(7rem,20vw,14rem)] w-[clamp(7rem,20vw,14rem)] opacity-25" />
+            <NoonMark className="h-[clamp(5rem,13vw,8.5rem)] w-[clamp(5rem,13vw,8.5rem)] opacity-25" />
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ export function FinalCta() {
 
 function Footer() {
   return (
-    <footer className="relative mt-10 border-t border-white/[0.08] bg-ink-950/60 py-12 backdrop-blur-sm">
+    <footer className="relative mt-6 border-t border-white/[0.08] bg-ink-950/60 py-12 backdrop-blur-sm">
       <div className="shell">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">

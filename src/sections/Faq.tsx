@@ -8,7 +8,7 @@ export function Faq() {
   const reduced = useReducedMotion()
 
   return (
-    <section id="faq" className="relative py-24 md:py-36">
+    <section id="faq" className="relative py-20 md:py-28">
       <div className="shell">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-4">

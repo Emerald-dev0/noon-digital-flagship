@@ -49,7 +49,7 @@ export function Hero() {
       </div>
 
       <motion.div style={{ y, opacity: fade }} className="shell">
-        <div className="grid items-end gap-14 lg:grid-cols-12 lg:gap-10">
+        <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           {/* ---------------------------------------------------------- copy */}
           <div className="lg:col-span-7">
             <Reveal y={14} delay={0.05}>
@@ -88,7 +88,7 @@ export function Hero() {
                 x: useTransform(px, [-1, 1], [-14, 14]),
                 y: useTransform(py, [-1, 1], [-10, 10]),
               }}
-              className="relative mx-auto h-[395px] w-full max-w-[460px] sm:h-[420px]"
+              className="relative mx-auto h-[600px] w-full max-w-[430px]"
             >
               {/* search pill */}
               <Reveal delay={0.3} y={20} className="absolute left-0 top-0 z-30 w-[86%]">
@@ -115,9 +115,9 @@ export function Hero() {
 
               {/* stacked result cards */}
               {[
-                { src: '/images/thumbnails/image20.png', rot: -7, x: 0, yy: 86, z: 10, scale: 0.9, delay: 0.5 },
-                { src: '/images/thumbnails/image24.png', rot: 5, x: 48, yy: 132, z: 20, scale: 0.95, delay: 0.42 },
-                { src: '/images/thumbnails/image4.png', rot: -2, x: 16, yy: 182, z: 30, scale: 1, delay: 0.34 },
+                { src: '/images/thumbnails/image20.png', rot: -5, x: 4, yy: 104, z: 10, scale: 0.88, delay: 0.5 },
+                { src: '/images/thumbnails/image22.png', rot: 3, x: 46, yy: 244, z: 20, scale: 0.94, delay: 0.42 },
+                { src: '/images/thumbnails/image4.png', rot: -2, x: 10, yy: 388, z: 30, scale: 1, delay: 0.34 },
               ].map((c) => (
                 <motion.figure
                   key={c.src}
@@ -125,14 +125,19 @@ export function Hero() {
                   animate={{ opacity: 1, y: c.yy, rotate: c.rot, scale: c.scale }}
                   transition={{ duration: 1.1, delay: c.delay, ease: [0.16, 1, 0.3, 1] }}
                   style={{ zIndex: c.z, left: c.x }}
-                  className="absolute w-[82%] overflow-hidden rounded-xl border border-white/[0.12] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)]"
+                  className="absolute w-[76%] overflow-hidden rounded-xl border border-white/[0.12] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)]"
                 >
                   <img src={c.src} alt="" loading="eager" className="block aspect-video w-full object-cover" />
-                  <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/85 to-transparent px-3 pb-2 pt-8">
-                    <span className="rounded bg-black/60 px-1.5 py-0.5 font-sans text-[10px] text-white/75">
-                      ranked
-                    </span>
-                  </figcaption>
+                  {c.z === 30 && (
+                    <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-2 bg-gradient-to-t from-black/90 to-transparent px-3 pb-2.5 pt-10">
+                      <span className="flex items-center gap-1.5 rounded-full bg-violet-500/90 px-2 py-0.5 font-sans text-[10px] font-medium text-white">
+                        <span className="h-1 w-1 rounded-full bg-white" /> ranked #1
+                      </span>
+                      <span className="rounded bg-black/60 px-1.5 py-0.5 font-sans text-[10px] text-white/70">
+                        17.2K views
+                      </span>
+                    </figcaption>
+                  )}
                 </motion.figure>
               ))}
 

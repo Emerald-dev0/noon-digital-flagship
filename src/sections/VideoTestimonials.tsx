@@ -8,7 +8,7 @@ export function VideoTestimonials() {
   const reduced = useReducedMotion()
 
   return (
-    <section className="relative border-y border-white/[0.08] bg-ink-900/40 py-24 md:py-36">
+    <section className="relative border-y border-white/[0.08] bg-ink-900/40 py-20 md:py-28">
       <div className="shell">
         <Reveal className="max-w-[40rem]">
           <span className="eyebrow">{VIDEO_TESTIMONIALS.eyebrow}</span>
@@ -28,9 +28,9 @@ export function VideoTestimonials() {
                 <motion.article
                   onHoverStart={() => setHover(i)}
                   onHoverEnd={() => setHover(null)}
-                  className="glow-ring surface group relative h-full overflow-hidden"
+                  className="glow-ring surface group relative flex h-full flex-col overflow-hidden"
                 >
-                  <div className={`relative overflow-hidden ${featured ? 'aspect-[16/10]' : 'aspect-[16/9]'}`}>
+                  <div className="relative aspect-video overflow-hidden">
                     <motion.img
                       src={item.poster}
                       alt={`${item.name} testimonial`}
@@ -65,7 +65,7 @@ export function VideoTestimonials() {
                     </span>
                   </div>
 
-                  <div className="relative p-5 md:p-6">
+                  <div className="relative flex flex-1 flex-col justify-center p-5 md:p-6">
                     <svg viewBox="0 0 24 24" className="h-5 w-5 fill-violet-400/50" aria-hidden>
                       <path d="M10 6v6H6.5c0 2.5 1.2 4 3.5 4.5V18C6 17.6 3.5 15 3.5 11V6H10Zm10.5 0v6H17c0 2.5 1.2 4 3.5 4.5V18c-4-.4-6.5-3-6.5-7V6h6.5Z" />
                     </svg>

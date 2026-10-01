@@ -118,7 +118,7 @@ function Card({ card, index }: { card: ChatCard; index: number }) {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: '-8%' }}
       transition={{ duration: 0.8, delay: (index % 3) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-      className="glow-ring surface group mb-5 break-inside-avoid overflow-hidden p-4 transition-transform duration-500 hover:-translate-y-1.5 md:p-5"
+      className="glow-ring surface group mb-5 break-inside-avoid p-4 transition-transform duration-500 hover:-translate-y-1.5 md:p-5"
     >
       {/* floating platform badge */}
       <span className="absolute -right-2 -top-2 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.12] bg-ink-850 shadow-[0_8px_24px_-8px_rgba(0,0,0,1)]">
@@ -172,7 +172,7 @@ export function TestimonialWall() {
   return (
     <section
       id="clients"
-      className="relative overflow-hidden border-t border-white/[0.08] bg-ink-900/40 py-24 md:py-36"
+      className="relative overflow-hidden border-t border-white/[0.08] bg-ink-900/40 py-20 md:py-28"
     >
       <div
         aria-hidden

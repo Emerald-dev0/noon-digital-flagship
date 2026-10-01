@@ -13,7 +13,7 @@ import { Reveal } from '../components/ui/Reveal'
 /* The vine. Drawn in a 1000 x 2000 box and stretched to the canvas with
    preserveAspectRatio="none" — strokes stay even thanks to non-scaling-stroke. */
 const VINE =
-  'M500,0 C500,120 300,165 292,320 C284,470 700,498 722,660 C744,830 250,858 240,1030 C230,1200 722,1228 732,1400 C742,1572 300,1600 302,1760 C304,1884 482,1918 500,2000'
+  'M500,0 C500,110 408,168 406,300 C404,432 604,470 606,620 C608,772 402,800 400,950 C398,1100 606,1140 608,1290 C610,1442 402,1470 402,1620 C402,1762 494,1852 500,2000'
 
 const VB = { w: 1000, h: 2000 }
 const NODE_AT = [0.165, 0.5, 0.845] // where Plant / Grow / Harvest sit on the vine
@@ -165,23 +165,19 @@ function ProofPane({ stage }: { stage: (typeof GARDEN.stages)[number] }) {
 function StageCard({
   stage,
   side,
-  progress,
-  threshold,
 }: {
   stage: (typeof GARDEN.stages)[number]
   side: 'left' | 'right'
-  progress: MotionValue<number>
-  threshold: number
 }) {
   const reduced = useReducedMotion()
-  const opacity = useTransform(progress, [threshold - 0.14, threshold], [reduced ? 1 : 0.18, 1])
-  const blur = useTransform(progress, [threshold - 0.14, threshold], [reduced ? 0 : 8, 0])
-  const filter = useTransform(blur, (b) => `blur(${b}px)`)
 
   return (
     <motion.article
-      style={{ opacity, filter }}
-      className={`relative w-full max-w-[560px] ${
+      initial={reduced ? false : { opacity: 0, y: 40, filter: 'blur(10px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '-12% 0px -12% 0px' }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      className={`relative w-full max-w-[600px] ${
         side === 'right' ? 'md:ml-auto md:mr-0' : 'md:mr-auto md:ml-0'
       }`}
     >
@@ -268,7 +264,7 @@ export function Garden() {
   const budOpacity = useTransform(progress, [0, 0.03, 0.97, 1], [0, 1, 1, 0])
 
   return (
-    <section id="garden" className="relative overflow-hidden py-24 md:py-36">
+    <section id="garden" className="relative overflow-hidden py-20 md:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[60rem] bg-[radial-gradient(60%_50%_at_50%_0%,rgba(139,92,246,0.14),transparent_70%)]"
@@ -377,20 +373,23 @@ export function Garden() {
           </div>
 
           {/* stage rows */}
-          <div className="relative z-10 space-y-24 md:space-y-40">
+          <div className="relative z-10 space-y-20 md:space-y-28">
             {GARDEN.stages.map((stage, i) => (
               <div
                 key={stage.key}
-                className={`flex ${i === 1 ? 'justify-start' : 'justify-end'} ${i === 0 ? 'pt-6' : ''} ${
-                  i === 2 ? 'pb-10' : ''
-                }`}
+                className={`relative flex ${i === 1 ? 'justify-start' : 'justify-end'} ${
+                  i === 0 ? 'pt-6' : ''
+                } ${i === 2 ? 'pb-10' : ''}`}
               >
-                <StageCard
-                  stage={stage}
-                  side={i === 1 ? 'left' : 'right'}
-                  progress={progress}
-                  threshold={NODE_AT[i]}
-                />
+                <span
+                  aria-hidden
+                  className={`pointer-events-none absolute top-1/2 hidden -translate-y-1/2 select-none font-display text-[clamp(5rem,11vw,10rem)] font-semibold leading-none tracking-[-0.06em] text-white/[0.035] lg:block ${
+                    i === 1 ? 'right-[4%]' : 'left-[4%]'
+                  }`}
+                >
+                  {stage.name}
+                </span>
+                <StageCard stage={stage} side={i === 1 ? 'left' : 'right'} />
               </div>
             ))}
           </div>
