@@ -1,5 +1,6 @@
 import { RESULTS } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
+import { CountUp } from '../components/ui/CountUp'
 
 function Frame({ src, caption }: { src: string; caption: string }) {
   return (
@@ -94,7 +95,7 @@ export function Results() {
                         : { textShadow: '0 0 60px rgba(139,92,246,0.35)' }
                     }
                   >
-                    {c.hero.value}
+                    <CountUp value={c.hero.value} />
                     {c.hero.unit && (
                       <span className="ml-2 align-baseline font-display text-[0.3em] font-medium tracking-[-0.02em] text-white/35">
                         {c.hero.unit}

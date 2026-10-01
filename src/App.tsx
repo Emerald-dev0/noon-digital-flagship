@@ -1,4 +1,5 @@
 import { Grain } from './components/ui/Grain'
+import { useSmoothScroll } from './hooks/useSmoothScroll'
 import { Nav } from './sections/Nav'
 import { Hero } from './sections/Hero'
 import { Ticker } from './sections/Ticker'
@@ -14,6 +15,8 @@ import { Faq } from './sections/Faq'
 import { FinalCta } from './sections/FinalCta'
 
 export default function App() {
+  useSmoothScroll()
+
   return (
     <>
       <Grain />

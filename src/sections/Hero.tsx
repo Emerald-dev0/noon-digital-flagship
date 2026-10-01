@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useReducedMotion, useMotionValue, useS
 import { HERO } from '../data/content'
 import { RevealLines, Reveal } from '../components/ui/Reveal'
 import { MagneticButton, ArrowGlyph } from '../components/ui/MagneticButton'
+import { CountUp } from '../components/ui/CountUp'
 
 const QUERY = 'appointment setting course'
 
@@ -154,7 +155,7 @@ export function Hero() {
                     s.tone === 'ember' ? 'text-ember-400' : 'text-white'
                   }`}
                 >
-                  {s.value}
+                  <CountUp value={s.value} />
                 </dt>
                 <dd className="mt-1.5 max-w-[16rem] text-[13px] leading-snug text-white/45">{s.label}</dd>
                 <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-violet-400 to-transparent transition-all duration-500 group-hover:w-full" />

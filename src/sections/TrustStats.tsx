@@ -1,5 +1,6 @@
 import { TRUST } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
+import { CountUp } from '../components/ui/CountUp'
 
 export function TrustStats() {
   return (
@@ -21,7 +22,7 @@ export function TrustStats() {
                   className="absolute -right-16 -top-20 h-56 w-56 rounded-full bg-violet-600/25 blur-[70px]"
                 />
                 <p className="num font-display text-[clamp(3rem,8vw,4.75rem)] font-semibold leading-[0.9] tracking-[-0.05em] text-white">
-                  {TRUST.big.value}
+                  <CountUp value={TRUST.big.value} />
                 </p>
                 <p className="mt-3 text-[14px] text-white/60">{TRUST.big.label}</p>
                 <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 font-sans text-[11px] tracking-wide text-white/45">
@@ -47,7 +48,7 @@ export function TrustStats() {
                         i === 0 ? 'text-[clamp(2.2rem,5vw,3.4rem)]' : 'text-[clamp(1.5rem,3vw,2.1rem)]'
                       } ${c.tone === 'ember' ? 'text-ember-400' : c.tone === 'violet' ? 'text-violet-200' : 'text-white'}`}
                     >
-                      {c.value}
+                      <CountUp value={c.value} />
                     </p>
                     <p className="mt-2 text-[12.5px] leading-snug text-white/[0.42]">{c.label}</p>
                   </div>
