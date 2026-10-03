@@ -27,3 +27,6 @@ dist-ssr
 reference_scraper/output/
 reference_scraper/screenshots/
 reference_scraper/__pycache__/
+
+# scratch from image search
+image-search/
