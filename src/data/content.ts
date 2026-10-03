@@ -344,11 +344,15 @@ export const TESTIMONIAL_WALL: { eyebrow: string; title: string; sub: string; ca
 export const CREATORS = {
   eyebrow: 'What we produced',
   title: 'Channels we grew, people who run them.',
-  sub: 'Six founders, six niches, one system. Follower counts as of this quarter.',
+  sub: 'Six real client channels. Tap any card to watch the work — these are live, not mockups.',
+  // REAL: handles + hrefs come from docs/brand/04-client-channels.md and are verified.
+  // PLACEHOLDER: `chips` follower counts and `role` wording still need Mubarak's confirmation.
   people: [
     {
-      name: 'Zakariya Idris',
-      role: 'Founder, Silicon Sales Institute',
+      name: 'Zakariya',
+      handle: '@Zakariya.Tech-Sales',
+      href: 'https://www.youtube.com/@Zakariya.Tech-Sales',
+      role: 'Tech sales coach',
       avatar: '/people/face-image11-0.png',
       cover: '/images/thumbnails/image24.png',
       tag: 'Tech sales',
@@ -359,8 +363,10 @@ export const CREATORS = {
       ],
     },
     {
-      name: 'Ustadh Shafi Rahman',
-      role: 'Director, Markaz Language Institute',
+      name: "Markaz Shafi'ee",
+      handle: '@MarkazShafiee',
+      href: 'https://www.youtube.com/@MarkazShafiee',
+      role: 'Arabic language institute',
       avatar: '/people/face-image19-0.png',
       cover: '/images/thumbnails/image14.png',
       tag: 'Education',
@@ -371,8 +377,10 @@ export const CREATORS = {
       ],
     },
     {
-      name: 'Aqib Kareem',
-      role: 'Founder, RemoteRizq',
+      name: 'Aqib',
+      handle: '@SaleswithAqib',
+      href: 'https://www.youtube.com/@SaleswithAqib',
+      role: 'Appointment setting',
       avatar: '/people/face-image8-0.png',
       cover: '/images/thumbnails/image8.png',
       tag: 'Appointment setting',
@@ -384,7 +392,9 @@ export const CREATORS = {
     },
     {
       name: 'Yaseen Ramsey',
-      role: 'CEO, Influencer Income',
+      handle: '@yaseenramsey',
+      href: 'https://www.youtube.com/@yaseenramsey',
+      role: 'Personal brand',
       avatar: '/people/face-image12-0.png',
       cover: '/images/thumbnails/image13.png',
       tag: 'Personal brand',
@@ -395,11 +405,13 @@ export const CREATORS = {
       ],
     },
     {
-      name: 'Dr. Imran Vaid',
-      role: 'Founder, IQ Maxxing',
+      name: 'Yaseen',
+      handle: '@yaseenbiz',
+      href: 'https://www.youtube.com/@yaseenbiz',
+      role: 'Business channel',
       avatar: '/people/face-image1-0.png',
       cover: '/images/thumbnails/image1.png',
-      tag: 'Tutoring',
+      tag: 'Business',
       chips: [
         { p: 'YouTube', v: '27.1K' },
         { p: 'TikTok', v: '48.3K' },
@@ -407,11 +419,13 @@ export const CREATORS = {
       ],
     },
     {
-      name: 'Elliot Beck',
-      role: 'Partner, Northbeam Studio',
+      name: 'Steven Olatunji',
+      handle: '@stevenolatunji',
+      href: 'https://www.youtube.com/@stevenolatunji',
+      role: 'Founder',
       avatar: '/people/face-image14-0.png',
       cover: '/images/thumbnails/image17.png',
-      tag: 'Creative agency',
+      tag: 'Creative',
       chips: [
         { p: 'YouTube', v: '6.2K' },
         { p: 'LinkedIn', v: '21.9K' },

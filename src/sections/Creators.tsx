@@ -70,7 +70,13 @@ export function Creators() {
         <div className="mt-14 grid gap-px overflow-hidden rounded-[24px] border border-white/[0.08] bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
           {CREATORS.people.map((person, i) => (
             <Reveal key={person.name} delay={0.05 * (i % 3)} className="h-full">
-              <article className="group relative h-full overflow-hidden bg-ink-900 p-5 md:p-6">
+              <a
+                href={person.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${person.name}'s channel (${person.handle}) on YouTube`}
+                className="group relative block h-full overflow-hidden bg-ink-900 p-5 outline-none transition-colors duration-500 focus-visible:ring-2 focus-visible:ring-violet-400/70 md:p-6"
+              >
                 {/* cropped channel still, used as a soft backdrop */}
                 <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.1] transition-opacity duration-700 group-hover:opacity-[0.22]">
                   <img src={person.cover} alt="" loading="lazy" className="h-full w-full object-cover" />
@@ -92,6 +98,9 @@ export function Creators() {
                       {person.name}
                     </h3>
                     <p className="mt-0.5 truncate text-[12.5px] text-white/45">{person.role}</p>
+                    <p className="mt-1 truncate font-sans text-[11.5px] text-violet-300/70 transition-colors duration-300 group-hover:text-violet-200">
+                      {person.handle}
+                    </p>
                   </div>
                 </div>
 
@@ -110,7 +119,17 @@ export function Creators() {
                     </li>
                   ))}
                 </ul>
-              </article>
+
+                <span
+                  aria-hidden
+                  className="relative mt-4 flex items-center gap-1.5 font-sans text-[11px] uppercase tracking-[0.14em] text-white/30 transition-colors duration-300 group-hover:text-white/60"
+                >
+                  Watch the channel
+                  <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3">
+                    <path d="M4 12 12 4M12 4H6M12 4v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
             </Reveal>
           ))}
         </div>
