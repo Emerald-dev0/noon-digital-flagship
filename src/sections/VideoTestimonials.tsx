@@ -16,14 +16,14 @@ export function VideoTestimonials() {
           <p className="mt-6 max-w-[32rem] text-[15px] leading-relaxed text-white/45">{VIDEO_TESTIMONIALS.sub}</p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-12">
+        <div className="no-bar snap-dope snap-peek -mx-5 mt-10 flex gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0 lg:mt-14 lg:grid lg:grid-cols-12 lg:overflow-visible">
           {VIDEO_TESTIMONIALS.items.map((item, i) => {
             const featured = i === 0
             return (
               <Reveal
                 key={item.name}
                 delay={0.07 * i}
-                className={`h-full ${featured ? 'lg:col-span-7 lg:row-span-2' : 'lg:col-span-5'}`}
+                className={`h-full w-[86%] shrink-0 sm:w-auto ${featured ? 'lg:col-span-7 lg:row-span-2' : 'lg:col-span-5'}`}
               >
                 <motion.article
                   onHoverStart={() => setHover(i)}
@@ -37,9 +37,9 @@ export function VideoTestimonials() {
                       loading="lazy"
                       animate={reduced ? {} : { scale: hover === i ? 1.05 : 1 }}
                       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                      className="h-full w-full object-cover"
+                      className="img-bright h-full w-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/35 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/25 to-transparent" />
 
                     {/* play affordance */}
                     <button

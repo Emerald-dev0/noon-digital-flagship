@@ -78,22 +78,20 @@ function ProofPane({ stage }: { stage: (typeof GARDEN.stages)[number] }) {
 
   if (proof.type === 'serp') {
     return (
-      <div className="grid gap-4 sm:grid-cols-2">
-        {proof.images.map((img: { src: string; caption: string }, i: number) => (
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+        {proof.images.map((img: { src: string; caption: string }) => (
           <figure
             key={img.src}
-            className={`group relative overflow-hidden rounded-xl border border-white/[0.12] bg-white ${
-              i === 1 ? 'hidden sm:block' : ''
-            }`}
+            className="thumb-frame group relative overflow-hidden rounded-xl bg-white"
           >
             <img
               src={img.src}
               alt={`YouTube search results for ${img.caption}`}
               loading="lazy"
-              className="block h-[200px] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03] md:h-[240px]"
+              className="img-proof block h-[220px] w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03] md:h-[240px]"
             />
             <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-2 bg-ink-950/90 px-3 py-2 font-sans text-[10.5px] tracking-wide text-white/60 backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
               {img.caption}
             </figcaption>
           </figure>
@@ -104,59 +102,76 @@ function ProofPane({ stage }: { stage: (typeof GARDEN.stages)[number] }) {
 
   if (proof.type === 'thumbs') {
     return (
-      <div className="grid grid-cols-3 gap-2.5">
-        {proof.images.map((src: string, i: number) => (
-          <motion.figure
-            key={src}
-            whileHover={{ y: -5, rotate: i % 2 ? 1.4 : -1.4 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-            className="overflow-hidden rounded-lg border border-white/10 shadow-[0_18px_40px_-26px_rgba(0,0,0,1)]"
-          >
-            <img src={src} alt="" loading="lazy" className="block aspect-video w-full object-cover" />
-          </motion.figure>
-        ))}
+      <div>
+        <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+          {proof.images.map((src: string, i: number) => (
+            <motion.figure
+              key={src}
+              whileHover={{ y: -5, rotate: i % 2 ? 1.4 : -1.4 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+              className="thumb-frame overflow-hidden rounded-lg"
+            >
+              <img src={src} alt="Client video thumbnail" loading="lazy" className="img-bright block aspect-video w-full object-cover" />
+            </motion.figure>
+          ))}
+        </div>
+        {/* extra unused thumbnails — bright strip */}
+        <div className="no-bar mt-2.5 flex gap-2.5 overflow-x-auto pb-1">
+          {['/images/thumbnails/image5.png', '/images/thumbnails/image7.png', '/images/thumbnails/image15.png', '/images/thumbnails/image18.png'].map((src) => (
+            <img key={src} src={src} alt="More client thumbnails" loading="lazy" className="img-bright h-[52px] w-[92px] shrink-0 rounded-md border border-white/15 object-cover" />
+          ))}
+        </div>
       </div>
     )
   }
 
-  // attribution table
+  // attribution table + real chat receipt
   const max = Math.max(...proof.rows.map((r: any) => r.calls))
   return (
-    <div className="rounded-xl border border-white/10 bg-ink-950/60 p-4 md:p-5">
-      <div className="mb-3 flex items-center justify-between font-sans text-[10.5px] uppercase tracking-[0.16em] text-white/35">
-        <span>Lead source</span>
-        <span>Calls booked · last month</span>
-      </div>
-      <ul className="space-y-2">
-        {proof.rows.map((r: any) => (
-          <li key={r.source} className="relative flex items-center gap-3">
-            <span className="w-[86px] shrink-0 text-[12.5px] text-white/60">{r.source}</span>
-            <span className="relative h-[22px] flex-1 overflow-hidden rounded-[5px] bg-white/[0.045]">
-              <motion.span
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: Math.max(r.calls / max, 0.012) }}
-                viewport={{ once: true, margin: '-15%' }}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                className={`absolute inset-y-0 left-0 w-full origin-left rounded-[5px] ${
-                  r.calls === max
-                    ? 'bg-gradient-to-r from-ember-500 to-ember-300 shadow-[0_0_24px_-4px_rgba(255,138,61,0.8)]'
-                    : 'bg-violet-500/35'
+    <div className="space-y-3">
+      <div className="rounded-xl border border-white/10 bg-ink-950/60 p-4 md:p-5">
+        <div className="mb-3 flex items-center justify-between gap-2 font-sans text-[10.5px] uppercase tracking-[0.16em] text-white/35">
+          <span>Lead source</span>
+          <span className="text-right">Calls booked · last month</span>
+        </div>
+        <ul className="space-y-2">
+          {proof.rows.map((r: any) => (
+            <li key={r.source} className="relative flex items-center gap-2 sm:gap-3">
+              <span className="w-[72px] shrink-0 text-[12px] text-white/60 sm:w-[86px] sm:text-[12.5px]">{r.source}</span>
+              <span className="relative h-[22px] flex-1 overflow-hidden rounded-[5px] bg-white/[0.045]">
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: Math.max(r.calls / max, 0.012) }}
+                  viewport={{ once: true, margin: '-15%' }}
+                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                  className={`absolute inset-y-0 left-0 w-full origin-left rounded-[5px] ${
+                    r.calls === max
+                      ? 'bg-gradient-to-r from-ember-500 to-ember-300 shadow-[0_0_24px_-4px_rgba(255,138,61,0.8)]'
+                      : 'bg-violet-500/35'
+                  }`}
+                />
+              </span>
+              <span
+                className={`num w-7 shrink-0 text-right text-[12.5px] ${
+                  r.calls === max ? 'text-ember-300' : 'text-white/40'
                 }`}
-              />
-            </span>
-            <span
-              className={`num w-7 shrink-0 text-right text-[12.5px] ${
-                r.calls === max ? 'text-ember-300' : 'text-white/40'
-              }`}
-            >
-              {r.calls}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-3.5 text-[11.5px] text-white/30">
-        Client attribution sheet. Dialling, email and paid social: zero.
-      </p>
+              >
+                {r.calls}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-3.5 text-[11.5px] text-white/30">
+          Client attribution sheet. Dialling, email and paid social: zero.
+        </p>
+      </div>
+      <figure className="thumb-frame-warm overflow-hidden rounded-xl">
+        <img src="/assets/chat/chat-revshare.png" alt="Client chat confirming revenue share payout" loading="lazy" className="img-proof block w-full object-cover" style={{ maxHeight: 180 }} />
+        <figcaption className="flex items-center gap-2 bg-ink-950/90 px-3 py-2 font-sans text-[10.5px] text-white/55">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          Real client message · revenue-share confirmed
+        </figcaption>
+      </figure>
     </div>
   )
 }

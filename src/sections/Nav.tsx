@@ -97,9 +97,16 @@ export function Nav() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-ink-950/95 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto bg-ink-950/[0.97] backdrop-blur-2xl lg:hidden"
           >
-            <div className="shell flex h-full flex-col justify-center gap-2 pb-20">
+            <div
+              aria-hidden
+              className="pointer-events-none fixed inset-x-0 top-0 h-[24rem] bg-[radial-gradient(70%_100%_at_50%_0%,rgba(139,92,246,0.25),transparent_70%)]"
+            />
+            <div className="shell relative flex min-h-full flex-col justify-center gap-1 pb-10 pt-24">
+              <p className="mb-2 font-sans text-[10.5px] uppercase tracking-[0.28em] text-white/35">
+                Menu · Noon Digital
+              </p>
               {NAV.map((item, i) => (
                 <motion.a
                   key={item.href}
@@ -108,20 +115,47 @@ export function Nav() {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.06 * i + 0.08, ease: [0.16, 1, 0.3, 1], duration: 0.6 }}
-                  className="border-b border-white/[0.08] py-5 font-display text-[clamp(2rem,9vw,3rem)] tracking-[-0.04em] text-white"
+                  className="group flex items-baseline gap-3 border-b border-white/[0.08] py-4"
                 >
-                  {item.label}
+                  <span className="num font-sans text-[11px] text-violet-300/60">0{i + 1}</span>
+                  <span className="font-display text-[clamp(1.9rem,9vw,2.8rem)] font-semibold tracking-[-0.04em] text-white transition-colors group-active:text-violet-200">
+                    {item.label}
+                  </span>
+                  <span className="ml-auto text-white/25 transition-transform duration-300 group-active:translate-x-1 group-active:text-white/60">→</span>
                 </motion.a>
               ))}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="pt-8"
+                transition={{ delay: 0.38 }}
+                className="pt-6"
               >
-                <MagneticButton href="#book" onClick={() => setOpen(false)} className="w-full">
+                <MagneticButton href="#book" onClick={() => setOpen(false)} className="w-full py-4 text-[15px]">
                   Book a strategy call <ArrowGlyph />
                 </MagneticButton>
+                <p className="mt-3 text-center text-[12px] text-white/40">Free 20 min · no deck, no pressure</p>
+              </motion.div>
+
+              {/* visual proof strip inside menu */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.46 }}
+                className="mt-6"
+              >
+                <div className="no-bar flex gap-2.5 overflow-x-auto pb-1">
+                  {['/images/thumbnails/image2.png', '/images/thumbnails/image11.png', '/images/thumbnails/image19.png', '/images/thumbnails/image23.png'].map((src) => (
+                    <img key={src} src={src} alt="Client work" className="img-bright thumb-frame h-[56px] w-[100px] shrink-0 rounded-lg object-cover" />
+                  ))}
+                </div>
+                <div className="mt-4 flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    {['/people/face-image11-0.png', '/people/face-image8-0.png', '/people/face-image19-0.png'].map((a) => (
+                      <img key={a} src={a} alt="" className="h-7 w-7 rounded-full object-cover object-top ring-2 ring-ink-950" />
+                    ))}
+                  </div>
+                  <p className="text-[11.5px] text-white/45">Trusted by 6 channels · 454K views banked</p>
+                </div>
               </motion.div>
             </div>
           </motion.div>

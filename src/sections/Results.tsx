@@ -4,15 +4,18 @@ import { CountUp } from '../components/ui/CountUp'
 
 function Frame({ src, caption }: { src: string; caption: string }) {
   return (
-    <figure className="glow-ring surface relative overflow-hidden p-2.5">
+    <figure className="thumb-frame glow-ring surface relative overflow-hidden p-2.5">
       <div className="flex items-center gap-1.5 px-2 pb-2.5 pt-1">
-        <span className="h-2 w-2 rounded-full bg-white/15" />
-        <span className="h-2 w-2 rounded-full bg-white/15" />
-        <span className="h-2 w-2 rounded-full bg-white/15" />
-        <span className="ml-2 truncate font-sans text-[10.5px] text-white/[0.32]">{caption}</span>
+        <span className="h-2 w-2 rounded-full bg-ember-400/70" />
+        <span className="h-2 w-2 rounded-full bg-violet-400/70" />
+        <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+        <span className="ml-2 truncate font-sans text-[10.5px] text-white/[0.45]">{caption}</span>
+        <span className="ml-auto shrink-0 rounded-full bg-emerald-400/15 px-2 py-0.5 font-sans text-[9px] font-semibold uppercase tracking-[0.1em] text-emerald-300">
+          Real screenshot
+        </span>
       </div>
-      <div className="overflow-hidden rounded-xl border border-white/10 bg-white">
-        <img src={src} alt={caption} loading="lazy" className="block w-full" />
+      <div className="overflow-hidden rounded-xl border border-white/20 bg-white">
+        <img src={src} alt={caption} loading="lazy" className="img-proof block w-full" />
       </div>
       <div
         aria-hidden

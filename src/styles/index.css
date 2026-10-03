@@ -201,6 +201,45 @@
   .no-bar {
     scrollbar-width: none;
   }
+
+  /* ---- visual punch: thumbnails + screenshots stay vivid on dark ---- */
+  .img-bright {
+    filter: saturate(1.22) brightness(1.08) contrast(1.06);
+  }
+  .img-proof {
+    filter: saturate(1.08) brightness(1.04) contrast(1.04);
+  }
+  .thumb-frame {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 24px 60px -24px rgba(0, 0, 0, 0.9),
+      0 0 0 1px rgba(139, 92, 246, 0.12),
+      0 0 44px -12px rgba(139, 92, 246, 0.45);
+  }
+  .thumb-frame-warm {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 24px 60px -24px rgba(0, 0, 0, 0.9),
+      0 0 44px -12px rgba(255, 138, 61, 0.4);
+  }
+
+  /* ---- mobile-dope snap carousels ---- */
+  .snap-dope {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .snap-dope > * {
+    scroll-snap-align: center;
+  }
+  .snap-peek {
+    scroll-padding-inline: 20px;
+  }
+  @media (min-width: 640px) {
+    .snap-dope {
+      scroll-snap-type: none;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

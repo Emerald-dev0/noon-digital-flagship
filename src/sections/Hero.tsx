@@ -97,10 +97,10 @@ export function Hero() {
                 x: useTransform(px, [-1, 1], [-14, 14]),
                 y: useTransform(py, [-1, 1], [-10, 10]),
               }}
-              className="relative mx-auto h-[600px] w-full max-w-[430px]"
+              className="relative mx-auto h-[500px] w-full max-w-[430px] sm:h-[560px] lg:h-[600px]"
             >
               {/* search pill */}
-              <Reveal delay={0.3} y={20} className="absolute left-0 top-0 z-30 w-[86%]">
+              <Reveal delay={0.3} y={20} className="absolute left-0 top-0 z-30 w-[92%] sm:w-[86%]">
                 <div className="glow-ring surface flex items-center gap-3 rounded-full px-4 py-3">
                   <svg viewBox="0 0 20 20" className="h-4 w-4 shrink-0 text-white/40" fill="none">
                     <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
@@ -116,13 +116,13 @@ export function Hero() {
                       />
                     )}
                   </span>
-                  <span className="ml-auto hidden shrink-0 rounded-full bg-violet-500/15 px-2.5 py-1 font-sans text-[10.5px] font-medium tracking-wide text-violet-200 sm:block">
+                  <span className="ml-auto shrink-0 rounded-full bg-violet-500/20 px-2.5 py-1 font-sans text-[10.5px] font-medium tracking-wide text-violet-100">
                     #1 result
                   </span>
                 </div>
               </Reveal>
 
-              {/* stacked result cards */}
+              {/* stacked result cards — brighter, punchier */}
               {[
                 { src: '/images/thumbnails/image20.png', rot: -5, x: 4, yy: 104, z: 10, scale: 0.88, delay: 0.5 },
                 { src: '/images/thumbnails/image22.png', rot: 3, x: 46, yy: 244, z: 20, scale: 0.94, delay: 0.42 },
@@ -134,9 +134,9 @@ export function Hero() {
                   animate={{ opacity: 1, y: c.yy, rotate: c.rot, scale: c.scale }}
                   transition={{ duration: 1.1, delay: c.delay, ease: [0.16, 1, 0.3, 1] }}
                   style={{ zIndex: c.z, left: c.x }}
-                  className="absolute w-[76%] overflow-hidden rounded-xl border border-white/[0.12] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)]"
+                  className="thumb-frame absolute w-[82%] overflow-hidden rounded-xl sm:w-[76%]"
                 >
-                  <img src={c.src} alt="" loading="eager" className="block aspect-video w-full object-cover" />
+                  <img src={c.src} alt="Ranked client video thumbnail" loading="eager" className="img-bright block aspect-video w-full object-cover" />
                   {c.z === 30 && (
                     <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-2 bg-gradient-to-t from-black/90 to-transparent px-3 pb-2.5 pt-10">
                       <span className="flex items-center gap-1.5 rounded-full bg-violet-500/90 px-2 py-0.5 font-sans text-[10px] font-medium text-white">
@@ -150,28 +150,53 @@ export function Hero() {
                 </motion.figure>
               ))}
 
+              {/* floating proof: faces + booked-calls chip — mobile visible */}
+              <Reveal delay={0.6} y={16} className="absolute bottom-2 right-0 z-30 w-[62%] sm:w-[54%]">
+                <div className="thumb-frame-warm overflow-hidden rounded-xl bg-ink-900/90 backdrop-blur-md">
+                  <div className="flex items-center gap-2 px-3 pt-2.5">
+                    <div className="flex -space-x-2">
+                      {['/people/face-image11-0.png', '/people/face-image19-0.png', '/people/face-image8-0.png', '/people/face-image12-0.png'].map((a) => (
+                        <img key={a} src={a} alt="" loading="lazy" className="h-6 w-6 rounded-full object-cover object-top ring-2 ring-ink-900" />
+                      ))}
+                    </div>
+                    <span className="font-sans text-[10px] font-medium text-white/70">6 channels live</span>
+                    <span className="ml-auto flex items-center gap-1 rounded-full bg-emerald-400/15 px-2 py-0.5 font-sans text-[9.5px] font-semibold text-emerald-300">
+                      <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-400" /> 35 calls/mo
+                    </span>
+                  </div>
+                  <img src="/assets/proof/views-454k.png" alt="Client channel analytics showing 454K views" loading="lazy" className="img-proof mt-2 block w-full object-cover object-top" style={{ height: 86 }} />
+                </div>
+              </Reveal>
+
               <div
                 aria-hidden
-                className="absolute bottom-[-4rem] left-1/2 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-violet-600/[0.22] blur-[90px]"
+                className="absolute bottom-[-4rem] left-1/2 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-violet-600/[0.28] blur-[90px]"
               />
             </motion.div>
+
+            {/* mobile thumbnail strip — swipeable, bright */}
+            <div className="no-bar snap-dope snap-peek -mx-5 mt-8 flex gap-2.5 overflow-x-auto px-5 pb-1 lg:hidden">
+              {['/images/thumbnails/image1.png', '/images/thumbnails/image8.png', '/images/thumbnails/image14.png', '/images/thumbnails/image17.png', '/images/thumbnails/image24.png'].map((src) => (
+                <img key={src} src={src} alt="Client thumbnail" loading="lazy" className="img-bright thumb-frame h-[64px] w-[114px] shrink-0 rounded-lg object-cover" />
+              ))}
+            </div>
           </div>
         </div>
 
         {/* --------------------------------------------------------- stats */}
-        <Reveal delay={0.9} y={22} className="mt-16 md:mt-24">
+        <Reveal delay={0.9} y={22} className="mt-12 md:mt-24">
           <div className="hairline" />
-          <dl className="grid gap-px overflow-hidden sm:grid-cols-3">
+          <dl className="grid grid-cols-3 gap-3 sm:gap-px sm:overflow-hidden">
             {HERO.stats.map((s) => (
-              <div key={s.label} className="group relative py-7 pr-6 sm:py-8">
+              <div key={s.label} className="group relative py-5 pr-2 sm:py-8 sm:pr-6">
                 <dt
-                  className={`num font-display text-[clamp(1.9rem,4vw,2.9rem)] font-semibold tracking-[-0.045em] ${
+                  className={`num font-display text-[clamp(1.15rem,5.2vw,2.9rem)] font-semibold tracking-[-0.045em] ${
                     s.tone === 'ember' ? 'text-ember-400' : 'text-white'
                   }`}
                 >
                   <CountUp value={s.value} />
                 </dt>
-                <dd className="mt-1.5 max-w-[16rem] text-[13px] leading-snug text-white/45">{s.label}</dd>
+                <dd className="mt-1.5 max-w-[16rem] text-[11px] leading-snug text-white/45 sm:text-[13px]">{s.label}</dd>
                 <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-violet-400 to-transparent transition-all duration-500 group-hover:w-full" />
               </div>
             ))}

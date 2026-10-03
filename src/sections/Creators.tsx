@@ -67,48 +67,55 @@ export function Creators() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[24px] border border-white/[0.08] bg-white/[0.06] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="no-bar snap-dope snap-peek -mx-5 mt-10 flex gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:rounded-[24px] sm:border sm:border-white/[0.08] sm:bg-white/[0.06] sm:p-0 md:mt-14 lg:grid-cols-3">
           {CREATORS.people.map((person, i) => (
-            <Reveal key={person.name} delay={0.05 * (i % 3)} className="h-full">
+            <Reveal key={person.name} delay={0.05 * (i % 3)} className="h-full w-[84%] shrink-0 sm:w-auto">
               <a
                 href={person.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Open ${person.name}'s channel (${person.handle}) on YouTube`}
-                className="group relative block h-full overflow-hidden bg-ink-900 p-5 outline-none transition-colors duration-500 focus-visible:ring-2 focus-visible:ring-violet-400/70 md:p-6"
+                className="thumb-frame group relative block h-full overflow-hidden rounded-2xl bg-ink-900 outline-none transition-transform duration-500 active:scale-[0.98] sm:rounded-none sm:border-0 focus-visible:ring-2 focus-visible:ring-violet-400/70 md:p-0"
               >
-                {/* cropped channel still, used as a soft backdrop */}
-                <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.1] transition-opacity duration-700 group-hover:opacity-[0.22]">
-                  <img src={person.cover} alt="" loading="lazy" className="h-full w-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/85 to-ink-900/55" />
+                {/* bright full-bleed cover */}
+                <div className="relative h-36 overflow-hidden sm:h-40">
+                  <img src={person.cover} alt={`${person.name} channel thumbnail`} loading="lazy" className="img-bright h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/25 to-transparent" />
+                  <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/60 px-2.5 py-1 font-sans text-[10px] uppercase tracking-[0.16em] text-white backdrop-blur-md">
+                    {person.tag}
+                  </span>
+                  <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-violet-500/90 px-2.5 py-1 font-sans text-[10px] font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    Watch
+                    <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3">
+                      <path d="M4 12 12 4M12 4H6M12 4v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </div>
 
-                <div className="relative flex items-start gap-3.5">
+                <div className="relative p-4 md:p-5">
+                <div className="relative -mt-10 flex items-end gap-3.5">
                   <span className="relative shrink-0">
                     <img
                       src={person.avatar}
                       alt={person.name}
                       loading="lazy"
-                      className="h-14 w-14 rounded-full object-cover object-top ring-1 ring-white/15 transition-transform duration-500 group-hover:scale-[1.06]"
+                      className="h-14 w-14 rounded-full border-2 border-ink-900 object-cover object-top ring-1 ring-white/25 transition-transform duration-500 group-hover:scale-[1.06]"
                     />
                     <span className="absolute inset-0 rounded-full opacity-0 shadow-[0_0_26px_4px_rgba(139,92,246,0.55)] transition-opacity duration-500 group-hover:opacity-100" />
                   </span>
-                  <div className="min-w-0 pt-1">
+                  <div className="min-w-0 pb-0.5">
                     <h3 className="truncate font-display text-[17px] font-semibold tracking-[-0.03em] text-white">
                       {person.name}
                     </h3>
-                    <p className="mt-0.5 truncate text-[12.5px] text-white/45">{person.role}</p>
-                    <p className="mt-1 truncate font-sans text-[11.5px] text-violet-300/70 transition-colors duration-300 group-hover:text-violet-200">
-                      {person.handle}
-                    </p>
+                    <p className="mt-0.5 truncate text-[12.5px] text-white/55">{person.role}</p>
                   </div>
                 </div>
 
-                <span className="relative mt-4 inline-block rounded-full border border-white/10 px-2.5 py-1 font-sans text-[10px] uppercase tracking-[0.16em] text-white/40">
-                  {person.tag}
-                </span>
+                <p className="mt-2 truncate font-sans text-[11.5px] text-violet-300 transition-colors duration-300 group-hover:text-violet-200">
+                  {person.handle}
+                </p>
 
-                <ul className="relative mt-4 flex flex-wrap gap-1.5">
+                <ul className="relative mt-3.5 flex flex-wrap gap-1.5">
                   {person.chips.map((chip) => (
                     <li
                       key={chip.p}
@@ -119,20 +126,14 @@ export function Creators() {
                     </li>
                   ))}
                 </ul>
-
-                <span
-                  aria-hidden
-                  className="relative mt-4 flex items-center gap-1.5 font-sans text-[11px] uppercase tracking-[0.14em] text-white/30 transition-colors duration-300 group-hover:text-white/60"
-                >
-                  Watch the channel
-                  <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3">
-                    <path d="M4 12 12 4M12 4H6M12 4v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
+                </div>
               </a>
             </Reveal>
           ))}
         </div>
+        <p className="mt-3 text-center font-sans text-[10.5px] uppercase tracking-[0.2em] text-white/25 sm:hidden">
+          Swipe → 6 live channels
+        </p>
       </div>
     </section>
   )
