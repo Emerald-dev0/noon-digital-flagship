@@ -145,13 +145,13 @@ export function Nav() {
               >
                 <div className="no-bar flex gap-2.5 overflow-x-auto pb-1">
                   {['/images/thumbnails/image2.png', '/images/thumbnails/image11.png', '/images/thumbnails/image19.png', '/images/thumbnails/image23.png'].map((src) => (
-                    <img key={src} src={src} alt="Client work" className="img-bright thumb-frame h-[56px] w-[100px] shrink-0 rounded-lg object-cover" />
+                    <img key={src} src={src} alt="Client work" loading="lazy" decoding="async" className="img-bright thumb-frame h-[56px] w-[100px] shrink-0 rounded-lg object-cover" />
                   ))}
                 </div>
                 <div className="mt-4 flex items-center gap-3">
                   <div className="flex -space-x-2">
                     {['/people/face-image11-0.png', '/people/face-image8-0.png', '/people/face-image19-0.png'].map((a) => (
-                      <img key={a} src={a} alt="" className="h-7 w-7 rounded-full object-cover object-top ring-2 ring-ink-950" />
+                      <img key={a} src={a} alt="" loading="lazy" decoding="async" className="h-7 w-7 rounded-full object-cover object-top ring-2 ring-ink-950" />
                     ))}
                   </div>
                   <p className="text-[11.5px] text-white/45">Trusted by 6 channels · 454K views banked</p>

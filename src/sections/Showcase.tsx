@@ -61,6 +61,7 @@ function MarqueeRow({
               src={src}
               alt={`Client YouTube thumbnail ${i % images.length + 1}`}
               loading="lazy"
+              decoding="async"
               className="img-bright block aspect-video w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             />
             <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-gradient-to-t from-black/85 via-black/40 to-transparent px-2.5 pb-2 pt-8">

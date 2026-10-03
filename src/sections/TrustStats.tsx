@@ -87,7 +87,7 @@ export function TrustStats() {
                   </span>
                   <span className="truncate font-sans text-[10px] text-white/45">{p.caption}</span>
                 </div>
-                <img src={p.src} alt={p.caption} loading="lazy" className="img-proof block w-full object-cover object-top" style={{ height: 150 }} />
+                <img src={p.src} alt={p.caption} loading="lazy" decoding="async" className="img-proof block w-full object-cover object-top" style={{ height: 150 }} />
               </figure>
             ))}
           </div>

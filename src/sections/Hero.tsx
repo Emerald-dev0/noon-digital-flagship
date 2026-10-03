@@ -136,7 +136,7 @@ export function Hero() {
                   style={{ zIndex: c.z, left: c.x }}
                   className="thumb-frame absolute w-[82%] overflow-hidden rounded-xl sm:w-[76%]"
                 >
-                  <img src={c.src} alt="Ranked client video thumbnail" loading="eager" className="img-bright block aspect-video w-full object-cover" />
+                  <img src={c.src} alt="Ranked client video thumbnail" loading="eager" fetchPriority="high" decoding="async" className="img-bright block aspect-video w-full object-cover" />
                   {c.z === 30 && (
                     <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-2 bg-gradient-to-t from-black/90 to-transparent px-3 pb-2.5 pt-10">
                       <span className="flex items-center gap-1.5 rounded-full bg-violet-500/90 px-2 py-0.5 font-sans text-[10px] font-medium text-white">
@@ -156,7 +156,7 @@ export function Hero() {
                   <div className="flex items-center gap-2 px-3 pt-2.5">
                     <div className="flex -space-x-2">
                       {['/people/face-image11-0.png', '/people/face-image19-0.png', '/people/face-image8-0.png', '/people/face-image12-0.png'].map((a) => (
-                        <img key={a} src={a} alt="" loading="lazy" className="h-6 w-6 rounded-full object-cover object-top ring-2 ring-ink-900" />
+                        <img key={a} src={a} alt="" loading="lazy" decoding="async" className="h-6 w-6 rounded-full object-cover object-top ring-2 ring-ink-900" />
                       ))}
                     </div>
                     <span className="font-sans text-[10px] font-medium text-white/70">6 channels live</span>
@@ -164,7 +164,7 @@ export function Hero() {
                       <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-400" /> 35 calls/mo
                     </span>
                   </div>
-                  <img src="/assets/proof/views-454k.png" alt="Client channel analytics showing 454K views" loading="lazy" className="img-proof mt-2 block w-full object-cover object-top" style={{ height: 86 }} />
+                  <img src="/assets/proof/views-454k.png" alt="Client channel analytics showing 454K views" loading="lazy" decoding="async" className="img-proof mt-2 block w-full object-cover object-top" style={{ height: 86 }} />
                 </div>
               </Reveal>
 
@@ -177,7 +177,7 @@ export function Hero() {
             {/* mobile thumbnail strip — swipeable, bright */}
             <div className="no-bar snap-dope snap-peek -mx-5 mt-8 flex gap-2.5 overflow-x-auto px-5 pb-1 lg:hidden">
               {['/images/thumbnails/image1.png', '/images/thumbnails/image8.png', '/images/thumbnails/image14.png', '/images/thumbnails/image17.png', '/images/thumbnails/image24.png'].map((src) => (
-                <img key={src} src={src} alt="Client thumbnail" loading="lazy" className="img-bright thumb-frame h-[64px] w-[114px] shrink-0 rounded-lg object-cover" />
+                <img key={src} src={src} alt="Client thumbnail" loading="lazy" decoding="async" className="img-bright thumb-frame h-[64px] w-[114px] shrink-0 rounded-lg object-cover" />
               ))}
             </div>
           </div>

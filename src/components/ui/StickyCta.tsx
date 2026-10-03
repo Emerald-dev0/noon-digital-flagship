@@ -37,7 +37,7 @@ export function StickyCta() {
           >
             <span className="relative flex -space-x-2">
               {['/people/face-image11-0.png', '/people/face-image19-0.png'].map((a) => (
-                <img key={a} src={a} alt="" loading="lazy" className="h-9 w-9 rounded-full border-2 border-ink-900 object-cover object-top" />
+                <img key={a} src={a} alt="" loading="lazy" decoding="async" className="h-9 w-9 rounded-full border-2 border-ink-900 object-cover object-top" />
               ))}
               <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-ink-900 bg-emerald-400" />
             </span>

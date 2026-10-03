@@ -15,7 +15,7 @@ function Frame({ src, caption }: { src: string; caption: string }) {
         </span>
       </div>
       <div className="overflow-hidden rounded-xl border border-white/20 bg-white">
-        <img src={src} alt={caption} loading="lazy" className="img-proof block w-full" />
+        <img src={src} alt={caption} loading="lazy" decoding="async" className="img-proof block w-full" />
       </div>
       <div
         aria-hidden

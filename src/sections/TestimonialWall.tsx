@@ -135,6 +135,7 @@ function Card({ card, index }: { card: ChatCard; index: number }) {
             src={card.avatar}
             alt=""
             loading="lazy"
+            decoding="async"
             className="h-9 w-9 shrink-0 rounded-full object-cover ring-1 ring-white/[0.12]"
           />
         ) : (
@@ -155,7 +156,7 @@ function Card({ card, index }: { card: ChatCard; index: number }) {
 
       {card.image && (
         <div className="mt-3 overflow-hidden rounded-lg border border-white/10 bg-[#1a1d21]">
-          <img src={card.image} alt="Client message screenshot" loading="lazy" className="block w-full" />
+          <img src={card.image} alt="Client message screenshot" loading="lazy" decoding="async" className="block w-full" />
         </div>
       )}
 

@@ -35,6 +35,7 @@ export function VideoTestimonials() {
                       src={item.poster}
                       alt={`${item.name} testimonial`}
                       loading="lazy"
+                      decoding="async"
                       animate={reduced ? {} : { scale: hover === i ? 1.05 : 1 }}
                       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                       className="img-bright h-full w-full object-cover"

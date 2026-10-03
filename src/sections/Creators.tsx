@@ -79,7 +79,7 @@ export function Creators() {
               >
                 {/* bright full-bleed cover */}
                 <div className="relative h-36 overflow-hidden sm:h-40">
-                  <img src={person.cover} alt={`${person.name} channel thumbnail`} loading="lazy" className="img-bright h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                  <img src={person.cover} alt={`${person.name} channel thumbnail`} loading="lazy" decoding="async" className="img-bright h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/25 to-transparent" />
                   <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/60 px-2.5 py-1 font-sans text-[10px] uppercase tracking-[0.16em] text-white backdrop-blur-md">
                     {person.tag}
@@ -99,6 +99,7 @@ export function Creators() {
                       src={person.avatar}
                       alt={person.name}
                       loading="lazy"
+                      decoding="async"
                       className="h-14 w-14 rounded-full border-2 border-ink-900 object-cover object-top ring-1 ring-white/25 transition-transform duration-500 group-hover:scale-[1.06]"
                     />
                     <span className="absolute inset-0 rounded-full opacity-0 shadow-[0_0_26px_4px_rgba(139,92,246,0.55)] transition-opacity duration-500 group-hover:opacity-100" />
