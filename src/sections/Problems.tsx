@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from 'framer-motion'
 import { PROBLEMS } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 
@@ -37,9 +37,13 @@ export function Problems() {
                 <Reveal key={item.n} delay={0.06 * i}>
                   <li
                     onMouseEnter={() => !reduced && setActive(i)}
-                    onClick={() => setActive(open ? null : i)}
-                    className="group relative cursor-pointer border-t border-white/10 py-7 transition-colors last:border-b md:py-8"
+                    className="group relative border-t border-white/10 py-7 transition-colors last:border-b md:py-8"
                   >
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-ember-400/70 to-transparent transition-opacity duration-500"
+                      style={{ opacity: open ? 1 : 0 }}
+                    />
                     <span
                       className="pointer-events-none absolute inset-y-0 left-[-24px] right-[-24px] -z-10 rounded-2xl bg-gradient-to-r from-violet-500/[0.07] to-transparent opacity-0 transition-opacity duration-500"
                       style={{ opacity: open ? 1 : 0 }}
@@ -57,7 +61,7 @@ export function Problems() {
                         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
                           <h3
                             className={`fluid-h3 font-display transition-all duration-500 ${
-                              open ? 'text-white md:translate-x-1.5' : 'text-white/55'
+                              open ? 'text-white md:translate-x-1.5' : 'text-white/[0.82]'
                             }`}
                           >
                             {item.title}
@@ -67,21 +71,13 @@ export function Problems() {
                           </span>
                         </div>
 
-                        <AnimatePresence initial={false}>
-                          {open && (
-                            <motion.div
-                              initial={reduced ? false : { height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                              className="overflow-hidden"
-                            >
-                              <p className="max-w-[40rem] pt-4 text-[15px] leading-relaxed text-white/55">
-                                {item.body}
-                              </p>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
+                        <p
+                          className={`max-w-[40rem] pt-4 text-[15px] leading-relaxed transition-colors duration-500 ${
+                            open ? 'text-white/[0.68]' : 'text-white/45'
+                          }`}
+                        >
+                          {item.body}
+                        </p>
                       </div>
                     </div>
                   </li>

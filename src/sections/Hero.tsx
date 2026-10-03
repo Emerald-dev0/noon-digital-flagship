@@ -67,11 +67,20 @@ export function Hero() {
               <p className="text-[16.5px] leading-[1.7] text-white/[0.62] md:text-[17.5px]">{HERO.sub}</p>
             </Reveal>
 
-            <Reveal delay={0.68} y={18} className="mt-9 flex flex-wrap items-center gap-3.5">
-              <MagneticButton href={HERO.primary.href}>
+            <Reveal
+              delay={0.68}
+              y={18}
+              className="mt-9 grid grid-cols-1 gap-3 min-[420px]:flex min-[420px]:flex-wrap min-[420px]:items-center min-[420px]:gap-3.5"
+            >
+              <MagneticButton href={HERO.primary.href} className="w-full justify-center min-[420px]:w-auto">
                 {HERO.primary.label} <ArrowGlyph />
               </MagneticButton>
-              <MagneticButton href={HERO.secondary.href} variant="ghost" strength={0.22}>
+              <MagneticButton
+                href={HERO.secondary.href}
+                variant="ghost"
+                strength={0.22}
+                className="w-full justify-center min-[420px]:w-auto"
+              >
                 {HERO.secondary.label}
               </MagneticButton>
             </Reveal>

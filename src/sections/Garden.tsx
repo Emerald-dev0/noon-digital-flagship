@@ -229,7 +229,7 @@ function StageCard({
           <ProofPane stage={stage} />
         </div>
 
-        <footer className="relative mt-6 flex items-end gap-3 border-t border-white/[0.08] pt-5">
+        <footer className="relative mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 border-t border-white/[0.08] pt-5">
           <span
             className={`num font-display text-[clamp(1.6rem,3.4vw,2.2rem)] font-semibold tracking-[-0.045em] ${
               stage.key === 'harvest' ? 'text-ember-400' : 'text-violet-200'
@@ -237,7 +237,7 @@ function StageCard({
           >
             {stage.metric.value}
           </span>
-          <span className="pb-1.5 text-[12.5px] text-white/[0.42]">{stage.metric.label}</span>
+          <span className="text-[12.5px] leading-snug text-white/[0.42]">{stage.metric.label}</span>
         </footer>
       </div>
     </motion.article>

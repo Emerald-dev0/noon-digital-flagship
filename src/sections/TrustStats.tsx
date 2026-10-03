@@ -41,8 +41,8 @@ export function TrustStats() {
                   key={c.label}
                   delay={0.05 * i}
                   className={`group relative bg-ink-900 p-6 md:p-7 ${
-                    i === 0 || i === TRUST.cells.length - 1 ? 'col-span-2' : ''
-                  }`}
+                    i === 0 ? 'col-span-2' : ''
+                  } ${i === TRUST.cells.length - 1 ? 'md:col-span-2' : ''}`}
                 >
                   <div className="relative z-10">
                     <p
