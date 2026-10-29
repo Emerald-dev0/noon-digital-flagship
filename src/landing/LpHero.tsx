@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { TrendingUp } from 'lucide-react'
 import { LP } from '../data/landing'
-import { CtaButton, Reveal, shell } from './LpUi'
+import { CtaButton, Em, Reveal, shell } from './LpUi'
 import { PlayButton, YouTubeLite } from './VideoBits'
 import { CountUp } from '../components/ui/CountUp'
 import { cn } from '../utils/cn'
@@ -12,76 +12,93 @@ const fade = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: 'easeOut' as const },
 })
 
-// The collage is the actual client thumbnails, fanned out dahus-style.
-const COLLAGE: { src: string; cls: string; float?: number }[] = [
-  { src: '/images/thumbnails/image17.png', cls: 'left-[4%] top-[38%] w-[36%] rotate-[4deg] z-0' },
-  { src: '/images/thumbnails/image24.png', cls: 'right-[-3%] top-[36%] w-[32%] rotate-[7deg] z-0' },
-  { src: '/images/thumbnails/image20.png', cls: 'left-0 top-[1%] w-[47%] -rotate-6 z-10', float: 7 },
-  { src: '/images/thumbnails/image2.png', cls: 'right-0 top-0 w-[45%] rotate-[5deg] z-10', float: 8.5 },
-  { src: '/images/thumbnails/image8.png', cls: 'left-[21%] top-[17%] w-[58%] z-20', float: 9 },
-  { src: '/images/thumbnails/image10.png', cls: 'bottom-[4%] left-[1%] w-[43%] -rotate-3 z-30', float: 7.5 },
-  { src: '/images/thumbnails/image9.png', cls: 'bottom-[1%] right-[2%] w-[47%] rotate-[3deg] z-30', float: 8 },
+// The wall: all 24 real client thumbnails in three scrolling columns.
+const sm = (n: number) => `/images/thumbnails/sm/image${n}.webp`
+const COLUMNS: { images: number[]; duration: string; reverse?: boolean }[] = [
+  { images: [8, 1, 15, 20, 6, 13, 22, 4], duration: '42s' },
+  { images: [2, 17, 10, 23, 5, 19, 12, 21], duration: '52s', reverse: true },
+  { images: [9, 3, 24, 11, 16, 7, 14, 18], duration: '46s' },
 ]
 
-function Collage() {
-  const { chips } = LP.hero
+function ThumbWall() {
   return (
-    <div className="relative h-[360px] w-full sm:h-[440px] lg:h-[520px]">
-      {COLLAGE.map((item, i) => (
-        <motion.img
-          key={item.src}
-          src={item.src}
-          alt=""
-          initial={{ opacity: 0, y: 24, rotate: 0 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 + i * 0.07, ease: 'easeOut' }}
-          className={cn(
-            'absolute aspect-video rounded-xl object-cover shadow-[0_24px_50px_-18px_rgba(10,21,48,0.45)] ring-1 ring-black/10',
-            item.cls,
-          )}
-        />
-      ))}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.9, delay: 0.2 }}
+      className="relative h-[420px] overflow-hidden sm:h-[500px] lg:h-[600px]"
+      style={{
+        maskImage: 'linear-gradient(to bottom, transparent, black 12%, black 86%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 12%, black 86%, transparent)',
+      }}
+      aria-hidden="true"
+    >
+      <div className="flex h-full -rotate-3 scale-[1.12] items-start justify-center gap-3">
+        {COLUMNS.map((col, ci) => (
+          <div
+            key={ci}
+            className={cn(
+              'flex w-[31%] min-w-[150px] max-w-[230px] shrink-0 animate-marquee-y flex-col gap-3',
+              ci === 2 && 'hidden sm:flex',
+            )}
+            style={{
+              '--marquee-duration': col.duration,
+              animationDirection: col.reverse ? 'reverse' : undefined,
+            } as React.CSSProperties}
+          >
+            {[...col.images, ...col.images].map((n, i) => (
+              <img
+                key={`${n}-${i}`}
+                src={sm(n)}
+                alt=""
+                loading={i < 4 ? 'eager' : 'lazy'}
+                className="aspect-video w-full rounded-lg object-cover shadow-[0_14px_30px_-12px_rgba(10,21,48,0.35)] ring-1 ring-black/10"
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  )
+}
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-        className="absolute -left-2 bottom-[30%] z-40 flex -rotate-2 items-center gap-2.5 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_16px_36px_-12px_rgba(10,21,48,0.4)] ring-1 ring-slate-100 sm:left-[2%]"
-      >
-        <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-50 text-emerald-600">
-          <TrendingUp className="h-4 w-4" />
-        </span>
-        <span>
-          <span className="block font-archivo text-[15px] font-extrabold leading-none text-navy-900">{chips[0].value}</span>
-          <span className="mt-1 block text-[11px] font-medium text-slate-400">{chips[0].label}</span>
-        </span>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.82 }}
-        className="absolute -right-2 top-[30%] z-40 flex rotate-2 items-center gap-2.5 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_16px_36px_-12px_rgba(10,21,48,0.4)] ring-1 ring-slate-100 sm:right-[1%]"
-      >
-        <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-50 text-brand-600">
-          <TrendingUp className="h-4 w-4" />
-        </span>
-        <span>
-          <span className="block font-archivo text-[15px] font-extrabold leading-none text-navy-900">{chips[1].value}</span>
-          <span className="mt-1 block text-[11px] font-medium text-slate-400">{chips[1].label}</span>
-        </span>
-      </motion.div>
-    </div>
+function FloatChip({
+  chip,
+  className,
+  delay,
+}: {
+  chip: { value: string; label: string }
+  className?: string
+  delay: number
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, delay }}
+      className={cn(
+        'absolute z-20 flex items-center gap-2.5 rounded-xl bg-white px-3.5 py-2.5 shadow-[0_18px_40px_-12px_rgba(10,21,48,0.45)] ring-1 ring-slate-100',
+        className,
+      )}
+    >
+      <span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-50 text-emerald-600">
+        <TrendingUp className="h-4 w-4" />
+      </span>
+      <span>
+        <span className="block font-archivo text-[15px] font-extrabold leading-none text-navy-900">{chip.value}</span>
+        <span className="mt-1 block text-[11px] font-medium text-slate-400">{chip.label}</span>
+      </span>
+    </motion.div>
   )
 }
 
 function Vsl() {
   const { vsl } = LP
   return (
-    <Reveal className="mx-auto mt-16 max-w-4xl md:mt-20">
-      <p className="mb-3.5 flex items-center gap-2 text-sm font-bold text-navy-900">
+    <Reveal className="mx-auto mt-16 max-w-4xl md:mt-24">
+      <p className="mb-3.5 flex items-baseline gap-2 text-[15px] font-bold text-navy-900">
         {vsl.label}
-        <span className="font-medium text-slate-400">— how the whole system works, in 9 minutes</span>
+        <span className="text-sm font-medium text-slate-400">— how the whole system works, in 9 minutes</span>
       </p>
       {vsl.youtubeId ? (
         <YouTubeLite id={vsl.youtubeId} title="Watch this first" className="shadow-[0_30px_70px_-24px_rgba(10,21,48,0.5)]" />
@@ -108,10 +125,13 @@ export function LpHero() {
   const { hero } = LP
 
   return (
-    <section id="top" className="relative">
-      <div className={shell}>
-        <div className="grid items-center gap-12 pt-[130px] lg:grid-cols-[1fr_1.05fr] lg:gap-8 lg:pt-[160px]">
-          <div>
+    <section id="top" className="relative overflow-hidden">
+      {/* faint blue tint, dahus-style — flat, no blobs */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[linear-gradient(to_bottom,#e8efff_0%,#f4f8ff_55%,#ffffff_100%)]" />
+
+      <div className={`${shell} relative`}>
+        <div className="grid items-center gap-10 pt-[128px] lg:grid-cols-[1fr_1.02fr] lg:gap-6 lg:pt-[150px]">
+          <div className="relative z-10">
             <motion.p {...fade(0)} className="flex items-center gap-2.5 text-[13px] font-bold uppercase tracking-[0.14em] text-brand-600">
               <span className="h-px w-8 bg-brand-600" />
               {hero.kicker}
@@ -119,19 +139,12 @@ export function LpHero() {
 
             <motion.h1
               {...fade(0.07)}
-              className="mt-5 text-[clamp(2.7rem,5.6vw,4.6rem)] font-extrabold leading-[0.98] tracking-[-0.035em] text-navy-900"
+              className="mt-5 text-[clamp(3rem,6.4vw,5.4rem)] font-extrabold leading-[0.95] tracking-[-0.035em] text-navy-900"
             >
-              {hero.titleTop}{' '}
-              <span className="relative inline-block whitespace-nowrap text-brand-600">
-                {hero.titleAccent}
-                <svg viewBox="0 0 220 12" preserveAspectRatio="none" className="absolute -bottom-1.5 left-0 h-[10px] w-full text-brand-300" aria-hidden="true">
-                  <path d="M3 9 C 60 3, 150 3, 217 7" stroke="currentColor" strokeWidth="5" strokeLinecap="round" fill="none" />
-                </svg>
-              </span>{' '}
-              {hero.titleBottom}
+              {hero.titleTop} <Em>{hero.titleAccent}</Em>
             </motion.h1>
 
-            <motion.p {...fade(0.14)} className="mt-6 max-w-lg text-[17px] leading-relaxed text-slate-500">
+            <motion.p {...fade(0.14)} className="mt-6 max-w-lg text-[17px] leading-relaxed text-slate-600">
               {hero.sub}
             </motion.p>
 
@@ -150,19 +163,23 @@ export function LpHero() {
             </motion.div>
           </div>
 
-          <Collage />
+          <div className="relative">
+            <ThumbWall />
+            <FloatChip chip={hero.chips[0]} delay={0.75} className="-left-1 bottom-[16%] -rotate-2 sm:left-[3%]" />
+            <FloatChip chip={hero.chips[1]} delay={0.9} className="-right-1 top-[12%] rotate-2 sm:right-[3%]" />
+          </div>
         </div>
 
         <Vsl />
 
-        <Reveal className="mt-16 border-y border-slate-200/90 md:mt-20">
+        <Reveal className="mt-16 border-y border-slate-200/90 md:mt-24">
           <div className="grid grid-cols-2 divide-slate-200/90 max-lg:gap-y-2 lg:grid-cols-4 lg:divide-x">
             {hero.stats.map((s) => (
-              <div key={s.label} className="py-7 lg:px-8 lg:first:pl-0">
-                <p className="font-archivo text-4xl font-extrabold tracking-tight text-navy-900 md:text-[2.75rem]">
+              <div key={s.label} className="py-8 lg:px-9 lg:first:pl-0">
+                <p className="font-archivo text-5xl font-extrabold tracking-tight text-navy-900 md:text-[3.4rem]">
                   <CountUp value={s.value} />
                 </p>
-                <p className="mt-1 text-sm text-slate-400">{s.label}</p>
+                <p className="mt-1.5 text-sm text-slate-400">{s.label}</p>
               </div>
             ))}
           </div>

@@ -1,39 +1,52 @@
 import { LP } from '../data/landing'
-import { SectionHead, shell } from './LpUi'
+import { Em, Reveal, shell } from './LpUi'
 import { YouTubeLite } from './VideoBits'
 
-function ThumbStrip() {
-  const row = [...LP.work.strip, ...LP.work.strip]
+function WorkRow({ ids, reverse = false, duration, offset }: { ids: string[]; reverse?: boolean; duration: string; offset: number }) {
+  const row = [...ids, ...ids]
   return (
-    <div className="relative -mx-4 -rotate-1 overflow-hidden py-2">
-      <div className="flex w-max animate-marquee gap-3 [--marquee-duration:70s] hover:[animation-play-state:paused]">
-        {row.map((src, i) => (
-          <img
-            key={`${src}-${i}`}
-            src={src}
-            alt=""
-            loading="lazy"
-            className="h-24 w-auto shrink-0 rounded-lg object-cover ring-1 ring-black/10 md:h-32"
-          />
-        ))}
-      </div>
+    <div
+      className="flex w-max animate-marquee gap-4 px-4 focus-within:[animation-play-state:paused] hover:[animation-play-state:paused]"
+      style={{ '--marquee-duration': duration, animationDirection: reverse ? 'reverse' : undefined } as React.CSSProperties}
+    >
+      {row.map((id, i) => (
+        <div key={`${id}-${i}`} className="w-[300px] shrink-0 sm:w-[360px] lg:w-[400px]">
+          <YouTubeLite id={id} title={`Client video ${offset + (i % ids.length) + 1}`} rounded="rounded-xl" />
+        </div>
+      ))}
     </div>
   )
 }
 
 export function OurWork() {
   const { work } = LP
+  const first = work.videos.slice(0, 9)
+  const second = work.videos.slice(9)
 
   return (
-    <section id="work" className="overflow-hidden py-20 md:py-28">
-      <ThumbStrip />
-      <div className={`${shell} mt-16 md:mt-20`}>
-        <SectionHead title={work.title} sub={work.sub} />
-        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4">
-          {work.videos.map((id, i) => (
-            <YouTubeLite key={id} id={id} title={`Client video ${i + 1}`} rounded="rounded-xl" />
-          ))}
+    <section id="work" className="overflow-hidden bg-navy-950 py-20 md:py-28">
+      <div className={shell}>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <Reveal>
+            <h2 className="text-[clamp(2.4rem,4.6vw,3.7rem)] font-extrabold leading-[1.0] tracking-[-0.03em] text-white">
+              Our <Em>work</Em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="max-w-xs text-[15px] leading-relaxed text-white/50">{work.note}</p>
+          </Reveal>
         </div>
+      </div>
+
+      <div
+        className="mt-12 space-y-4 overflow-hidden"
+        style={{
+          maskImage: 'linear-gradient(90deg, transparent, black 4%, black 96%, transparent)',
+          WebkitMaskImage: 'linear-gradient(90deg, transparent, black 4%, black 96%, transparent)',
+        }}
+      >
+        <WorkRow ids={first} duration="85s" offset={0} />
+        <WorkRow ids={second} duration="95s" offset={9} reverse />
       </div>
     </section>
   )

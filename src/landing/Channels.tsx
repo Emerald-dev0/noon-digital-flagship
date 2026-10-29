@@ -1,5 +1,5 @@
 import { LP, type LpChannel } from '../data/landing'
-import { Reveal, SectionHead, shell } from './LpUi'
+import { Em, Reveal, SectionHead, shell } from './LpUi'
 import { PLATFORM_META, PlatformIcon } from './VideoBits'
 import { cn } from '../utils/cn'
 
@@ -34,29 +34,44 @@ function ChannelChip({ person }: { person: LpChannel }) {
   )
 }
 
+function Row({ people, reverse = false, duration }: { people: LpChannel[]; reverse?: boolean; duration: string }) {
+  const row = [...people, ...people]
+  return (
+    <div
+      className="flex w-max animate-marquee gap-4 px-4 py-1 hover:[animation-play-state:paused]"
+      style={{ '--marquee-duration': duration, animationDirection: reverse ? 'reverse' : undefined } as React.CSSProperties}
+    >
+      {row.map((person, i) => (
+        <ChannelChip key={`${person.name}-${i}`} person={person} />
+      ))}
+    </div>
+  )
+}
+
 export function Channels() {
   const { channels } = LP
-  const row = [...channels.people, ...channels.people]
+  const first = channels.people.slice(0, 5)
+  const second = [...channels.people.slice(5), channels.people[0]]
 
   return (
     <section id="channels" className="py-20 md:py-24">
       <div className={shell}>
-        <SectionHead title={channels.title} sub={channels.sub} />
+        <SectionHead
+          title={<>Channels we&apos;ve <Em>worked with</Em></>}
+          sub={channels.sub}
+        />
       </div>
 
       <Reveal className="mt-10" delay={0.05}>
         <div
-          className="overflow-hidden"
+          className="space-y-4 overflow-hidden"
           style={{
             maskImage: 'linear-gradient(90deg, transparent, black 6%, black 94%, transparent)',
             WebkitMaskImage: 'linear-gradient(90deg, transparent, black 6%, black 94%, transparent)',
           }}
         >
-          <div className="flex w-max animate-marquee gap-4 px-4 py-1 [--marquee-duration:48s] hover:[animation-play-state:paused]">
-            {row.map((person, i) => (
-              <ChannelChip key={`${person.name}-${i}`} person={person} />
-            ))}
-          </div>
+          <Row people={first} duration="44s" />
+          <Row people={second} duration="50s" reverse />
         </div>
       </Reveal>
     </section>

@@ -1,6 +1,6 @@
 import { Search } from 'lucide-react'
 import { LP } from '../data/landing'
-import { Reveal, SectionHead, shell } from './LpUi'
+import { Em, Reveal, SectionHead, shell } from './LpUi'
 
 type Shot = (typeof LP.ranking.shots)[number]
 
@@ -50,7 +50,7 @@ export function Ranking() {
   return (
     <section id="ranking" className="bg-[#f6f8fc] py-20 md:py-28">
       <div className={shell}>
-        <SectionHead title={ranking.title} sub={ranking.sub} />
+        <SectionHead title={<>Videos ranking on <Em>search</Em></>} sub={ranking.sub} />
       </div>
 
       <Reveal className="mt-12" delay={0.05}>

@@ -8,10 +8,9 @@ export const LP = {
   hero: {
     kicker: 'For coaches, consultants & service providers',
     // TODO: client to confirm final headline — this is written in his voice for now
-    titleTop: 'We get coaches',
-    titleAccent: 'booked calls',
-    titleBottom: 'from YouTube search.',
-    sub: 'Your buyers are already on YouTube searching for what you sell. We find those searches, put you at the top of them, and turn the views into calls. You film a couple of hours a month. We do everything else.',
+    titleTop: 'Booked calls from',
+    titleAccent: 'YouTube search.',
+    sub: 'Your buyers are already typing their problems into YouTube. We find those searches, rank you at the top of them, and turn the views into calls on your calendar. One client booked 37 in a month. Zero ad spend.',
     cta: { label: 'Book a free call', href: '#book' },
     socialProof: 'Working with 9+ channels right now',
     avatars: ['/people/face-image11-0.png', '/people/face-image8-0.png', '/people/face-image12-0.png', '/people/face-image19-0.png'],
@@ -30,7 +29,7 @@ export const LP = {
   // TODO: drop the VSL's YouTube ID in here when he sends it
   vsl: {
     youtubeId: '',
-    poster: '/images/thumbnails/image21.png',
+    poster: '/images/vsl-poster.webp',
     label: 'Watch this first',
     duration: '9:12',
   },
@@ -39,7 +38,7 @@ export const LP = {
   // once-over before launch; TikTok/YouTube URLs added where we have them.
   channels: {
     title: 'Channels we\'ve worked with',
-    sub: 'Nine channels and counting. Click through and check them yourself.',
+    sub: '125K+ subscribers across these channels. Click through and check them yourself.',
     people: [
       {
         name: 'Zak',
@@ -168,21 +167,23 @@ export const LP = {
   // Heads up: the doc calls this "£40K" but the screenshot we have says
   // £29,078 — showing the screenshot's number until he sends the other one.
   results: {
-    title: 'Results',
-    sub: 'Two clients. Screenshots over slogans.',
     cash: {
-      client: 'Zakariya — tech sales coach',
+      tag: 'Result 01 — Tech sales coach',
+      headline: 'Zakariya: £29,078 collected in one quarter, from content',
       value: '£29,078',
       label: 'cash collected in one quarter, from the content',
       points: ['All of it tracked back to the videos', '£0 spent on ads', 'Revenue-share client — we eat what we kill'],
       image: '/assets/chat/chat-revshare.png',
       caption: 'Straight from his messages, June 2026',
+      thumbs: ['/images/thumbnails/sm/image2.webp', '/images/thumbnails/sm/image24.webp'],
     },
     calls: {
-      client: 'Aqib — appointment setting',
+      tag: 'Result 02 — Appointment setting',
+      headline: 'Aqib: 37 calls booked from YouTube in 30 days',
       value: '37',
       label: 'calls booked from YouTube in 30 days',
       points: ['37 of 43 total calls came from YouTube', '31% close rate — they arrive pre-sold', 'Instagram and TikTok booked zero'],
+      thumbs: ['/images/thumbnails/sm/image8.webp', '/images/thumbnails/sm/image20.webp'],
       bars: [
         { source: 'YouTube', calls: 37, highlight: true },
         { source: 'Skool', calls: 5, highlight: false },
@@ -193,34 +194,25 @@ export const LP = {
     },
   },
 
-  // TODO: client sending final process copy — kept short on purpose
+  // TODO: client sending final process copy — structure mirrors tikscale's
   process: {
-    title: 'How it works',
-    sub: 'Four steps. No fluff.',
     steps: [
-      { n: '01', title: 'Find the searches', body: 'We map exactly what your buyers type into YouTube and where the beatable gaps are.' },
-      { n: '02', title: 'Script & package', body: 'Titles, thumbnails and full scripts built to rank and to sell. Done before you film a word.' },
-      { n: '03', title: 'You film, we ship', body: 'About two hours of recording a month from you. Editing, uploading and optimising is ours.' },
-      { n: '04', title: 'Rank & book calls', body: 'Videos climb search and keep working daily. We track which video booked which call.' },
+      { n: '01', title: 'Research the searches', body: 'We find the exact phrases your buyers type into YouTube, how much demand is behind each one, and which results we can beat.' },
+      { n: '02', title: 'Scripting', body: 'Every video scripted before you film — outline or word-for-word, built to rank and to move viewers towards a call.' },
+      { n: '03', title: 'Titles & thumbnails', body: 'Packaged to win the click on search results next to channels ten times your size.' },
+      { n: '04', title: 'You record', body: 'Roughly two hours a month. We direct you and sort your setup so it looks the part.' },
+      { n: '05', title: 'Editing', body: 'Cut for retention, in the style your buyers already watch. You approve, we polish.' },
+      { n: '06', title: 'Rank, track, repeat', body: 'We publish, optimise for search, and track which video booked which call — then double down on what\'s working.' },
     ],
   },
 
   work: {
-    title: 'Our work',
-    sub: 'Every one of these was researched, scripted and shipped by us. Press play.',
+    note: '17 videos. Every one researched, scripted and shipped by us — press play on any of them.',
     videos: [
       'Q4LY8-JyFUA', 'Bu_zAvyFEDM', 'tye7UE_5fBk', 'E8HAMtD0cUE', '2A9AFwESjtQ',
       'c7k8LqBSJis', 'IwRVFSCIhAo', 'JCKjnCxk3YU', 'vkmbeceHMhE', 't9bUdnjALJU',
       'AwtEaOHg2ao', 'HzprkH0xODk', 'CYDjn709_9A', 'K46lNZjnbzQ', 'QBGUqCAInZk',
       'a15lhPy5ByM', 'j5j5Hz4JXcg',
-    ],
-    strip: [
-      '/images/thumbnails/image1.png', '/images/thumbnails/image3.png', '/images/thumbnails/image4.png',
-      '/images/thumbnails/image6.png', '/images/thumbnails/image7.png', '/images/thumbnails/image11.png',
-      '/images/thumbnails/image12.png', '/images/thumbnails/image13.png', '/images/thumbnails/image15.png',
-      '/images/thumbnails/image16.png', '/images/thumbnails/image19.png', '/images/thumbnails/image22.png',
-      '/images/thumbnails/image23.png', '/images/thumbnails/image14.png', '/images/thumbnails/image5.png',
-      '/images/thumbnails/image18.png',
     ],
   },
 

@@ -1,5 +1,5 @@
 import { LP } from '../data/landing'
-import { Reveal, SectionHead, shell } from './LpUi'
+import { Em, Reveal, SectionHead, shell } from './LpUi'
 import { DriveVideo, YouTubeLite } from './VideoBits'
 
 export function ClientStories() {
@@ -8,7 +8,7 @@ export function ClientStories() {
   return (
     <section id="clients" className="bg-[#f6f8fc] py-20 md:py-28">
       <div className={shell}>
-        <SectionHead title={clientVideos.title} sub={clientVideos.sub} />
+        <SectionHead title={<>Hear it from our <Em>clients</Em></>} sub={clientVideos.sub} />
 
         <div className="mt-12 grid gap-x-6 gap-y-12 md:grid-cols-3">
           {clientVideos.items.map((item, i) => (

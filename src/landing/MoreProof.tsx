@@ -1,5 +1,5 @@
 import { LP } from '../data/landing'
-import { Reveal, SectionHead, shell } from './LpUi'
+import { Em, Reveal, SectionHead, shell } from './LpUi'
 
 export function MoreProof() {
   const { moreProof } = LP
@@ -7,7 +7,7 @@ export function MoreProof() {
   return (
     <section id="proof" className="py-20 md:py-28">
       <div className={shell}>
-        <SectionHead title={moreProof.title} sub={moreProof.sub} />
+        <SectionHead title={<>More <Em>proof</Em></>} sub={moreProof.sub} />
 
         <div className="mt-12 columns-1 gap-5 sm:columns-2 [&>*]:mb-5">
           {moreProof.items.map((item, i) => (

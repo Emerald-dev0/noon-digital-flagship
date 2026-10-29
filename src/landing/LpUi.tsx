@@ -31,26 +31,31 @@ export function SectionHead({
   align = 'left',
   dark = false,
 }: {
-  title: string
+  title: ReactNode
   sub?: string
   align?: 'left' | 'center'
   dark?: boolean
 }) {
   return (
-    <Reveal className={cn('max-w-2xl', align === 'center' && 'mx-auto text-center')}>
+    <Reveal className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center')}>
       <h2
         className={cn(
-          'text-[clamp(2rem,4.2vw,3.2rem)] font-extrabold leading-[1.02] tracking-[-0.03em]',
+          'text-[clamp(2.4rem,4.6vw,3.7rem)] font-extrabold leading-[1.0] tracking-[-0.03em]',
           dark ? 'text-white' : 'text-navy-900',
         )}
       >
         {title}
       </h2>
       {sub && (
-        <p className={cn('mt-3 text-base md:text-lg', dark ? 'text-white/60' : 'text-slate-500')}>{sub}</p>
+        <p className={cn('mt-4 text-base md:text-lg', dark ? 'text-white/60' : 'text-slate-500')}>{sub}</p>
       )}
     </Reveal>
   )
+}
+
+// Playfair italic accent word — the type signature across the reference sites
+export function Em({ children }: { children: ReactNode }) {
+  return <em className="font-serifit text-[1.05em] font-semibold italic tracking-[-0.01em] text-brand-500">{children}</em>
 }
 
 export function CtaButton({
