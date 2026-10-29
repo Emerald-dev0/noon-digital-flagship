@@ -11,17 +11,12 @@ import { MoreProof } from '../landing/MoreProof'
 import { Book } from '../landing/Book'
 import { LpFooter } from '../landing/LpFooter'
 
-/**
- * The VSL landing page from the client's Google Doc brief.
- * Light, dahusdigital.com-inspired design. Section order follows the doc 1:1:
- * Headline → VSL → Channels → Hear From Our Clients → Results → Process →
- * Our Work → Videos Ranking On Search → More Proof → Book.
- */
+// VSL landing page. Section order follows the client's doc.
 export default function LandingPage() {
   useSmoothScroll()
 
   return (
-    <div className="lp min-h-screen bg-[#fbfcff] font-sans text-slate-500 antialiased">
+    <div className="lp min-h-screen bg-white font-sans text-slate-500 antialiased">
       <LpNav />
       <main>
         <LpHero />

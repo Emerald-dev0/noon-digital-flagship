@@ -1,9 +1,7 @@
 import { useState } from 'react'
-import { Play, Quote } from 'lucide-react'
+import { Play } from 'lucide-react'
 import { cn } from '../utils/cn'
 import type { LpPlatform } from '../data/landing'
-
-/* ------------------------------------------------------------------ icons */
 
 export function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -36,27 +34,17 @@ export const PLATFORM_META: Record<LpPlatform, { label: string; color: string }>
   tiktok: { label: 'TikTok', color: 'text-slate-900' },
 }
 
-/* ------------------------------------------------------- click-to-play bits
-   Facades keep 20+ videos on one page fast: the heavy iframe only loads
-   after a visitor actually presses play. */
+// Click-to-play: the iframe only loads once someone actually presses play.
 
-function PlayButton({ size = 'md' }: { size?: 'md' | 'lg' }) {
+export function PlayButton({ size = 'md' }: { size?: 'md' | 'lg' }) {
   return (
-    <span className="relative grid place-items-center">
-      <span
-        className={cn(
-          'absolute animate-ping rounded-full bg-brand-500/40',
-          size === 'lg' ? 'h-20 w-20' : 'h-14 w-14',
-        )}
-      />
-      <span
-        className={cn(
-          'relative grid place-items-center rounded-full bg-brand-600 text-white shadow-[0_16px_36px_-10px_rgba(47,107,255,0.8)] transition-transform duration-300 group-hover:scale-110',
-          size === 'lg' ? 'h-20 w-20' : 'h-14 w-14',
-        )}
-      >
-        <Play className={cn('fill-current', size === 'lg' ? 'ml-1 h-8 w-8' : 'ml-0.5 h-6 w-6')} />
-      </span>
+    <span
+      className={cn(
+        'grid place-items-center rounded-full bg-white text-navy-900 shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-200 group-hover:scale-105',
+        size === 'lg' ? 'h-[76px] w-[76px]' : 'h-14 w-14',
+      )}
+    >
+      <Play className={cn('fill-current', size === 'lg' ? 'ml-1 h-8 w-8' : 'ml-0.5 h-6 w-6')} />
     </span>
   )
 }
@@ -94,9 +82,9 @@ export function YouTubeLite({
             src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
             alt={title}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="absolute inset-0 h-full w-full object-cover"
           />
-          <span className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-navy-950/10 transition-opacity group-hover:opacity-80" />
+          <span className="absolute inset-0 bg-black/15 transition-colors group-hover:bg-black/25" />
           <span className="absolute inset-0 grid place-items-center">
             <PlayButton />
           </span>
@@ -135,20 +123,17 @@ export function DriveVideo({
           className="absolute inset-0 h-full w-full cursor-pointer text-left"
           aria-label={`Play ${name}'s testimonial`}
         >
-          <span className="absolute inset-0 bg-[radial-gradient(120%_140%_at_15%_0%,#2f6bff_0%,#16307a_45%,#070f2b_100%)]" />
-          <Quote className="absolute right-5 top-5 h-10 w-10 text-white/15" />
-          <span className="absolute left-6 top-6 max-w-[70%]">
-            <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-white/60">
-              Client testimonial
-            </span>
-            <span className="mt-1.5 block text-2xl font-extrabold tracking-tight text-white">{name}</span>
-            <span className="block text-sm text-white/70">{role}</span>
+          <span className="absolute inset-0 bg-navy-950" />
+          <span className="absolute inset-0 bg-[linear-gradient(140deg,rgba(47,107,255,0.35),transparent_55%)]" />
+          <span className="absolute left-6 top-6">
+            <span className="block font-archivo text-3xl font-extrabold tracking-tight text-white">{name}</span>
+            <span className="mt-1 block text-sm text-white/60">{role}</span>
           </span>
           <span className="absolute inset-0 grid place-items-center">
             <PlayButton />
           </span>
-          <span className="absolute bottom-5 left-6 text-xs font-semibold text-white/70">
-            Tap to hear it in their words
+          <span className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+            Client testimonial
           </span>
         </button>
       )}

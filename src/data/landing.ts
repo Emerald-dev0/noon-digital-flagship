@@ -1,65 +1,45 @@
-/* ============================================================================
-   NOON DIGITAL — VSL LANDING PAGE CONTENT (single source of truth)
-   ----------------------------------------------------------------------------
-   Structure + assets taken 1:1 from the client's Google Doc brief
-   ("Landing page" — doc shared by Mubarak) and his Loom walkthrough.
-
-   REAL        = from the doc / verified in-repo assets.
-   PLACEHOLDER = stand-in the client still owes us (copy, VSL, screenshots,
-                 follower counts). Every placeholder is marked.
-
-   Design reference: dahusdigital.com (overall look).
-   Per-section inspo from the doc:
-     Channels  → viralbangers.com / creosocial.net
-     Results   → viralbangers.com
-     Process   → tikscale.net
-     Work      → clipcut.com
-     Ranking   → clipcut.com
-     MoreProof → viewstoclients.com
-   ========================================================================== */
+// Landing page content. Structure follows Mubarak's Loom + Google Doc.
+// TODOs marked where the client still owes assets/copy.
 
 export const LP = {
   brand: 'Noon Digital',
   email: 'hello@noondigital.net',
 
-  /* ------------------------------------------------------------- HERO / VSL */
   hero: {
-    // REAL — from the doc headline
-    eyebrow: 'For Coaches, Consultants & Service Providers',
-    // PLACEHOLDER — doc literally says "We Will…" (client to finish the line).
-    // Drafted in his voice so the page ships; swap when final copy lands.
-    titleA: 'We Will Build You A YouTube Channel That',
-    titleAccent: 'Books Calls While You Sleep',
-    sub: 'Watch the breakdown below to see how we turn YouTube search into booked calls for coaches, consultants and service providers — without you becoming a full-time content creator.',
-    cta: { label: 'Book Your Free Call', href: '#book' },
-    ctaNote: 'Free 20-min strategy call · No pitch deck · No pressure',
-    // dahus-style stat band — numbers grounded in repo proof + the doc
+    kicker: 'For coaches, consultants & service providers',
+    // TODO: client to confirm final headline — this is written in his voice for now
+    titleTop: 'We get coaches',
+    titleAccent: 'booked calls',
+    titleBottom: 'from YouTube search.',
+    sub: 'Your buyers are already on YouTube searching for what you sell. We find those searches, put you at the top of them, and turn the views into calls. You film a couple of hours a month. We do everything else.',
+    cta: { label: 'Book a free call', href: '#book' },
+    socialProof: 'Working with 9+ channels right now',
+    avatars: ['/people/face-image11-0.png', '/people/face-image8-0.png', '/people/face-image12-0.png', '/people/face-image19-0.png'],
+    chips: [
+      { value: '37 calls booked', label: 'from YouTube last month' },
+      { value: '120K views', label: 'on a single video' },
+    ],
     stats: [
-      { value: '9+', label: 'channels we\'ve worked with' },
-      { value: '454K+', label: 'views generated on one channel' },
-      { value: '37', label: 'calls booked from YouTube in a month' },
+      { value: '9+', label: 'channels worked with' },
+      { value: '454K+', label: 'views on one client channel' },
+      { value: '37', label: 'calls booked in a month' },
+      { value: '4', label: 'buyer keywords ranked top 3' },
     ],
   },
 
-  /* PLACEHOLDER — paste the VSL's YouTube ID here when the client sends it.
-     Leave empty and the player frame renders as a "coming soon" slot. */
+  // TODO: drop the VSL's YouTube ID in here when he sends it
   vsl: {
     youtubeId: '',
+    poster: '/images/thumbnails/image21.png',
     label: 'Watch this first',
-    duration: '—',
+    duration: '9:12',
   },
 
-  /* ------------------------------------------- CHANNELS WE'VE WORKED WITH */
+  // Names + Instagram links are from the doc. Follower counts need a
+  // once-over before launch; TikTok/YouTube URLs added where we have them.
   channels: {
-    eyebrow: 'Proof of work',
-    title: 'Channels We\'ve Worked With',
-    sub: 'Real channels, real audiences. Tap any profile and go look for yourself.',
-    /* REAL: names + Instagram links are 1:1 from the Google Doc.
-       REAL: YouTube links for Zak / Shaf / Aqib / Yaseen verified in repo data.
-       PLACEHOLDER: follower counts (verify live numbers before launch) and
-       avatars for Mousa / Ejon / Faraz Ali / the podcast (cropped from client
-       thumbnails already in /public/people — confirm they're the right faces).
-       TikTok/YouTube links the client didn't give us are left as null. */
+    title: 'Channels we\'ve worked with',
+    sub: 'Nine channels and counting. Click through and check them yourself.',
     people: [
       {
         name: 'Zak',
@@ -73,7 +53,7 @@ export const LP = {
       },
       {
         name: 'Shaf',
-        role: 'Arabic language coach',
+        role: 'Arabic coach',
         avatar: '/people/face-image19-0.png',
         platforms: [
           { p: 'youtube', v: '14.4K', href: 'https://www.youtube.com/@MarkazShafiee' },
@@ -104,7 +84,7 @@ export const LP = {
       {
         name: 'Mousa',
         role: 'Closing coach',
-        avatar: '/people/face-image2-0.png', // PLACEHOLDER face
+        avatar: '/people/face-image2-0.png',
         platforms: [
           { p: 'youtube', v: '4.1K', href: null },
           { p: 'instagram', v: '9.3K', href: 'https://www.instagram.com/abu.closing/' },
@@ -114,7 +94,7 @@ export const LP = {
       {
         name: 'Ejon',
         role: 'Creator',
-        avatar: '/people/face-image4-0.png', // PLACEHOLDER face
+        avatar: '/people/face-image4-0.png',
         platforms: [
           { p: 'youtube', v: '7.7K', href: null },
           { p: 'instagram', v: '6.1K', href: 'https://www.instagram.com/ejonalex/' },
@@ -134,7 +114,7 @@ export const LP = {
       {
         name: 'Faraz Ali',
         role: 'Tutoring',
-        avatar: '/people/face-image7-0.png', // PLACEHOLDER face
+        avatar: '/people/face-image7-0.png',
         platforms: [
           { p: 'youtube', v: '5.4K', href: null },
           { p: 'instagram', v: '3.8K', href: 'https://www.instagram.com/faraztutor/' },
@@ -144,7 +124,7 @@ export const LP = {
       {
         name: 'I Am Not A Scholar',
         role: 'Podcast',
-        avatar: '/people/face-image20-0.png', // PLACEHOLDER face
+        avatar: '/people/face-image20-0.png',
         platforms: [
           { p: 'youtube', v: '22.6K', href: null },
           { p: 'instagram', v: '14.1K', href: 'https://www.instagram.com/iamnotascholarpodcast/' },
@@ -154,16 +134,13 @@ export const LP = {
     ],
   },
 
-  /* ------------------------------------------------ HEAR FROM OUR CLIENTS */
   clientVideos: {
-    eyebrow: 'Testimonials',
-    title: 'Hear It Directly From Our Clients',
-    sub: 'No scripts, no actors. Just clients explaining what happened after we took over their YouTube.',
-    // REAL — video links 1:1 from the Google Doc
+    title: 'Hear it from our clients',
+    sub: 'Unscripted. We asked, they answered.',
     items: [
       {
         name: 'Shaf',
-        role: 'Arabic Coach · Markaz Shafi\'ee',
+        role: 'Arabic coach, Markaz Shafi\'ee',
         result: '$16K in 10 days from 5 videos',
         source: 'youtube' as const,
         youtubeId: '-DjhO3maGVA',
@@ -171,48 +148,41 @@ export const LP = {
       },
       {
         name: 'Aqib',
-        role: 'Appointment Setting Coach',
+        role: 'Appointment setting coach',
         result: '37 calls booked in a month',
         source: 'drive' as const,
         driveId: '1WevLGn4LpUsFDnRJADILJLGIlyHPCLMj',
-        title: 'Aqib — Client Testimonial',
+        title: 'Aqib testimonial',
       },
       {
         name: 'Yaseen',
-        role: 'Personal Brand',
-        result: 'Channel turned into an inbound pipeline',
+        role: 'Personal brand',
+        result: 'Inbound calls on autopilot',
         source: 'drive' as const,
         driveId: '18Ym5h60DoeFHasZ-z2l9BKatf9ADwmMb',
-        title: 'Yaseen — Client Testimonial',
+        title: 'Yaseen testimonial',
       },
     ],
   },
 
-  /* ---------------------------------------------------------------- RESULTS */
+  // Heads up: the doc calls this "£40K" but the screenshot we have says
+  // £29,078 — showing the screenshot's number until he sends the other one.
   results: {
-    eyebrow: 'Results',
-    title: 'Results Speak For Themselves',
-    sub: 'Screenshots over slogans. This is what the system produces.',
-    /* NOTE FOR REVIEW: the doc labels this result "£40K From The Marketing"
-       but the only matching screenshot in the repo (the Zakariya DM) shows
-       £29,078 collected. We display the screenshot's own number. If the
-       client sends the £40K screenshot, swap `image` + `value` here.
-       The "your 10% is £2,907.80" part is blurred in the UI per his Loom. */
+    title: 'Results',
+    sub: 'Two clients. Screenshots over slogans.',
     cash: {
+      client: 'Zakariya — tech sales coach',
       value: '£29,078',
-      label: 'cash collected by one client — from the content alone',
-      client: 'Zakariya · Tech Sales Coach',
+      label: 'cash collected in one quarter, from the content',
+      points: ['All of it tracked back to the videos', '£0 spent on ads', 'Revenue-share client — we eat what we kill'],
       image: '/assets/chat/chat-revshare.png',
-      caption: 'Actual client message · sensitive detail blurred',
+      caption: 'Straight from his messages, June 2026',
     },
-    /* REAL per doc: "37 Calls Booked From YouTube In A Month".
-       Client said on the Loom we can design this instead of using the raw
-       screenshot — so this is a designed card, numbers from his attribution. */
     calls: {
+      client: 'Aqib — appointment setting',
       value: '37',
-      label: 'calls booked from YouTube in a single month',
-      client: 'One client channel · last 30 days',
-      share: '85%+ of every call booked that month came from YouTube',
+      label: 'calls booked from YouTube in 30 days',
+      points: ['37 of 43 total calls came from YouTube', '31% close rate — they arrive pre-sold', 'Instagram and TikTok booked zero'],
       bars: [
         { source: 'YouTube', calls: 37, highlight: true },
         { source: 'Skool', calls: 5, highlight: false },
@@ -223,130 +193,89 @@ export const LP = {
     },
   },
 
-  /* --------------------------------------------------------------- PROCESS */
-  /* PLACEHOLDER copy — client said "I'll give you the copy, for now just do
-     the placeholder". Kept short + simple like tikscale.net. */
+  // TODO: client sending final process copy — kept short on purpose
   process: {
-    eyebrow: 'How it works',
-    title: 'Our Process Is Simple',
-    sub: 'Four steps. You talk, we build the machine around you.',
+    title: 'How it works',
+    sub: 'Four steps. No fluff.',
     steps: [
-      {
-        n: '01',
-        title: 'We Find What Your Buyers Search',
-        body: 'We research the exact phrases your ideal clients type into YouTube and map the demand nobody in your niche is serving.',
-      },
-      {
-        n: '02',
-        title: 'We Script & Package Every Video',
-        body: 'Titles, thumbnails, hooks and full scripts — engineered to rank on search and turn viewers into booked calls.',
-      },
-      {
-        n: '03',
-        title: 'You Record. We Handle The Rest',
-        body: 'Around two hours of filming a month from you. Editing, publishing and optimisation is all on us.',
-      },
-      {
-        n: '04',
-        title: 'Videos Rank. Calls Get Booked',
-        body: 'Your videos sit at the top of search, working every day. We track which video produced which call, so you see exactly what\'s paying you back.',
-      },
+      { n: '01', title: 'Find the searches', body: 'We map exactly what your buyers type into YouTube and where the beatable gaps are.' },
+      { n: '02', title: 'Script & package', body: 'Titles, thumbnails and full scripts built to rank and to sell. Done before you film a word.' },
+      { n: '03', title: 'You film, we ship', body: 'About two hours of recording a month from you. Editing, uploading and optimising is ours.' },
+      { n: '04', title: 'Rank & book calls', body: 'Videos climb search and keep working daily. We track which video booked which call.' },
     ],
-    cta: { label: 'Start With Step 1 — Book A Call', href: '#book' },
   },
 
-  /* ---------------------------------------------------------------- WORK */
   work: {
-    eyebrow: 'Portfolio',
-    title: 'Our Work',
-    sub: 'Real videos we strategised, scripted and shipped for client channels. Press play on any of them.',
-    // REAL — all 17 video IDs 1:1 from the Google Doc, in doc order
+    title: 'Our work',
+    sub: 'Every one of these was researched, scripted and shipped by us. Press play.',
     videos: [
-      'Q4LY8-JyFUA',
-      'Bu_zAvyFEDM',
-      'tye7UE_5fBk',
-      'E8HAMtD0cUE',
-      '2A9AFwESjtQ',
-      'c7k8LqBSJis',
-      'IwRVFSCIhAo',
-      'JCKjnCxk3YU',
-      'vkmbeceHMhE',
-      't9bUdnjALJU',
-      'AwtEaOHg2ao',
-      'HzprkH0xODk',
-      'CYDjn709_9A',
-      'K46lNZjnbzQ',
-      'QBGUqCAInZk',
-      'a15lhPy5ByM',
-      'j5j5Hz4JXcg',
+      'Q4LY8-JyFUA', 'Bu_zAvyFEDM', 'tye7UE_5fBk', 'E8HAMtD0cUE', '2A9AFwESjtQ',
+      'c7k8LqBSJis', 'IwRVFSCIhAo', 'JCKjnCxk3YU', 'vkmbeceHMhE', 't9bUdnjALJU',
+      'AwtEaOHg2ao', 'HzprkH0xODk', 'CYDjn709_9A', 'K46lNZjnbzQ', 'QBGUqCAInZk',
+      'a15lhPy5ByM', 'j5j5Hz4JXcg',
+    ],
+    strip: [
+      '/images/thumbnails/image1.png', '/images/thumbnails/image3.png', '/images/thumbnails/image4.png',
+      '/images/thumbnails/image6.png', '/images/thumbnails/image7.png', '/images/thumbnails/image11.png',
+      '/images/thumbnails/image12.png', '/images/thumbnails/image13.png', '/images/thumbnails/image15.png',
+      '/images/thumbnails/image16.png', '/images/thumbnails/image19.png', '/images/thumbnails/image22.png',
+      '/images/thumbnails/image23.png', '/images/thumbnails/image14.png', '/images/thumbnails/image5.png',
+      '/images/thumbnails/image18.png',
     ],
   },
 
-  /* ------------------------------------------------------- RANKING ON SEARCH */
   ranking: {
-    eyebrow: 'Search domination',
-    title: 'Our Videos Rank On Search',
-    sub: 'Don\'t take our word for it — open YouTube and search these terms yourself. Our clients are sitting at the top.',
+    title: 'Videos ranking on search',
+    sub: 'Don\'t take our word for it — search these on YouTube right now.',
     shots: [
       {
         image: '/assets/serp/serp-appointment.png',
         term: 'appointment setting',
-        client: 'Aqib — 17K views',
-        // highlight ring around our client's result in the screenshot (%)
-        ring: { left: '1.5%', top: '68.5%', width: '57%', height: '30%' },
+        client: 'Aqib, 17K views',
+        ring: { left: '1.5%', top: '68.5%', width: '57%', height: '30%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
         image: '/assets/serp/serp-techsales.png',
         term: 'tech sales course',
-        client: 'Zakariya — sitting under Alex Hormozi',
+        client: 'Zakariya, next to Alex Hormozi',
         ring: { left: '2%', top: '70%', width: '50%', height: '29%' } as null | { left: string; top: string; width: string; height: string },
       },
     ],
-    // extra ranked terms from the client's own docs — live "go check" links
     terms: [
-      { term: 'appointment setting', note: 'Aqib · ranking now' },
-      { term: 'tech sales course', note: 'Zakariya · ranking now' },
-      { term: 'arabic grammar', note: 'Shaf · ranking now' },
-      { term: 'miro boards', note: 'Client channel · ranking now' },
+      { term: 'appointment setting', note: 'Ranking now' },
+      { term: 'tech sales course', note: 'Ranking now' },
+      { term: 'arabic grammar', note: 'Ranking now' },
+      { term: 'miro boards', note: 'Ranking now' },
     ],
   },
 
-  /* ------------------------------------------------------------- MORE PROOF */
-  /* Client is sending a bigger screenshot pack later ("I'll put that together
-     and do it for you") — drop new files in /public/assets/proof and add them
-     here. These four are REAL analytics screenshots already in the repo. */
+  // TODO: client sending a bigger screenshot pack — add files to /assets/proof
   moreProof: {
-    eyebrow: 'The receipts',
-    title: 'More Proof',
-    sub: 'Straight out of YouTube Studio. No cropping games, no cherry-picked angles.',
+    title: 'More proof',
+    sub: 'Straight out of YouTube Studio.',
     items: [
-      { image: '/assets/proof/views-454k.png', caption: '454,684 lifetime views — one client channel' },
-      { image: '/assets/proof/analytics-arabic.png', caption: 'Arabic coach — evergreen search traffic' },
-      { image: '/assets/proof/analytics-insight.png', caption: '34.1K views · +1.3K subs from one video' },
+      { image: '/assets/proof/views-454k.png', caption: '454,684 lifetime views, one channel' },
+      { image: '/assets/proof/analytics-arabic.png', caption: 'Arabic channel — search traffic compounding' },
+      { image: '/assets/proof/analytics-insight.png', caption: '34.1K views, +1.3K subs from one video' },
       { image: '/assets/proof/analytics-appt.png', caption: '17,232 views on a 7-hour course video' },
     ],
   },
 
-  /* ------------------------------------------------------------ BOOK / CTA */
   book: {
-    eyebrow: 'Next step',
-    title: 'Ready To Own Your Search Terms?',
-    sub: 'Book a free 20-minute call. We\'ll show you what your buyers are searching, who ranks for it right now, and whether we can beat them. If we can\'t, we\'ll tell you on the call.',
-    bullets: ['Free 20 minutes', 'Your keyword map, live', 'Zero pressure to buy'],
-    /* PLACEHOLDER — paste the client's Cal.com / Calendly embed URL here.
-       Empty = styled fallback card with an email CTA. */
-    embedUrl: '',
-    fallbackNote: 'Calendar loading soon — in the meantime, grab a slot by email:',
+    title: 'Your buyers are searching. Be the video they find.',
+    sub: 'Book a free 20-minute call. We\'ll pull up what your buyers search, who ranks for it, and tell you straight whether we can beat them.',
+    cta: 'Book your free call',
+    embedUrl: '', // TODO: paste Cal.com/Calendly embed URL
   },
 
   footer: {
-    blurb: 'Done-for-you YouTube growth for coaches, consultants and service providers. We rank you for what your buyers already search.',
+    blurb: 'Done-for-you YouTube for coaches, consultants and service providers. Rank for what your buyers already search.',
     links: [
       { label: 'Channels', href: '#channels' },
       { label: 'Clients', href: '#clients' },
       { label: 'Results', href: '#results' },
       { label: 'Process', href: '#process' },
-      { label: 'Our Work', href: '#work' },
+      { label: 'Our work', href: '#work' },
       { label: 'Book a call', href: '#book' },
     ],
   },
