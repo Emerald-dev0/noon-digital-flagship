@@ -269,3 +269,21 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
+/* ---- Landing page (light, dahus-style) ---------------------------------- */
+/* Scoped overrides so the VSL landing page doesn't inherit the flagship's
+   dark base styles (white Bricolage headings etc). Unlayered = wins. */
+.lp {
+  background: #fbfcff;
+}
+.lp h1,
+.lp h2,
+.lp h3,
+.lp h4 {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+.lp ::selection {
+  background: rgba(47, 107, 255, 0.25);
+  color: #0a1530;
+}

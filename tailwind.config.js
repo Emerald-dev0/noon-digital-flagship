@@ -28,6 +28,21 @@ export default {
           500: '#ff8a3d',
           600: '#f06a1f',
         },
+        // Landing page (dahus-style light theme)
+        brand: {
+          50: '#eef3ff',
+          100: '#dbe7ff',
+          200: '#bcd2ff',
+          300: '#8fb2ff',
+          400: '#5f8dff',
+          500: '#2f6bff',
+          600: '#1f56e8',
+          700: '#1a45bd',
+        },
+        navy: {
+          900: '#0a1530',
+          950: '#060d26',
+        },
       },
       fontFamily: {
         display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
