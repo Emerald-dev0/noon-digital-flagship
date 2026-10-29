@@ -15,9 +15,9 @@ const fade = (delay = 0) => ({
 // The wall: all 24 real client thumbnails in three scrolling columns.
 const sm = (n: number) => `/images/thumbnails/sm/image${n}.webp`
 const COLUMNS: { images: number[]; duration: string; reverse?: boolean }[] = [
-  { images: [8, 1, 15, 20, 6, 13, 22, 4], duration: '42s' },
-  { images: [2, 17, 10, 23, 5, 19, 12, 21], duration: '52s', reverse: true },
-  { images: [9, 3, 24, 11, 16, 7, 14, 18], duration: '46s' },
+  { images: [8, 1, 15, 20, 6, 13, 22, 4], duration: '58s' },
+  { images: [2, 17, 10, 23, 5, 19, 12, 21], duration: '70s', reverse: true },
+  { images: [9, 3, 24, 11, 16, 7, 14, 18], duration: '64s' },
 ]
 
 function ThumbWall() {
@@ -33,7 +33,7 @@ function ThumbWall() {
       }}
       aria-hidden="true"
     >
-      <div className="flex h-full -rotate-3 scale-[1.15] items-start justify-center gap-2.5 sm:gap-3">
+      <div className="flex h-full justify-center gap-2.5 [transform:perspective(1100px)_rotateY(-7deg)_rotateX(2deg)_scale(1.08)] md:gap-3 lg:[transform:perspective(1300px)_rotateY(-12deg)_rotateX(2.5deg)_scale(1.12)]">
         {COLUMNS.map((col, ci) => (
           <div
             key={ci}
@@ -49,7 +49,7 @@ function ThumbWall() {
                 src={sm(n)}
                 alt=""
                 loading={i < 4 ? 'eager' : 'lazy'}
-                className="aspect-video w-full rounded-lg object-cover shadow-[0_14px_30px_-12px_rgba(10,21,48,0.35)] ring-1 ring-black/10"
+                className="aspect-video w-full rounded-md object-cover shadow-[0_14px_30px_-12px_rgba(10,21,48,0.35)] ring-1 ring-black/10"
               />
             ))}
           </div>
@@ -82,7 +82,7 @@ function FloatChip({
         <TrendingUp className="h-4 w-4" />
       </span>
       <span>
-        <span className="block font-helv text-[13px] font-extrabold leading-none text-navy-900 sm:text-[15px]">{chip.value}</span>
+        <span className="block font-helv text-[13px] font-bold leading-none text-navy-900 sm:text-[15px]">{chip.value}</span>
         <span className="mt-1 block text-[10px] font-medium text-slate-400 sm:text-[11px]">{chip.label}</span>
       </span>
     </motion.div>
@@ -123,20 +123,20 @@ export function LpHero() {
 
   return (
     <section id="top" className="relative overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-0 [background-image:radial-gradient(circle,rgba(143,86,255,0.15)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(180deg,black,transparent_72%)]" />
       {/* flat lavender tint (brand purple family), no blobs */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[linear-gradient(to_bottom,#f0e9ff_0%,#f8f5ff_55%,#ffffff_100%)]" />
 
       <div className={`${shell} relative`}>
-        <div className="grid items-center gap-8 pt-[104px] sm:gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-6 lg:pt-[150px]">
+        <div className="grid items-center gap-8 pt-[118px] sm:gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-6 lg:pt-[150px]">
           <div className="relative z-10">
-            <motion.p {...fade(0)} className="flex items-center gap-2.5 text-[12px] font-bold uppercase tracking-[0.14em] text-brand-600 sm:text-[13px]">
-              <span className="h-px w-8 shrink-0 bg-brand-600" />
+            <motion.span {...fade(0)} className="inline-flex items-center rounded-full border border-brand-200 bg-white px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-700 shadow-sm">
               {hero.kicker}
-            </motion.p>
+            </motion.span>
 
             <motion.h1
               {...fade(0.07)}
-              className="mt-4 font-helv text-[clamp(2.55rem,11.5vw,5.4rem)] font-extrabold leading-[0.97] tracking-[-0.035em] text-navy-900 sm:mt-5"
+              className="mt-4 font-helv text-[clamp(2.55rem,11.5vw,5.4rem)] font-bold leading-[0.97] tracking-[-0.035em] text-navy-900 sm:mt-5"
             >
               {hero.titleTop} <Em>{hero.titleAccent}</Em>
             </motion.h1>
@@ -160,7 +160,7 @@ export function LpHero() {
             </motion.div>
           </div>
 
-          <div className="relative -mx-5 sm:mx-0">
+          <div className="relative -mx-5 sm:mx-0 lg:-mr-28">
             <ThumbWall />
             <FloatChip chip={hero.chips[0]} delay={0.75} className="bottom-[14%] left-3 -rotate-2 sm:left-[3%]" />
             <FloatChip chip={hero.chips[1]} delay={0.9} className="right-3 top-[10%] rotate-2 sm:right-[3%]" />
@@ -169,18 +169,18 @@ export function LpHero() {
 
         <Vsl />
 
-        <Reveal className="mt-14 border-y border-slate-200/90 md:mt-24">
-          <div className="grid grid-cols-2 divide-slate-200/90 lg:grid-cols-4 lg:divide-x">
+        <Reveal className="mt-14 rounded-[1.75rem] border border-brand-100 bg-brand-50/80 px-2 sm:px-6 md:mt-24">
+          <div className="grid grid-cols-2 divide-brand-100 lg:grid-cols-4 lg:divide-x">
             {hero.stats.map((s, i) => (
               <div
                 key={s.label}
                 className={cn(
                   'py-6 md:py-8 lg:px-9 lg:first:pl-0',
-                  i >= 2 && 'border-t border-slate-200/90 lg:border-t-0',
+                  i >= 2 && 'border-t border-brand-100 lg:border-t-0',
                   i % 2 === 1 && 'pl-6 lg:pl-9',
                 )}
               >
-                <p className="font-helv text-[2.5rem] font-extrabold leading-none tracking-tight text-navy-900 md:text-[3.4rem]">
+                <p className="font-helv text-[2.5rem] font-bold leading-none tracking-tight text-navy-900 md:text-[3.4rem]">
                   <CountUp value={s.value} />
                 </p>
                 <p className="mt-2 text-[13px] text-slate-400 sm:text-sm">{s.label}</p>

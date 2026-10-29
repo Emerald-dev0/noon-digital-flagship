@@ -8,8 +8,8 @@ export function LpProcess() {
     <section id="process" className="border-y border-slate-200/80 bg-white py-16 md:py-28">
       <div className={shell}>
         <Reveal className="text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-600">The process</p>
-          <h2 className="mx-auto mt-4 max-w-3xl font-helv text-[clamp(2.05rem,4.6vw,3.7rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-navy-900">
+          <span className="inline-flex items-center rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-600">The process</span>
+          <h2 className="mx-auto mt-4 max-w-3xl font-helv text-[clamp(2.05rem,4.6vw,3.7rem)] font-bold leading-[1.02] tracking-[-0.03em] text-navy-900">
             Completely done-for-you. Here&apos;s the <Em>rundown.</Em>
           </h2>
         </Reveal>
@@ -21,7 +21,7 @@ export function LpProcess() {
             {process.steps.map((step, i) => (
               <Reveal key={step.n} delay={i * 0.04}>
                 <li className="relative flex gap-5 pl-0">
-                  <span className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-500 font-helv text-lg font-extrabold text-white ring-4 ring-white">
+                  <span className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-500 font-helv text-lg font-bold text-white ring-4 ring-white">
                     {step.n}
                   </span>
                   <div className="pt-1.5">
@@ -41,7 +41,7 @@ export function LpProcess() {
             {process.steps.map((step, i) => (
               <Reveal key={step.n} delay={i * 0.06}>
                 <div className="flex flex-col items-center text-center">
-                  <span className="relative z-10 grid h-12 w-12 place-items-center rounded-full bg-brand-500 font-helv text-lg font-extrabold text-white shadow-[0_10px_24px_-8px_rgba(143,86,255,0.65)] ring-4 ring-white">
+                  <span className="relative z-10 grid h-12 w-12 place-items-center rounded-full bg-brand-500 font-helv text-lg font-bold text-white shadow-[0_10px_24px_-8px_rgba(143,86,255,0.65)] ring-4 ring-white">
                     {step.n}
                   </span>
                   <h3 className="mt-5 text-[15px] font-bold leading-snug text-navy-900">{step.title}</h3>

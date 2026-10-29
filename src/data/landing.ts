@@ -165,9 +165,9 @@ export const LP = {
       metric: '£40K',
       metricLabel: 'generated from the marketing',
       points: [
-        '£29,078 collected in a single quarter',
-        '£0 spent on ads',
-        'Revenue-share client — we only earn when he earns',
+        ['£29,078 collected', ' in a single quarter, straight off the back of the videos'],
+        ['£0 spent on ads', ' — every lead came from search'],
+        ['Revenue-share client', ' — we only earn when he earns'],
       ],
       image: '/assets/chat/revshare-40k.webp',
       caption: 'Straight from his messages, June 2026',
@@ -186,9 +186,9 @@ export const LP = {
         { v: '25%', l: 'paid in full' },
       ],
       points: [
-        '47% close rate — viewers arrive pre-sold',
-        '1 in 4 pay in full on the call',
-        'Every call tracked back to a video',
+        ['47% close rate', ' — viewers arrive pre-sold by the videos'],
+        ['25% pay in full', ' on the first call'],
+        ['Every call tracked', ' back to the video that booked it'],
       ],
       sheet: '/assets/proof/calls-sheet.webp',
       caption: 'His actual tracking sheet',
@@ -198,17 +198,28 @@ export const LP = {
   // TODO: client sending final process copy — structure mirrors tikscale's
   process: {
     steps: [
-      { n: '1', title: 'Research & ideation', body: 'We find the exact searches your buyers make and the gaps we can own.' },
-      { n: '2', title: 'Scripting', body: 'Word-for-word or outline — built to rank and to convert.' },
-      { n: '3', title: 'Direction', body: 'We coach your delivery and sort your camera setup. You just talk.' },
-      { n: '4', title: 'Titles & thumbnails', body: 'Packaged to win the click next to channels 10x your size.' },
-      { n: '5', title: 'Editing', body: 'Cut for retention, in the style your buyers already watch.' },
-      { n: '6', title: 'Ranking & tracking', body: 'We publish, optimise for search, and track which video booked which call.' },
+      { n: '1', title: 'Research & ideation', body: 'We come up with video ideas that attract your exact buyers — starting with what they\'re already typing into YouTube search.' },
+      { n: '2', title: 'Scripting', body: 'We write your script, outline or word-for-word — whatever you\'re more comfortable with. Engineered for watch-time and conversions.' },
+      { n: '3', title: 'Direction', body: 'We coach your delivery and make sure your camera setup looks the part. You just talk.' },
+      { n: '4', title: 'Editing', body: 'Edited for the highest retention we can get, in the style your buyers already consume.' },
+      { n: '5', title: 'Thumbnails', body: 'We design and split-test thumbnail variants to get you the highest click-through rate possible.' },
+      { n: '6', title: 'SEO, lead tracking & posting', body: 'We optimise every upload for search, post it for you, and track which video booked which call.' },
     ],
   },
 
   work: {
     note: '17 videos. Every one researched, scripted and shipped by us — press play on any of them.',
+    stats: [
+      { v: '454K+', l: 'views on one channel' },
+      { v: '201K', l: 'views on a single video' },
+      { v: '17', l: 'videos below — all live on YouTube' },
+    ],
+    labels: {
+      'Q4LY8-JyFUA': '201K views · Arabic coach',
+      'Bu_zAvyFEDM': '222K views · Arabic coach',
+      'tye7UE_5fBk': '70K views · Arabic coach',
+      AwtEaOHg2ao: '17K views · Appointment setting',
+    } as Record<string, string>,
     videos: [
       'Q4LY8-JyFUA', 'Bu_zAvyFEDM', 'tye7UE_5fBk', 'E8HAMtD0cUE', '2A9AFwESjtQ',
       'c7k8LqBSJis', 'IwRVFSCIhAo', 'JCKjnCxk3YU', 'vkmbeceHMhE', 't9bUdnjALJU',
@@ -222,6 +233,12 @@ export const LP = {
   ranking: {
     sub: 'Don\'t take our word for it — search these on YouTube right now.',
     shots: [
+      {
+        image: '/assets/serp/serp-arabic-grammar-course.webp',
+        term: 'arabic grammar course',
+        client: 'Shaf — 201K views',
+        ring: { left: '3%', top: '39%', width: '46.5%', height: '33%' } as null | { left: string; top: string; width: string; height: string },
+      },
       {
         image: '/assets/serp/serp-arabic-grammar.webp',
         term: 'arabic grammar',

@@ -55,7 +55,7 @@ export function Ranking() {
   return (
     <section id="ranking" className="bg-[#f6f8fc] py-16 md:py-28">
       <div className={shell}>
-        <SectionHead title={<>Videos ranking on <Em>search</Em></>} sub={ranking.sub} />
+        <SectionHead label="Search" title={<>Videos ranking on <Em>search</Em></>} sub={ranking.sub} />
       </div>
 
       <Reveal className="mt-10 md:mt-12" delay={0.05}>

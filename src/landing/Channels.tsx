@@ -63,7 +63,7 @@ export function Channels() {
   return (
     <section id="channels" className="py-16 md:py-24">
       <div className={shell}>
-        <SectionHead title="Channels we've worked with" sub={channels.sub} />
+        <SectionHead label="Our clients" title="Channels we've worked with" sub={channels.sub} />
       </div>
 
       <Reveal className="mt-9 md:mt-10" delay={0.05}>
