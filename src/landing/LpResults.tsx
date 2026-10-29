@@ -35,15 +35,13 @@ function CardHeader({ avatar, name, meta, chip }: { avatar: string; name: string
   )
 }
 
-// His ask: blur out the "your 10% is £2,907.80" part of the screenshot.
+// The rev-share line in this screenshot is pixelated in the image file itself.
 function CashScreenshot() {
   const { cash } = LP.results
   return (
     <figure>
       <div className="relative overflow-hidden rounded-xl ring-1 ring-white/10">
         <img src={cash.image} alt="Client confirming cash collected from the content" className="block w-full" loading="lazy" />
-        <span className="absolute left-[80%] top-[57%] h-[20%] w-[19.5%] rounded bg-black/40 backdrop-blur-[7px]" />
-        <span className="absolute left-[9.5%] top-[74%] h-[18%] w-[13%] rounded bg-black/40 backdrop-blur-[7px]" />
       </div>
       <figcaption className="mt-3 text-xs font-medium text-white/35">{cash.caption}</figcaption>
     </figure>

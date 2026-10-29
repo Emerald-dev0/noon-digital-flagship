@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Play } from 'lucide-react'
+import { Loader2, Play } from 'lucide-react'
 import { cn } from '../utils/cn'
 import type { LpPlatform } from '../data/landing'
 
@@ -106,16 +106,24 @@ export function DriveVideo({
   className?: string
 }) {
   const [playing, setPlaying] = useState(false)
+  // Drive's own video thumbnail. If the file ever stops being link-shared
+  // the thumbnail 404s and we fall back to the branded name panel.
+  const [posterOk, setPosterOk] = useState(true)
   return (
     <div className={cn('group relative aspect-video w-full overflow-hidden rounded-2xl bg-navy-950', className)}>
       {playing ? (
-        <iframe
-          className="absolute inset-0 h-full w-full"
-          src={`https://drive.google.com/file/d/${driveId}/preview`}
-          title={`${name} testimonial`}
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        />
+        <>
+          <span className="absolute inset-0 grid place-items-center">
+            <Loader2 className="h-8 w-8 animate-spin text-white/40" />
+          </span>
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src={`https://drive.google.com/file/d/${driveId}/preview`}
+            title={`${name} testimonial`}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        </>
       ) : (
         <button
           type="button"
@@ -123,17 +131,33 @@ export function DriveVideo({
           className="absolute inset-0 h-full w-full cursor-pointer text-left"
           aria-label={`Play ${name}'s testimonial`}
         >
-          <span className="absolute inset-0 bg-navy-950" />
-          <span className="absolute inset-0 bg-[linear-gradient(140deg,rgba(47,107,255,0.35),transparent_55%)]" />
-          <span className="absolute left-6 top-6">
-            <span className="block font-archivo text-3xl font-extrabold tracking-tight text-white">{name}</span>
-            <span className="mt-1 block text-sm text-white/60">{role}</span>
-          </span>
+          {posterOk ? (
+            <>
+              <img
+                src={`https://drive.google.com/thumbnail?id=${driveId}&sz=w1000`}
+                alt={`${name} testimonial`}
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                onError={() => setPosterOk(false)}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <span className="absolute inset-0 bg-black/15 transition-colors group-hover:bg-black/25" />
+            </>
+          ) : (
+            <>
+              <span className="absolute inset-0 bg-navy-950" />
+              <span className="absolute inset-0 bg-[linear-gradient(140deg,rgba(143,86,255,0.35),transparent_55%)]" />
+              <span className="absolute left-6 top-6">
+                <span className="block font-archivo text-3xl font-extrabold tracking-tight text-white">{name}</span>
+                <span className="mt-1 block text-sm text-white/60">{role}</span>
+              </span>
+              <span className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+                Client testimonial
+              </span>
+            </>
+          )}
           <span className="absolute inset-0 grid place-items-center">
             <PlayButton />
-          </span>
-          <span className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
-            Client testimonial
           </span>
         </button>
       )}
