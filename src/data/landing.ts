@@ -14,7 +14,7 @@ export const LP = {
     sub: 'Your buyers are already typing their problems into YouTube. We find those searches, rank you at the top of them, and turn the views into calls on your calendar. One client booked 37 in a month. Zero ad spend.',
     cta: { label: 'Book a free call', href: '#book' },
     socialProof: 'Working with 9+ channels right now',
-    avatars: ['/people/face-image11-0.png', '/people/face-image8-0.png', '/people/face-image12-0.png', '/people/face-image19-0.png'],
+    avatars: ['/people/face-image2-0.png', '/people/face-image10-0.png', '/people/face-image8-0.png', '/people/yaseen-ramsey.png'],
     chips: [
       { value: '37 calls booked', label: 'from YouTube last month' },
       { value: '201K views', label: 'on a single video' },
@@ -23,7 +23,7 @@ export const LP = {
       { value: '9+', label: 'channels worked with' },
       { value: '454K+', label: 'views on one client channel' },
       { value: '37', label: 'calls booked in a month' },
-      { value: '5', label: 'buyer keywords ranked top 3' },
+      { value: '6', label: 'buyer keywords ranked top 3' },
     ],
   },
 
@@ -35,15 +35,17 @@ export const LP = {
     duration: '9:12',
   },
 
-  // Names + Instagram links are from the doc. Follower counts need a
-  // once-over before launch; TikTok/YouTube URLs added where we have them.
+  // Names + Instagram links are from the client's doc. Every face and count
+  // below is taken from screenshots in that doc (channel headers, profiles,
+  // his flagship card) — nothing invented. Where the doc has no count, the
+  // pill shows the handle instead. TODO: headshots for Mousa, Ejon, Mikail.
   channels: {
-    sub: '125K+ subscribers across these channels. Click through and check them yourself.',
+    sub: 'Real channels, live now — tap through and check them yourself.',
     people: [
       {
         name: 'Zak',
         role: 'Tech sales coach',
-        avatar: '/people/face-image11-0.png',
+        avatar: '/people/face-image2-0.png',
         platforms: [
           { p: 'youtube', v: '18.4K', href: 'https://www.youtube.com/@Zakariya.Tech-Sales' },
           { p: 'instagram', v: '5.0K', href: 'https://www.instagram.com/zakariya.insight/' },
@@ -53,81 +55,69 @@ export const LP = {
       {
         name: 'Shaf',
         role: 'Arabic coach',
-        avatar: '/people/face-image19-0.png',
+        avatar: '/people/face-image10-0.png',
         platforms: [
-          { p: 'youtube', v: '20.6K', href: 'https://www.youtube.com/@MarkazShafiee' },
-          { p: 'instagram', v: '11.0K', href: 'https://www.instagram.com/markaz_shafiee/' },
-          { p: 'tiktok', v: '6.8K', href: 'https://www.tiktok.com/@markazshafiee' },
+          { p: 'youtube', v: '14.4K', href: 'https://www.youtube.com/@MarkazShafiee' },
+          { p: 'instagram', v: '11K', href: 'https://www.instagram.com/markaz_shafiee/' },
         ],
       },
       {
         name: 'Aqib',
-        role: 'Appointment setting',
+        role: 'Appointment setting coach',
         avatar: '/people/face-image8-0.png',
         platforms: [
-          { p: 'youtube', v: '9.6K', href: 'https://www.youtube.com/@SaleswithAqib' },
-          { p: 'instagram', v: '1.5K', href: 'https://www.instagram.com/saleswithaqib/' },
-          { p: 'tiktok', v: '3.2K', href: null },
+          { p: 'youtube', v: '1.5K', href: 'https://www.youtube.com/@SaleswithAqib' },
+          { p: 'instagram', v: '@saleswithaqib', href: 'https://www.instagram.com/saleswithaqib/' },
+          { p: 'tiktok', v: '@aqibabdulk', href: 'https://www.tiktok.com/@aqibabdulk' },
         ],
       },
       {
         name: 'Yaseen',
-        role: 'Personal brand',
-        avatar: '/people/face-image12-0.png',
+        role: 'Boxing · personal brand coach',
+        avatar: '/people/yaseen-ramsey.png',
         platforms: [
           { p: 'youtube', v: '15.8K', href: 'https://www.youtube.com/@yaseenramsey' },
-          { p: 'instagram', v: '12.2K', href: 'https://www.instagram.com/yaseenramsey/' },
-          { p: 'tiktok', v: '8.4K', href: null },
-        ],
-      },
-      {
-        name: 'Mousa',
-        role: 'Closing coach',
-        avatar: '/people/face-image2-0.png',
-        platforms: [
-          { p: 'youtube', v: '4.1K', href: null },
-          { p: 'instagram', v: '9.3K', href: 'https://www.instagram.com/abu.closing/' },
-          { p: 'tiktok', v: '5.6K', href: null },
-        ],
-      },
-      {
-        name: 'Ejon',
-        role: 'Creator',
-        avatar: '/people/face-image4-0.png',
-        platforms: [
-          { p: 'youtube', v: '7.7K', href: null },
-          { p: 'instagram', v: '6.1K', href: 'https://www.instagram.com/ejonalex/' },
-          { p: 'tiktok', v: '11.9K', href: null },
-        ],
-      },
-      {
-        name: 'Mikail',
-        role: 'Creator',
-        avatar: '/people/face-image1-0.png',
-        platforms: [
-          { p: 'youtube', v: '27.1K', href: 'https://www.youtube.com/@yaseenbiz' },
-          { p: 'instagram', v: '9.7K', href: 'https://www.instagram.com/mikailaminrose/' },
-          { p: 'tiktok', v: '48.3K', href: null },
+          { p: 'instagram', v: '@yaseenramsey', href: 'https://www.instagram.com/yaseenramsey/' },
         ],
       },
       {
         name: 'Faraz Ali',
         role: 'Tutoring',
-        avatar: '/people/face-image7-0.png',
+        avatar: '/people/face-image1-0.png',
         platforms: [
-          { p: 'youtube', v: '5.4K', href: null },
-          { p: 'instagram', v: '3.8K', href: 'https://www.instagram.com/faraztutor/' },
-          { p: 'tiktok', v: '7.2K', href: null },
+          { p: 'instagram', v: '@faraztutor', href: 'https://www.instagram.com/faraztutor/' },
+        ],
+      },
+      {
+        name: 'Mousa',
+        role: 'Closing coach',
+        avatar: null,
+        platforms: [
+          { p: 'instagram', v: '@abu.closing', href: 'https://www.instagram.com/abu.closing/' },
+        ],
+      },
+      {
+        name: 'Ejon',
+        role: 'Creator',
+        avatar: null,
+        platforms: [
+          { p: 'instagram', v: '@ejonalex', href: 'https://www.instagram.com/ejonalex/' },
+        ],
+      },
+      {
+        name: 'Mikail',
+        role: 'Creator',
+        avatar: null,
+        platforms: [
+          { p: 'instagram', v: '@mikailaminrose', href: 'https://www.instagram.com/mikailaminrose/' },
         ],
       },
       {
         name: 'I Am Not A Scholar',
         role: 'Podcast',
-        avatar: '/people/face-image20-0.png',
+        avatar: '/people/ians.jpg',
         platforms: [
-          { p: 'youtube', v: '22.6K', href: null },
-          { p: 'instagram', v: '14.1K', href: 'https://www.instagram.com/iamnotascholarpodcast/' },
-          { p: 'tiktok', v: '19.5K', href: null },
+          { p: 'instagram', v: '@iamnotascholarpodcast', href: 'https://www.instagram.com/iamnotascholarpodcast/' },
         ],
       },
     ],
@@ -168,7 +158,7 @@ export const LP = {
   // Headline uses his £40K, bullets keep the screenshot's own number.
   results: {
     cash: {
-      avatar: '/people/face-image11-0.png',
+      avatar: '/people/face-image2-0.png',
       name: 'Zakariya',
       meta: 'Tech sales coach · @Zakariya.Tech-Sales',
       chip: 'Cash collected',
@@ -183,9 +173,9 @@ export const LP = {
       caption: 'Straight from his messages, June 2026',
     },
     calls: {
-      avatar: '/people/face-image8-0.png',
-      name: 'Aqib',
-      meta: 'Appointment setting · @SaleswithAqib',
+      avatar: '/people/face-image10-0.png',
+      name: 'Shaf',
+      meta: 'Arabic coach · @MarkazShafiee',
       chip: 'Calls booked',
       metric: '37',
       metricSuffix: 'calls / mo',

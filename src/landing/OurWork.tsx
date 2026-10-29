@@ -36,7 +36,7 @@ export function OurWork() {
       <div className={shell}>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Reveal>
-            <h2 className="text-[clamp(2.4rem,4.6vw,3.7rem)] font-extrabold leading-[1.0] tracking-[-0.03em] text-navy-900">
+            <h2 className="font-helv text-[clamp(2.05rem,4.6vw,3.7rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-navy-900">
               Our <Em>work</Em>
             </h2>
           </Reveal>

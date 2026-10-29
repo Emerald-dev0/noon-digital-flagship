@@ -7,7 +7,13 @@ function ChannelCard({ person }: { person: LpChannel }) {
   return (
     <article className="w-[262px] shrink-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_10px_28px_-18px_rgba(10,21,48,0.25)] sm:w-[292px]">
       <header className="flex items-center gap-3">
-        <img src={person.avatar} alt={person.name} loading="lazy" className="h-11 w-11 rounded-full object-cover" />
+        {person.avatar ? (
+          <img src={person.avatar} alt={person.name} loading="lazy" className="h-11 w-11 rounded-full object-cover" />
+        ) : (
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-50 font-helv text-sm font-bold text-brand-700 ring-1 ring-brand-100" aria-hidden="true">
+            {person.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
+          </span>
+        )}
         <div className="min-w-0">
           <h3 className="truncate text-[15px] font-bold leading-tight text-navy-900">{person.name}</h3>
           <p className="truncate text-xs text-slate-400">{person.role}</p>

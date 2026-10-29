@@ -216,7 +216,7 @@ export const TESTIMONIAL_WALL: { eyebrow: string; title: string; sub: string; ca
       name: 'Zakariya A.',
       meta: 'Tech sales coach',
       time: '8:45 AM',
-      avatar: '/people/face-image11-0.png',
+      avatar: '/people/face-image2-0.png',
       real: true,
       image: '/assets/chat/chat-revshare.png',
       messages: [{ from: 'them', text: 'Gone through all the numbers — this quarter is done.' }],
@@ -353,7 +353,7 @@ export const CREATORS = {
       handle: '@Zakariya.Tech-Sales',
       href: 'https://www.youtube.com/@Zakariya.Tech-Sales',
       role: 'Tech sales coach',
-      avatar: '/people/face-image11-0.png',
+      avatar: '/people/face-image2-0.png',
       cover: '/images/thumbnails/image24.png',
       tag: 'Tech sales',
       chips: [
@@ -367,7 +367,7 @@ export const CREATORS = {
       handle: '@MarkazShafiee',
       href: 'https://www.youtube.com/@MarkazShafiee',
       role: 'Arabic language institute',
-      avatar: '/people/face-image19-0.png',
+      avatar: '/people/face-image10-0.png',
       cover: '/images/thumbnails/image14.png',
       tag: 'Education',
       chips: [
@@ -395,7 +395,7 @@ export const CREATORS = {
       handle: '@yaseenramsey',
       href: 'https://www.youtube.com/@yaseenramsey',
       role: 'Personal brand',
-      avatar: '/people/face-image12-0.png',
+      avatar: '/people/yaseen-ramsey.png',
       cover: '/images/thumbnails/image13.png',
       tag: 'Personal brand',
       chips: [
@@ -409,7 +409,7 @@ export const CREATORS = {
       handle: '@yaseenbiz',
       href: 'https://www.youtube.com/@yaseenbiz',
       role: 'Business channel',
-      avatar: '/people/face-image1-0.png',
+      avatar: '/people/yaseen-ramsey.png',
       cover: '/images/thumbnails/image1.png',
       tag: 'Business',
       chips: [

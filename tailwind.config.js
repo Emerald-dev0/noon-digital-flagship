@@ -52,6 +52,8 @@ export default {
         display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         archivo: ['Archivo', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Client's brand font per his brand doc: Helvetica Bold
+        helv: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'ui-sans-serif', 'sans-serif'],
         serifit: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       maxWidth: {

@@ -40,7 +40,7 @@ export function SectionHead({
     <Reveal className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center')}>
       <h2
         className={cn(
-          'text-[clamp(2.05rem,4.6vw,3.7rem)] font-extrabold leading-[1.02] tracking-[-0.03em]',
+          'font-helv text-[clamp(2.05rem,4.6vw,3.7rem)] font-extrabold leading-[1.02] tracking-[-0.03em]',
           dark ? 'text-white' : 'text-navy-900',
         )}
       >
@@ -55,7 +55,7 @@ export function SectionHead({
 
 // Playfair italic accent word — the type signature across the reference sites
 export function Em({ children }: { children: ReactNode }) {
-  return <em className="font-serifit text-[1.05em] font-semibold italic tracking-[-0.01em] text-brand-500">{children}</em>
+  return <em className="not-italic text-brand-500">{children}</em>
 }
 
 export function CtaButton({

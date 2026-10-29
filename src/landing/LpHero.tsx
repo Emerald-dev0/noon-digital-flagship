@@ -82,7 +82,7 @@ function FloatChip({
         <TrendingUp className="h-4 w-4" />
       </span>
       <span>
-        <span className="block font-archivo text-[13px] font-extrabold leading-none text-navy-900 sm:text-[15px]">{chip.value}</span>
+        <span className="block font-helv text-[13px] font-extrabold leading-none text-navy-900 sm:text-[15px]">{chip.value}</span>
         <span className="mt-1 block text-[10px] font-medium text-slate-400 sm:text-[11px]">{chip.label}</span>
       </span>
     </motion.div>
@@ -136,7 +136,7 @@ export function LpHero() {
 
             <motion.h1
               {...fade(0.07)}
-              className="mt-4 text-[clamp(2.55rem,11.5vw,5.4rem)] font-extrabold leading-[0.97] tracking-[-0.035em] text-navy-900 sm:mt-5"
+              className="mt-4 font-helv text-[clamp(2.55rem,11.5vw,5.4rem)] font-extrabold leading-[0.97] tracking-[-0.035em] text-navy-900 sm:mt-5"
             >
               {hero.titleTop} <Em>{hero.titleAccent}</Em>
             </motion.h1>
@@ -180,7 +180,7 @@ export function LpHero() {
                   i % 2 === 1 && 'pl-6 lg:pl-9',
                 )}
               >
-                <p className="font-archivo text-[2.5rem] font-extrabold leading-none tracking-tight text-navy-900 md:text-[3.4rem]">
+                <p className="font-helv text-[2.5rem] font-extrabold leading-none tracking-tight text-navy-900 md:text-[3.4rem]">
                   <CountUp value={s.value} />
                 </p>
                 <p className="mt-2 text-[13px] text-slate-400 sm:text-sm">{s.label}</p>
