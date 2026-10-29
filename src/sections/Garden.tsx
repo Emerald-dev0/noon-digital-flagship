@@ -167,7 +167,7 @@ function ProofPane({ stage }: { stage: (typeof GARDEN.stages)[number] }) {
         </p>
       </div>
       <figure className="thumb-frame-warm overflow-hidden rounded-xl">
-        <img src="/assets/chat/chat-revshare.png" alt="Client chat confirming revenue share payout" loading="lazy" decoding="async" className="img-proof block w-full object-cover" style={{ maxHeight: 180 }} />
+        <img src="/assets/chat/chat-revshare.png" alt="Client chat confirming cash collected" loading="lazy" decoding="async" className="img-proof block w-full object-cover" style={{ maxHeight: 180 }} />
         <figcaption className="flex items-center gap-2 bg-ink-950/90 px-3 py-2 font-sans text-[10.5px] text-white/55">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           Real client message · revenue-share confirmed

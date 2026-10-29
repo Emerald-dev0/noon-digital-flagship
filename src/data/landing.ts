@@ -277,13 +277,13 @@ export const LP = {
   moreProof: {
     sub: 'Straight out of YouTube Studio and the tracking sheets.',
     items: [
-      { image: '/assets/proof/views-454k.png', caption: '454,684 lifetime views, one channel' },
-      { image: '/assets/proof/calls-july.webp', caption: 'Calls by source — YouTube 35, everything else 6' },
-      { image: '/assets/proof/dm-leads.webp', caption: 'One Miro video filled the inbox with leads' },
-      { image: '/assets/proof/calls-sheet.webp', caption: '37 calls · 47% close rate · 25% paid in full' },
-      { image: '/assets/proof/analytics-arabic.png', caption: 'Arabic channel — search traffic compounding' },
-      { image: '/assets/proof/analytics-insight.png', caption: '34.1K views, +1.3K subs from one video' },
-      { image: '/assets/proof/analytics-appt.png', caption: '17,232 views on a 7-hour course video' },
+      { image: '/assets/proof/views-454k.png', caption: '454,684 lifetime views, one channel', wide: true },
+      { image: '/assets/proof/dm-leads.webp', caption: 'One Miro video filled the inbox with leads', wide: false },
+      { image: '/assets/proof/calls-july.webp', caption: 'Calls by source — YouTube 35, everything else 6', wide: false },
+      { image: '/assets/proof/analytics-arabic.png', caption: 'Arabic channel — search traffic compounding', wide: false },
+      { image: '/assets/proof/calls-sheet.webp', caption: '37 calls · 47% close rate · 25% paid in full', wide: true },
+      { image: '/assets/proof/analytics-insight.png', caption: '34.1K views, +1.3K subs from one video', wide: false },
+      { image: '/assets/proof/analytics-appt.png', caption: '17,232 views on a 7-hour course video', wide: false },
     ],
   },
 

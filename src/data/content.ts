@@ -77,7 +77,7 @@ export const TRUST = {
     { value: '4', label: 'buyer keywords ranked top 3', tone: 'ember' },
     { value: '6', label: 'channels actively managed', tone: 'plain' },
     { value: '9.3K hrs', label: 'watch time banked', tone: 'plain' },
-    { value: '£2,907', label: 'rev-share paid on one quarter', tone: 'ember', placeholder: false },
+    { value: '£29,078', label: 'cash collected by one client in a quarter', tone: 'ember', placeholder: false },
     { value: '14 days', label: 'from kickoff to first published video', tone: 'plain' },
   ],
   footnote: 'Pulled from YouTube Studio, 2025. Screenshots available on the call.',
