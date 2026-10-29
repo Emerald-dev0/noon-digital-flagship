@@ -4,8 +4,8 @@ import { LP } from '../data/landing'
 
 export function Wordmark() {
   return (
-    <a href="#top" className="font-archivo text-[19px] font-extrabold tracking-tight text-navy-900">
-      Noon Digital<span className="text-brand-600">.</span>
+    <a href="#top" aria-label="Noon Digital — back to top" className="block shrink-0">
+      <img src="/logo-dark.png" alt="Noon Digital" className="h-7 w-auto sm:h-8" />
     </a>
   )
 }
@@ -27,7 +27,7 @@ export function LpNav() {
         scrolled ? 'border-b border-slate-200/80 bg-white/90 backdrop-blur' : 'bg-transparent',
       )}
     >
-      <div className="mx-auto flex h-[68px] w-full max-w-shell items-center justify-between px-5 md:px-8">
+      <div className="mx-auto flex h-16 w-full max-w-shell items-center justify-between px-5 md:px-8">
         <Wordmark />
         <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 lg:flex">
           <a href="#clients" className="transition-colors hover:text-navy-900">Clients</a>
@@ -37,7 +37,7 @@ export function LpNav() {
         </nav>
         <a
           href={LP.hero.cta.href}
-          className="rounded-full bg-navy-900 px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-700"
+          className="rounded-full bg-navy-900 px-4 py-2 text-[13px] font-bold text-white transition-colors hover:bg-brand-700 sm:px-5 sm:py-2.5 sm:text-sm"
         >
           Book a call
         </a>

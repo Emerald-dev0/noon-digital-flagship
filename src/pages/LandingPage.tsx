@@ -10,13 +10,14 @@ import { Ranking } from '../landing/Ranking'
 import { MoreProof } from '../landing/MoreProof'
 import { Book } from '../landing/Book'
 import { LpFooter } from '../landing/LpFooter'
+import { StickyMobileCta } from '../landing/StickyMobileCta'
 
 // VSL landing page. Section order follows the client's doc.
 export default function LandingPage() {
   useSmoothScroll()
 
   return (
-    <div className="lp min-h-screen bg-white font-sans text-slate-500 antialiased">
+    <div className="lp min-h-screen bg-white pb-[92px] font-sans text-slate-500 antialiased lg:pb-0">
       <LpNav />
       <main>
         <LpHero />
@@ -30,6 +31,7 @@ export default function LandingPage() {
         <Book />
       </main>
       <LpFooter />
+      <StickyMobileCta />
     </div>
   )
 }

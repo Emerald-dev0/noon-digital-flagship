@@ -28,16 +28,20 @@ export default {
           500: '#ff8a3d',
           600: '#f06a1f',
         },
-        // Landing page (dahus-style light theme)
+        // Landing page — Noon brand palette (from Muba Brand Details doc)
         brand: {
-          50: '#eef3ff',
-          100: '#dbe7ff',
-          200: '#bcd2ff',
-          300: '#8fb2ff',
-          400: '#5f8dff',
-          500: '#2f6bff',
-          600: '#1f56e8',
-          700: '#1a45bd',
+          50: '#f6f1ff',
+          100: '#ede4ff',
+          200: '#dac7ff',
+          300: '#c2a3ff',
+          400: '#a67dff',
+          500: '#8f56ff',
+          600: '#7a3eee',
+          700: '#642ed2',
+        },
+        blush: {
+          400: '#ff8fd0',
+          500: '#ff69c5',
         },
         navy: {
           900: '#0a1530',

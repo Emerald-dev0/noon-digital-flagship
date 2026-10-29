@@ -6,7 +6,7 @@ export function ClientStories() {
   const { clientVideos } = LP
 
   return (
-    <section id="clients" className="bg-[#f6f8fc] py-20 md:py-28">
+    <section id="clients" className="bg-[#f6f8fc] py-16 md:py-28">
       <div className={shell}>
         <SectionHead title={<>Hear it from our <Em>clients</Em></>} sub={clientVideos.sub} />
 

@@ -10,7 +10,7 @@ function WorkRow({ ids, reverse = false, duration, offset }: { ids: string[]; re
       style={{ '--marquee-duration': duration, animationDirection: reverse ? 'reverse' : undefined } as React.CSSProperties}
     >
       {row.map((id, i) => (
-        <div key={`${id}-${i}`} className="w-[300px] shrink-0 sm:w-[360px] lg:w-[400px]">
+        <div key={`${id}-${i}`} className="w-[262px] shrink-0 sm:w-[360px] lg:w-[400px]">
           <YouTubeLite id={id} title={`Client video ${offset + (i % ids.length) + 1}`} rounded="rounded-xl" className="shadow-[0_18px_40px_-20px_rgba(10,21,48,0.45)] ring-1 ring-black/10" />
         </div>
       ))}
@@ -26,7 +26,7 @@ export function OurWork() {
   return (
     <section
       id="work"
-      className="overflow-hidden bg-[#faf6ef] py-20 md:py-28"
+      className="overflow-hidden bg-[#faf6ef] py-16 md:py-28"
       style={{
         backgroundImage:
           'linear-gradient(rgba(10,21,48,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(10,21,48,0.045) 1px, transparent 1px)',

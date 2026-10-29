@@ -15,10 +15,10 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.55, delay, ease: 'easeOut' }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.45, delay, ease: 'easeOut' }}
     >
       {children}
     </motion.div>
@@ -40,14 +40,14 @@ export function SectionHead({
     <Reveal className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center')}>
       <h2
         className={cn(
-          'text-[clamp(2.4rem,4.6vw,3.7rem)] font-extrabold leading-[1.0] tracking-[-0.03em]',
+          'text-[clamp(2.05rem,4.6vw,3.7rem)] font-extrabold leading-[1.02] tracking-[-0.03em]',
           dark ? 'text-white' : 'text-navy-900',
         )}
       >
         {title}
       </h2>
       {sub && (
-        <p className={cn('mt-4 text-base md:text-lg', dark ? 'text-white/60' : 'text-slate-500')}>{sub}</p>
+        <p className={cn('mt-3.5 text-[15px] leading-relaxed md:mt-4 md:text-lg', dark ? 'text-white/60' : 'text-slate-500')}>{sub}</p>
       )}
     </Reveal>
   )

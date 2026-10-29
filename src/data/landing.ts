@@ -264,6 +264,7 @@ export const LP = {
       },
     ],
     terms: [
+      { term: 'arabic grammar course', note: 'Ranking now' },
       { term: 'arabic grammar', note: 'Ranking now' },
       { term: 'appointment setting', note: 'Ranking now' },
       { term: 'tech sales course', note: 'Ranking now' },
@@ -277,6 +278,8 @@ export const LP = {
     sub: 'Straight out of YouTube Studio and the tracking sheets.',
     items: [
       { image: '/assets/proof/views-454k.png', caption: '454,684 lifetime views, one channel' },
+      { image: '/assets/proof/calls-july.webp', caption: 'Calls by source — YouTube 35, everything else 6' },
+      { image: '/assets/proof/dm-leads.webp', caption: 'One Miro video filled the inbox with leads' },
       { image: '/assets/proof/calls-sheet.webp', caption: '37 calls · 47% close rate · 25% paid in full' },
       { image: '/assets/proof/analytics-arabic.png', caption: 'Arabic channel — search traffic compounding' },
       { image: '/assets/proof/analytics-insight.png', caption: '34.1K views, +1.3K subs from one video' },

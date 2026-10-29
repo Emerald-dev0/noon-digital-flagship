@@ -1,11 +1,11 @@
 import { LP, type LpChannel } from '../data/landing'
-import { Em, Reveal, SectionHead, shell } from './LpUi'
+import { Reveal, SectionHead, shell } from './LpUi'
 import { PLATFORM_META, PlatformIcon } from './VideoBits'
 import { cn } from '../utils/cn'
 
 function ChannelCard({ person }: { person: LpChannel }) {
   return (
-    <article className="w-[292px] shrink-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_10px_28px_-18px_rgba(10,21,48,0.25)]">
+    <article className="w-[262px] shrink-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_10px_28px_-18px_rgba(10,21,48,0.25)] sm:w-[292px]">
       <header className="flex items-center gap-3">
         <img src={person.avatar} alt={person.name} loading="lazy" className="h-11 w-11 rounded-full object-cover" />
         <div className="min-w-0">
@@ -39,7 +39,7 @@ function Row({ people, reverse = false, duration }: { people: LpChannel[]; rever
   const row = [...people, ...people]
   return (
     <div
-      className="flex w-max animate-marquee gap-4 px-4 py-1 hover:[animation-play-state:paused]"
+      className="flex w-max animate-marquee gap-3.5 px-4 py-1 hover:[animation-play-state:paused] sm:gap-4"
       style={{ '--marquee-duration': duration, animationDirection: reverse ? 'reverse' : undefined } as React.CSSProperties}
     >
       {row.map((person, i) => (
@@ -55,17 +55,14 @@ export function Channels() {
   const second = [...channels.people.slice(5), channels.people[0]]
 
   return (
-    <section id="channels" className="py-20 md:py-24">
+    <section id="channels" className="py-16 md:py-24">
       <div className={shell}>
-        <SectionHead
-          title={<>Channels we&apos;ve <Em>worked with</Em></>}
-          sub={channels.sub}
-        />
+        <SectionHead title="Channels we've worked with" sub={channels.sub} />
       </div>
 
-      <Reveal className="mt-10" delay={0.05}>
+      <Reveal className="mt-9 md:mt-10" delay={0.05}>
         <div
-          className="space-y-4 overflow-hidden"
+          className="space-y-3.5 overflow-hidden sm:space-y-4"
           style={{
             maskImage: 'linear-gradient(90deg, transparent, black 6%, black 94%, transparent)',
             WebkitMaskImage: 'linear-gradient(90deg, transparent, black 6%, black 94%, transparent)',
