@@ -11,7 +11,7 @@ function WorkRow({ ids, reverse = false, duration, offset }: { ids: string[]; re
     >
       {row.map((id, i) => (
         <div key={`${id}-${i}`} className="w-[300px] shrink-0 sm:w-[360px] lg:w-[400px]">
-          <YouTubeLite id={id} title={`Client video ${offset + (i % ids.length) + 1}`} rounded="rounded-xl" />
+          <YouTubeLite id={id} title={`Client video ${offset + (i % ids.length) + 1}`} rounded="rounded-xl" className="shadow-[0_18px_40px_-20px_rgba(10,21,48,0.45)] ring-1 ring-black/10" />
         </div>
       ))}
     </div>
@@ -24,16 +24,24 @@ export function OurWork() {
   const second = work.videos.slice(9)
 
   return (
-    <section id="work" className="overflow-hidden bg-navy-950 py-20 md:py-28">
+    <section
+      id="work"
+      className="overflow-hidden bg-[#faf6ef] py-20 md:py-28"
+      style={{
+        backgroundImage:
+          'linear-gradient(rgba(10,21,48,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(10,21,48,0.045) 1px, transparent 1px)',
+        backgroundSize: '44px 44px',
+      }}
+    >
       <div className={shell}>
         <div className="flex flex-wrap items-end justify-between gap-6">
           <Reveal>
-            <h2 className="text-[clamp(2.4rem,4.6vw,3.7rem)] font-extrabold leading-[1.0] tracking-[-0.03em] text-white">
+            <h2 className="text-[clamp(2.4rem,4.6vw,3.7rem)] font-extrabold leading-[1.0] tracking-[-0.03em] text-navy-900">
               Our <Em>work</Em>
             </h2>
           </Reveal>
           <Reveal delay={0.08}>
-            <p className="max-w-xs text-[15px] leading-relaxed text-white/50">{work.note}</p>
+            <p className="max-w-xs text-[15px] leading-relaxed text-slate-500">{work.note}</p>
           </Reveal>
         </div>
       </div>

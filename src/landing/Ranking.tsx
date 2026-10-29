@@ -10,9 +10,14 @@ function searchUrl(term: string) {
 
 function SerpCard({ shot }: { shot: Shot }) {
   return (
-    <article className="w-[320px] shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white sm:w-[380px]">
-      <div className="relative">
-        <img src={shot.image} alt={`YouTube search results for "${shot.term}"`} className="block w-full" loading="lazy" />
+    <article className="flex shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="relative shrink-0">
+        <img
+          src={shot.image}
+          alt={`YouTube search results for "${shot.term}"`}
+          loading="lazy"
+          className="block h-[300px] w-auto max-w-none sm:h-[380px]"
+        />
         {shot.ring && (
           <>
             <span className="pointer-events-none absolute rounded-lg border-[3px] border-brand-600" style={shot.ring} />
@@ -44,7 +49,7 @@ function SerpCard({ shot }: { shot: Shot }) {
 
 export function Ranking() {
   const { ranking } = LP
-  const base = [...ranking.shots, ...ranking.shots, ...ranking.shots]
+  const base = [...ranking.shots, ...ranking.shots]
   const row = [...base, ...base]
 
   return (
@@ -57,11 +62,11 @@ export function Ranking() {
         <div
           className="overflow-hidden"
           style={{
-            maskImage: 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)',
-            WebkitMaskImage: 'linear-gradient(90deg, transparent, black 5%, black 95%, transparent)',
+            maskImage: 'linear-gradient(90deg, transparent, black 4%, black 96%, transparent)',
+            WebkitMaskImage: 'linear-gradient(90deg, transparent, black 4%, black 96%, transparent)',
           }}
         >
-          <div className="flex w-max animate-marquee gap-4 px-4 py-1 [--marquee-duration:60s] hover:[animation-play-state:paused]">
+          <div className="flex w-max animate-marquee items-stretch gap-4 px-4 py-1 [--marquee-duration:75s] hover:[animation-play-state:paused]">
             {row.map((shot, i) => (
               <SerpCard key={`${shot.term}-${i}`} shot={shot} />
             ))}
