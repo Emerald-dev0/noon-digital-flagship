@@ -146,7 +146,7 @@ export function DriveVideo({
           ) : (
             <>
               <span className="absolute inset-0 bg-navy-950" />
-              <span className="absolute inset-0 bg-[linear-gradient(140deg,rgba(143,86,255,0.35),transparent_55%)]" />
+              <span className="absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,0.07),transparent_55%)]" />
               <span className="absolute left-6 top-6">
                 <span className="block font-helv text-3xl font-bold tracking-tight text-white">{name}</span>
                 <span className="mt-1 block text-sm text-white/60">{role}</span>

@@ -10,7 +10,7 @@ function ChannelCard({ person }: { person: LpChannel }) {
         {person.avatar ? (
           <img src={person.avatar} alt={person.name} loading="lazy" className="h-11 w-11 rounded-full object-cover" />
         ) : (
-          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-50 font-helv text-sm font-bold text-brand-700 ring-1 ring-brand-100" aria-hidden="true">
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-slate-100 font-helv text-sm font-bold text-navy-900 ring-1 ring-slate-200" aria-hidden="true">
             {person.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
           </span>
         )}

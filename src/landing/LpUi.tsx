@@ -44,7 +44,7 @@ export function SectionHead({
         <span
           className={cn(
             'mb-4 inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]',
-            dark ? 'border-white/15 bg-white/5 text-brand-300' : 'border-brand-200 bg-brand-50 text-brand-600',
+            dark ? 'border-white/15 bg-white/5 text-white/60' : 'border-slate-200 bg-white text-slate-500',
           )}
         >
           {label}
