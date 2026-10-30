@@ -28,19 +28,31 @@ export function Reveal({
 export function SectionHead({
   title,
   sub,
+  label,
   align = 'left',
   dark = false,
 }: {
   title: ReactNode
   sub?: string
+  label?: string
   align?: 'left' | 'center'
   dark?: boolean
 }) {
   return (
     <Reveal className={cn('max-w-3xl', align === 'center' && 'mx-auto text-center')}>
+      {label && (
+        <span
+          className={cn(
+            'mb-4 inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em]',
+            dark ? 'border-white/15 bg-white/5 text-white/60' : 'border-slate-200 bg-white text-slate-500',
+          )}
+        >
+          {label}
+        </span>
+      )}
       <h2
         className={cn(
-          'text-[clamp(2.05rem,4.6vw,3.7rem)] font-extrabold leading-[1.02] tracking-[-0.03em]',
+          'font-helv text-[clamp(2.05rem,4.6vw,3.7rem)] font-bold leading-[1.02] tracking-[-0.03em]',
           dark ? 'text-white' : 'text-navy-900',
         )}
       >
@@ -53,9 +65,9 @@ export function SectionHead({
   )
 }
 
-// Playfair italic accent word — the type signature across the reference sites
+// accent word in brand purple
 export function Em({ children }: { children: ReactNode }) {
-  return <em className="font-serifit text-[1.05em] font-semibold italic tracking-[-0.01em] text-brand-500">{children}</em>
+  return <em className="not-italic text-brand-500">{children}</em>
 }
 
 export function CtaButton({

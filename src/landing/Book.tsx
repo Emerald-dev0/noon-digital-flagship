@@ -10,7 +10,7 @@ export function Book() {
         <Reveal>
           <div className="rounded-[1.75rem] bg-navy-950 px-5 py-12 text-center sm:px-8 md:rounded-[2rem] md:px-12 md:py-20">
             <img src="/logo-icon.png" alt="" className="mx-auto h-12 w-auto md:h-14" />
-            <h2 className="mx-auto mt-7 max-w-3xl text-[clamp(1.9rem,4.6vw,3.8rem)] font-extrabold leading-[1.04] tracking-[-0.03em] text-white">
+            <h2 className="mx-auto mt-7 max-w-3xl font-helv text-[clamp(1.9rem,4.6vw,3.8rem)] font-bold leading-[1.04] tracking-[-0.03em] text-white">
               {book.title}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-white/60 md:mt-5 md:text-lg">{book.sub}</p>

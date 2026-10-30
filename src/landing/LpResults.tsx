@@ -1,17 +1,17 @@
-import { Check } from 'lucide-react'
 import { LP } from '../data/landing'
 import { CountUp } from '../components/ui/CountUp'
-import { Em, Reveal, SectionHead, shell } from './LpUi'
+import { CtaButton, Reveal, SectionHead, shell } from './LpUi'
 
-function Points({ items }: { items: readonly string[] }) {
+function Points({ items }: { items: readonly (readonly string[])[] }) {
   return (
     <ul className="space-y-2.5">
-      {items.map((point) => (
-        <li key={point} className="flex items-start gap-2.5 text-[15px] font-medium text-white/70">
-          <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-emerald-400/15 text-emerald-300">
-            <Check className="h-3 w-3" strokeWidth={3} />
-          </span>
-          {point}
+      {items.map(([lead, rest]) => (
+        <li key={lead} className="flex gap-2.5 text-[15px] leading-relaxed text-white/60">
+          <span aria-hidden className="font-bold text-brand-400">—</span>
+          <p>
+            <strong className="font-bold text-white">{lead}</strong>
+            {rest}
+          </p>
         </li>
       ))}
     </ul>
@@ -56,7 +56,7 @@ function CallsPanel() {
         <div className="grid grid-cols-3 divide-x divide-slate-100">
           {calls.stats.map((s) => (
             <div key={s.l} className="px-2 text-center first:pl-0 last:pr-0 sm:px-4">
-              <p className="font-archivo text-[1.7rem] font-extrabold leading-none tracking-tight text-navy-900 sm:text-3xl md:text-4xl">
+              <p className="font-helv text-[1.7rem] font-bold leading-none tracking-tight text-navy-900 sm:text-3xl md:text-4xl">
                 <CountUp value={s.v} />
               </p>
               <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-slate-400 sm:text-[11px] sm:tracking-[0.12em]">{s.l}</p>
@@ -78,7 +78,8 @@ export function LpResults() {
       <div className={shell}>
         <SectionHead
           dark
-          title={<>Don&apos;t take <Em>our word</Em> for it</>}
+          label="Client results"
+          title="Results"
           sub="Numbers from the clients' own messages, dashboards and tracking sheets."
         />
 
@@ -86,7 +87,7 @@ export function LpResults() {
           <Reveal>
             <article className="flex h-full flex-col rounded-3xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:p-6 md:p-8">
               <CardHeader {...results.cash} />
-              <p className="mt-6 font-archivo text-[3.4rem] font-extrabold leading-none tracking-tight text-white sm:mt-7 md:text-7xl">
+              <p className="mt-6 font-helv text-[3.4rem] font-bold leading-none tracking-tight text-white sm:mt-7 md:text-7xl">
                 <CountUp value={results.cash.metric} />
               </p>
               <p className="mt-2.5 text-base text-white/50">{results.cash.metricLabel}</p>
@@ -102,7 +103,7 @@ export function LpResults() {
           <Reveal delay={0.1}>
             <article className="flex h-full flex-col rounded-3xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:p-6 md:p-8">
               <CardHeader {...results.calls} />
-              <p className="mt-6 font-archivo text-[3.4rem] font-extrabold leading-none tracking-tight text-white sm:mt-7 md:text-7xl">
+              <p className="mt-6 font-helv text-[3.4rem] font-bold leading-none tracking-tight text-white sm:mt-7 md:text-7xl">
                 <CountUp value={results.calls.metric} />
                 <span className="ml-2.5 align-middle font-sans text-lg font-semibold text-white/40 sm:text-xl">{results.calls.metricSuffix}</span>
               </p>
@@ -116,6 +117,10 @@ export function LpResults() {
             </article>
           </Reveal>
         </div>
+
+        <Reveal className="mt-10 text-center md:mt-12">
+          <CtaButton light href="#book">Book a call</CtaButton>
+        </Reveal>
       </div>
     </section>
   )

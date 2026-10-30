@@ -21,13 +21,13 @@ export function LpNav() {
   }, [])
 
   return (
-    <header
-      className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-200',
-        scrolled ? 'border-b border-slate-200/80 bg-white/90 backdrop-blur' : 'bg-transparent',
-      )}
-    >
-      <div className="mx-auto flex h-16 w-full max-w-shell items-center justify-between px-5 md:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+      <div
+        className={cn(
+          'mx-auto flex h-14 w-full max-w-shell items-center justify-between rounded-full border border-slate-200/90 bg-white/90 pl-5 pr-2 backdrop-blur transition-shadow duration-200 md:h-16 md:pl-6 md:pr-2.5',
+          scrolled ? 'shadow-[0_16px_40px_-20px_rgba(10,21,48,0.35)]' : 'shadow-[0_8px_28px_-18px_rgba(10,21,48,0.25)]',
+        )}
+      >
         <Wordmark />
         <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 lg:flex">
           <a href="#clients" className="transition-colors hover:text-navy-900">Clients</a>
@@ -37,7 +37,7 @@ export function LpNav() {
         </nav>
         <a
           href={LP.hero.cta.href}
-          className="rounded-full bg-navy-900 px-4 py-2 text-[13px] font-bold text-white transition-colors hover:bg-brand-700 sm:px-5 sm:py-2.5 sm:text-sm"
+          className="rounded-full bg-brand-600 px-4 py-2 text-[13px] font-bold text-white transition-colors hover:bg-brand-700 sm:px-5 sm:py-2.5 sm:text-sm"
         >
           Book a call
         </a>
