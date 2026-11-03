@@ -77,6 +77,10 @@ export default {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        'marquee-y': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(-50%)' },
+        },
         drift: {
           '0%,100%': { transform: 'translate3d(0,0,0) scale(1)' },
           '50%': { transform: 'translate3d(0,-18px,0) scale(1.04)' },
@@ -88,6 +92,7 @@ export default {
       },
       animation: {
         marquee: 'marquee var(--marquee-duration,38s) linear infinite',
+        'marquee-y': 'marquee-y var(--marquee-duration,48s) linear infinite',
         drift: 'drift 12s ease-in-out infinite',
         shimmer: 'shimmer 6s linear infinite',
       },

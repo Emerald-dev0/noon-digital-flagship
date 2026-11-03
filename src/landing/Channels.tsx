@@ -81,7 +81,6 @@ export function Channels() {
     <section id="channels" className="py-16 md:py-24">
       <div className={shell}>
         <SectionHead
-          label="Our clients"
           title={<>Channels we&apos;ve <Em>worked with.</Em></>}
           sub={`${channels.sub} 9 channels — coaches, consultants, a tutoring brand, a podcast and a chessboxer.`}
         />

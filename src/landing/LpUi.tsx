@@ -28,12 +28,10 @@ export function Reveal({
 }
 
 export function SectionHead({
-  label,
   title,
   sub,
   dark = false,
 }: {
-  label?: string
   title: ReactNode
   sub?: string
   dark?: boolean
@@ -41,15 +39,9 @@ export function SectionHead({
   return (
     <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
       <Reveal className="max-w-2xl">
-        {label && (
-          <p className={cn('flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em]', dark ? 'text-brand-300' : 'text-brand-600')}>
-            <span className="h-2 w-2 rounded-[2px] bg-blush-500" aria-hidden="true" />
-            {label}
-          </p>
-        )}
         <h2
           className={cn(
-            'mt-3.5 font-helv text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.0] tracking-[-0.03em]',
+            'font-helv text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.0] tracking-[-0.03em]',
             dark ? 'text-white' : 'text-ink-900',
           )}
         >

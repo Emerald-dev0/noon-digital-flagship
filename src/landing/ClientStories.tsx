@@ -12,7 +12,6 @@ export function ClientStories() {
     <section id="clients" className="border-y border-ink-900/5 bg-brand-50 py-16 md:py-24">
       <div className={shell}>
         <SectionHead
-          label="Testimonials"
           title={<>Hear from <Em>our clients.</Em></>}
           sub={clientVideos.sub}
         />

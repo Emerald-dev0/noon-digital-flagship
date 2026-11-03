@@ -9,7 +9,7 @@ export function MoreProof() {
   return (
     <section id="proof" className="bg-navy-950 py-16 md:py-24">
       <div className={shell}>
-        <SectionHead dark label="The receipts" title={<>More <Em>proof.</Em></>} sub={moreProof.sub} />
+        <SectionHead dark title={<>More <Em>proof.</Em></>} sub={moreProof.sub} />
 
         {/* Masonry wall. On mobile the wide shots span both columns so they
             stay readable, and every shot can be tapped open full size. */}

@@ -22,7 +22,6 @@ export function LpProcess() {
     <section id="process" className="border-y border-ink-900/10 bg-paper py-16 md:py-24">
       <div className={shell}>
         <SectionHead
-          label="Our process"
           title={<>Completely done-for-you. <Em>Here&apos;s the rundown.</Em></>}
           sub="1–2 videos a week. You record — we handle everything before and after that."
         />

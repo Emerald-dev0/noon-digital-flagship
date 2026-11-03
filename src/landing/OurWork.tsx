@@ -15,7 +15,6 @@ export function OurWork() {
       <div className={shell}>
         <SectionHead
           dark
-          label="Some bangers"
           title={<>Our <Em>work.</Em></>}
           sub={work.note}
         />

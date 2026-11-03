@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowUpRight01Icon, Asterisk02Icon, CallIcon, EyeIcon, PlayCircleIcon, Search01Icon } from 'hugeicons-react'
+import { Asterisk02Icon, PlayCircleIcon, Search01Icon } from 'hugeicons-react'
 import { LP } from '../data/landing'
 import { CountUp } from '../components/ui/CountUp'
 import { CtaButton, Em, Reveal, shell } from './LpUi'
@@ -68,113 +68,50 @@ function TypedSearch() {
   )
 }
 
-function FloatChip({ className, delay = 0, children }: { className?: string; delay?: number; children: React.ReactNode }) {
+// The wall: all 24 real client thumbnails in three scrolling columns.
+const sm = (n: number) => `/images/thumbnails/sm/image${n}.webp`
+const COLUMNS: { images: number[]; duration: string; reverse?: boolean }[] = [
+  { images: [8, 1, 15, 20, 6, 13, 22, 4], duration: '46s' },
+  { images: [2, 17, 10, 23, 5, 19, 12, 21], duration: '56s', reverse: true },
+  { images: [9, 3, 24, 11, 16, 7, 14, 18], duration: '50s' },
+]
+
+function ThumbWall() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.85 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.55, delay, ease: EASE }}
-      className={cn('absolute z-20', className)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.9, delay: 0.25 }}
+      className="relative h-[340px] overflow-hidden sm:h-[480px] lg:h-[560px]"
+      style={{
+        maskImage: 'linear-gradient(to bottom, transparent, black 12%, black 86%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 12%, black 86%, transparent)',
+      }}
+      aria-hidden="true"
     >
-      <motion.div
-        animate={{ y: [0, -7, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay }}
-        className="flex items-center gap-2 rounded-full bg-paper py-2 pl-2.5 pr-3.5 shadow-[0_16px_34px_-14px_rgba(10,8,16,0.45)] ring-1 ring-ink-900/10"
-      >
-        {children}
-      </motion.div>
-    </motion.div>
-  )
-}
-
-function HeroVisual() {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 36 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
-      className="relative mx-auto w-full max-w-[540px] lg:max-w-none"
-    >
-      <div className="relative overflow-hidden rounded-[28px] border border-ink-900/10 bg-brand-300 shadow-[0_44px_84px_-34px_rgba(122,62,238,0.5)]">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 [background-image:radial-gradient(circle,rgba(255,255,255,0.55)_1.2px,transparent_1.2px)] [background-size:22px_22px]"
-        />
-        <PlayCircleIcon aria-hidden="true" className="absolute -right-10 -top-10 h-48 w-48 text-white/25" strokeWidth={1.1} />
-
-        <div className="relative p-5 sm:p-7">
-          <div className="flex items-center justify-between">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink-900/60">From the channels</p>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink-900/60">9 channels</p>
-          </div>
-
-          <div className="relative mt-5 h-[292px] sm:h-[330px]">
-            <motion.div
-              initial={{ opacity: 0, y: 24, rotate: -6 }}
-              animate={{ opacity: 1, y: 0, rotate: -3 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
-              className="absolute left-0 top-1 w-[68%]"
-            >
-              <motion.img
-                src="/images/thumbnails/image8.png"
-                alt="Appointment Setting 7HR Course — client thumbnail"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 6.5, repeat: Infinity, ease: 'easeInOut' }}
-                className="w-full rounded-xl border-4 border-white shadow-[0_24px_44px_-16px_rgba(10,8,16,0.5)]"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 24, rotate: 6 }}
-              animate={{ opacity: 1, y: 0, rotate: 3.5 }}
-              transition={{ duration: 0.8, delay: 0.65, ease: EASE }}
-              className="absolute bottom-9 right-0 w-[62%]"
-            >
-              <motion.img
-                src="/images/thumbnails/image10.png"
-                alt="Learn Arabic Like A Baby — client thumbnail"
-                animate={{ y: [0, 7, 0] }}
-                transition={{ duration: 7.5, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-                className="w-full rounded-xl border-4 border-white shadow-[0_24px_44px_-16px_rgba(10,8,16,0.5)]"
-              />
-            </motion.div>
-
-            <FloatChip className="right-1 top-0 sm:right-3" delay={0.95}>
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-brand-100 text-brand-700">
-                <CallIcon size={15} strokeWidth={2} />
-              </span>
-              <span className="text-[13px] font-bold text-ink-900">37 calls / month</span>
-            </FloatChip>
-            <FloatChip className="bottom-20 left-0 sm:left-2" delay={1.1}>
-              <span className="grid h-7 w-7 place-items-center rounded-full bg-brand-100 text-brand-700">
-                <EyeIcon size={16} strokeWidth={2} />
-              </span>
-              <span className="text-[13px] font-bold text-ink-900">201K views, one video</span>
-            </FloatChip>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16, rotate: -12 }}
-              animate={{ opacity: 1, y: 0, rotate: -6 }}
-              transition={{ duration: 0.6, delay: 1.25, ease: EASE }}
-              className="absolute -bottom-1 left-5 z-20 bg-blush-500 px-3.5 py-2.5 shadow-[0_14px_28px_-10px_rgba(255,105,197,0.7)]"
-            >
-              <p className="text-[13px] font-bold leading-tight text-ink-900">
-                £29,078 collected
-                <span className="block font-semibold text-ink-900/65">in a single quarter</span>
-              </p>
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="relative flex items-center justify-between gap-4 bg-ink-900 px-5 py-4 sm:px-7">
-          <p className="text-sm font-bold text-white">Real thumbnails. Real channels. Real calls.</p>
-          <a
-            href="#work"
-            aria-label="See our work"
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/30 text-white transition-colors duration-200 hover:bg-white hover:text-ink-900"
+      <div className="flex h-full -rotate-3 scale-[1.15] items-start justify-center gap-2.5 sm:gap-3">
+        {COLUMNS.map((col, ci) => (
+          <div
+            key={ci}
+            className="flex w-[31%] min-w-[126px] max-w-[230px] shrink-0 animate-marquee-y flex-col gap-2.5 motion-reduce:animate-none sm:gap-3"
+            style={
+              {
+                '--marquee-duration': col.duration,
+                animationDirection: col.reverse ? 'reverse' : undefined,
+              } as CSSProperties
+            }
           >
-            <ArrowUpRight01Icon size={17} strokeWidth={2.2} />
-          </a>
-        </div>
+            {[...col.images, ...col.images].map((n, i) => (
+              <img
+                key={`${n}-${i}`}
+                src={sm(n)}
+                alt=""
+                loading={i < 4 ? 'eager' : 'lazy'}
+                className="aspect-video w-full rounded-lg object-cover shadow-[0_14px_30px_-12px_rgba(10,8,16,0.35)] ring-1 ring-black/10"
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </motion.div>
   )
@@ -238,14 +175,7 @@ export function LpHero() {
       <div className={shell}>
         <div className="grid items-center gap-12 pt-[118px] md:pt-[150px] lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           <div>
-            <Reveal>
-              <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-600">
-                <span className="h-2 w-2 rounded-[2px] bg-blush-500" aria-hidden="true" />
-                {hero.kicker}
-              </p>
-            </Reveal>
-
-            <h1 className="mt-5 font-helv text-[clamp(2.9rem,6.4vw,5.2rem)] font-bold leading-[0.98] tracking-[-0.035em] text-ink-900">
+            <h1 className="font-helv text-[clamp(2.9rem,6.4vw,5.2rem)] font-bold leading-[0.98] tracking-[-0.035em] text-ink-900">
               <span className="block overflow-hidden pb-1">
                 <motion.span className="block" initial={{ y: '110%' }} animate={{ y: 0 }} transition={{ duration: 0.85, delay: 0.05, ease: EASE }}>
                   {hero.titleTop}
@@ -282,10 +212,6 @@ export function LpHero() {
 
             <Reveal delay={0.44}>
               <div className="mt-9 max-w-xl">
-                <p className="mb-2.5 flex items-center justify-between text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-                  <span>What your buyers search</span>
-                  <span>On YouTube, right now</span>
-                </p>
                 <TypedSearch />
                 <p className="mt-2.5 text-[13px] text-slate-500">
                   Search any of those — <strong className="font-bold text-ink-900">you&apos;ll find our clients.</strong>
@@ -294,7 +220,7 @@ export function LpHero() {
             </Reveal>
           </div>
 
-          <HeroVisual />
+          <ThumbWall />
         </div>
 
         <Reveal className="mt-14 grid grid-cols-2 border-t border-ink-900/10 md:mt-20 lg:grid-cols-4" delay={0.1}>

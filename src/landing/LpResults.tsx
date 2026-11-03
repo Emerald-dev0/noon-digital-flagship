@@ -40,20 +40,6 @@ function Who({ avatar, name, meta, dark = false }: { avatar: string; name: strin
   )
 }
 
-function CaseTag({ n, dark = false }: { n: string; dark?: boolean }) {
-  return (
-    <span
-      className={cn(
-        'inline-flex shrink-0 items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em]',
-        dark ? 'bg-white/10 text-white' : 'bg-brand-50 text-brand-700',
-      )}
-    >
-      <span className="h-1.5 w-1.5 rounded-[2px] bg-blush-500" aria-hidden="true" />
-      Case study {n}
-    </span>
-  )
-}
-
 function CtaRow({ light = false }: { light?: boolean }) {
   return (
     <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -111,7 +97,6 @@ export function LpResults() {
     <section id="results" className="py-16 md:py-24">
       <div className={shell}>
         <SectionHead
-          label="Client results"
           title={<>Results, <Em>broken down.</Em></>}
           sub="Two clients, broken down properly. Every screenshot below is the client's own — no mockups, no stock dashboards."
         />
@@ -121,7 +106,6 @@ export function LpResults() {
           <article className="rounded-[28px] border border-ink-900/10 bg-paper p-5 shadow-[0_30px_60px_-32px_rgba(10,8,16,0.4)] sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <Who avatar={cash.avatar} name={cash.name} meta={cash.meta} />
-              <CaseTag n="01" />
             </div>
 
             <h3 className="mt-6 max-w-3xl font-helv text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.02em] text-ink-900">
@@ -130,8 +114,7 @@ export function LpResults() {
 
             <div className="mt-8 grid items-start gap-9 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">The breakdown</p>
-                <div className="mt-4">
+                <div>
                   <Points items={cash.points} />
                 </div>
                 <CtaRow />
@@ -157,7 +140,6 @@ export function LpResults() {
           <article className="rounded-[28px] bg-ink-900 p-5 text-white shadow-[0_36px_72px_-34px_rgba(10,8,16,0.7)] sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <Who avatar={calls.avatar} name={calls.name} meta={calls.meta} dark />
-              <CaseTag n="02" dark />
             </div>
 
             <h3 className="mt-6 max-w-3xl font-helv text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.02em] text-white">
@@ -166,8 +148,7 @@ export function LpResults() {
 
             <div className="mt-8 grid items-start gap-9 lg:grid-cols-2 lg:gap-12">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/40">The breakdown</p>
-                <div className="mt-4">
+                <div>
                   <Points items={calls.points} dark />
                 </div>
 
@@ -201,7 +182,6 @@ export function LpResults() {
                 </figure>
 
                 <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-white/40">Where July&apos;s calls came from</p>
                   <JulyBars />
                 </div>
               </div>

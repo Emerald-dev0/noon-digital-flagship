@@ -140,7 +140,7 @@ export function DriveVideo({
                 <span className="block font-helv text-3xl font-bold tracking-tight text-white">{name}</span>
                 <span className="mt-1 block text-sm text-white/60">{role}</span>
               </span>
-              <span className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
+              <span className="absolute bottom-5 left-6 text-[13px] font-semibold text-white/50">
                 Client testimonial
               </span>
             </>

@@ -31,7 +31,7 @@ function SerpCard({ shot, index }: { shot: Shot; index: number }) {
               transition={{ duration: 0.55, delay: 0.25 + index * 0.05, ease: [0.22, 1, 0.36, 1] }}
             />
             <motion.span
-              className="absolute rounded-md bg-ink-900 px-2 py-1 text-[10px] font-bold uppercase tracking-wide text-white"
+              className="absolute rounded-md bg-ink-900 px-2 py-1 text-[11px] font-bold text-white"
               style={{ left: shot.ring.left, top: `calc(${shot.ring.top} - 26px)` }}
               initial={{ opacity: 0, y: 6 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,6 @@ export function Ranking() {
     <section id="ranking" className="py-16 md:py-24">
       <div className={shell}>
         <SectionHead
-          label="YouTube search"
           title={<>Videos ranking <Em>on search.</Em></>}
           sub={ranking.sub}
         />

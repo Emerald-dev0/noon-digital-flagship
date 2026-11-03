@@ -23,11 +23,7 @@ export function Book() {
             <PlayCircleIcon aria-hidden="true" className="absolute -bottom-14 -right-14 h-72 w-72 rotate-12 text-white/10" strokeWidth={1} />
 
             <div className="relative max-w-2xl">
-              <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-100">
-                <span className="h-2 w-2 rounded-[2px] bg-blush-500" aria-hidden="true" />
-                Book a call
-              </p>
-              <h2 className="mt-4 font-helv text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.02] tracking-[-0.03em] text-white">
+              <h2 className="font-helv text-[clamp(2.1rem,4.8vw,3.9rem)] font-bold leading-[1.02] tracking-[-0.03em] text-white">
                 {book.title}
               </h2>
               <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 md:text-lg">{book.sub}</p>
