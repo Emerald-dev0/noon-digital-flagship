@@ -1,59 +1,68 @@
+import { motion } from 'framer-motion'
+import {
+  ArrowRight01Icon,
+  ChartIncreaseIcon,
+  Image01Icon,
+  NoteEditIcon,
+  Scissor01Icon,
+  Search01Icon,
+  Video01Icon,
+} from 'hugeicons-react'
 import { LP } from '../data/landing'
-import { CtaButton, Em, Reveal, shell } from './LpUi'
+import { CtaButton, Em, Reveal, SectionHead, shell } from './LpUi'
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
+
+const STEP_ICONS = [Search01Icon, NoteEditIcon, Video01Icon, Scissor01Icon, Image01Icon, ChartIncreaseIcon]
 
 export function LpProcess() {
   const { process } = LP
 
   return (
-    <section id="process" className="border-y border-slate-200/80 bg-white py-16 md:py-28">
+    <section id="process" className="border-y border-ink-900/10 bg-paper py-16 md:py-24">
       <div className={shell}>
-        <Reveal className="text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-600">The process</p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-[clamp(2.05rem,4.6vw,3.7rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-navy-900">
-            Completely done-for-you. Here&apos;s the <Em>rundown.</Em>
-          </h2>
-        </Reveal>
+        <SectionHead
+          title={<>Completely done-for-you. <Em>Here&apos;s the rundown.</Em></>}
+          sub="1–2 videos a week. You record — we handle everything before and after that."
+        />
 
-        {/* mobile + tablet: vertical timeline */}
-        <div className="relative mx-auto mt-12 max-w-xl lg:hidden">
-          <div className="absolute bottom-4 left-6 top-4 border-l-2 border-brand-100" />
-          <ol className="space-y-9">
-            {process.steps.map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.04}>
-                <li className="relative flex gap-5 pl-0">
-                  <span className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-500 font-archivo text-lg font-extrabold text-white ring-4 ring-white">
-                    {step.n}
+        <ol className="mt-10 border-t border-ink-900/10 md:mt-14">
+          {process.steps.map((step, i) => {
+            const Icon = STEP_ICONS[i] ?? Search01Icon
+            return (
+              <motion.li
+                key={step.n}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: i * 0.05, ease: EASE }}
+                className="group grid gap-3.5 border-b border-ink-900/10 py-6 md:grid-cols-[64px_56px_minmax(0,0.9fr)_minmax(0,1.3fr)_28px] md:items-center md:gap-6 md:py-7"
+              >
+                <div className="flex items-center gap-4 md:contents">
+                  <span className="font-helv text-lg font-bold tabular-nums text-brand-500">{step.n.padStart(2, '0')}</span>
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-50 text-brand-600 ring-1 ring-brand-100 transition-all duration-300 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
+                    <Icon size={22} strokeWidth={1.8} />
                   </span>
-                  <div className="pt-1.5">
-                    <h3 className="text-base font-bold text-navy-900">{step.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{step.body}</p>
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
-
-        {/* desktop: horizontal timeline, like tikscale */}
-        <div className="relative mt-16 hidden lg:block">
-          <div className="absolute left-[8%] right-[8%] top-6 border-t-2 border-brand-100" />
-          <div className="grid grid-cols-6 gap-6">
-            {process.steps.map((step, i) => (
-              <Reveal key={step.n} delay={i * 0.06}>
-                <div className="flex flex-col items-center text-center">
-                  <span className="relative z-10 grid h-12 w-12 place-items-center rounded-full bg-brand-500 font-archivo text-lg font-extrabold text-white shadow-[0_10px_24px_-8px_rgba(143,86,255,0.65)] ring-4 ring-white">
-                    {step.n}
-                  </span>
-                  <h3 className="mt-5 text-[15px] font-bold leading-snug text-navy-900">{step.title}</h3>
-                  <p className="mt-2 max-w-[190px] text-[13px] leading-relaxed text-slate-500">{step.body}</p>
                 </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+                <h3 className="text-lg font-bold text-ink-900 transition-transform duration-300 group-hover:translate-x-1 md:text-xl">
+                  {step.title}
+                </h3>
+                <p className="max-w-none text-[15px] leading-relaxed text-slate-500">{step.body}</p>
+                <ArrowRight01Icon
+                  size={20}
+                  strokeWidth={2.2}
+                  className="hidden justify-self-end text-brand-600 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 md:block"
+                />
+              </motion.li>
+            )
+          })}
+        </ol>
 
-        <Reveal className="mt-14 text-center md:mt-16" delay={0.1}>
-          <CtaButton href="#book" className="w-full sm:w-auto">Start with a free call</CtaButton>
+        <Reveal className="mt-9 flex flex-wrap items-center gap-5">
+          <CtaButton href="#book">Book a call</CtaButton>
+          <p className="text-[15px] text-slate-500">
+            Your total time: <strong className="font-bold text-ink-900">about an hour a week</strong>, recording.
+          </p>
         </Reveal>
       </div>
     </section>

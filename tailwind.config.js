@@ -47,17 +47,26 @@ export default {
           900: '#0a1530',
           950: '#060d26',
         },
+        // Pinqix-grade editorial system for the landing rebuild
+        cream: '#f6f2e9',
+        paper: '#fffdf7',
       },
       fontFamily: {
         display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         archivo: ['Archivo', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Client's brand font per his brand doc: Helvetica Bold
+        helv: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'ui-sans-serif', 'sans-serif'],
         serifit: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       maxWidth: {
         shell: '1240px',
       },
       boxShadow: {
+        hard: '6px 6px 0 0 #131217',
+        'hard-sm': '4px 4px 0 0 #131217',
+        'hard-lg': '10px 10px 0 0 #131217',
+        'hard-brand': '6px 6px 0 0 #8f56ff',
         glow: '0 0 60px -12px rgba(139,92,246,0.55)',
         'glow-sm': '0 0 28px -8px rgba(139,92,246,0.45)',
         ember: '0 0 50px -14px rgba(255,138,61,0.6)',
@@ -67,6 +76,10 @@ export default {
         marquee: {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
+        },
+        'marquee-y': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(-50%)' },
         },
         drift: {
           '0%,100%': { transform: 'translate3d(0,0,0) scale(1)' },
@@ -79,6 +92,7 @@ export default {
       },
       animation: {
         marquee: 'marquee var(--marquee-duration,38s) linear infinite',
+        'marquee-y': 'marquee-y var(--marquee-duration,48s) linear infinite',
         drift: 'drift 12s ease-in-out infinite',
         shimmer: 'shimmer 6s linear infinite',
       },

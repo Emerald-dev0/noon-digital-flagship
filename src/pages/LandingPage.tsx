@@ -17,7 +17,7 @@ export default function LandingPage() {
   useSmoothScroll()
 
   return (
-    <div className="lp min-h-screen bg-white pb-[92px] font-sans text-slate-500 antialiased lg:pb-0">
+    <div className="lp min-h-screen bg-cream pb-[92px] font-sans text-slate-600 antialiased lg:pb-0">
       <LpNav />
       <main>
         <LpHero />
