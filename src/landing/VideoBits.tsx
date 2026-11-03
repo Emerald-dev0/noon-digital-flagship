@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Loader2, Play } from 'lucide-react'
+import { InstagramIcon, Loading01Icon, PlayIcon, YoutubeIcon } from 'hugeicons-react'
 import { cn } from '../utils/cn'
 import type { LpPlatform } from '../data/landing'
 
@@ -13,19 +13,8 @@ export function TikTokIcon({ className }: { className?: string }) {
 
 export function PlatformIcon({ p, className }: { p: LpPlatform; className?: string }) {
   if (p === 'tiktok') return <TikTokIcon className={className} />
-  if (p === 'youtube')
-    return (
-      <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-        <path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z" />
-      </svg>
-    )
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={className} aria-hidden="true">
-      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
-      <circle cx="12" cy="12" r="4.2" />
-      <circle cx="17.6" cy="6.4" r="0.6" fill="currentColor" stroke="none" />
-    </svg>
-  )
+  if (p === 'youtube') return <YoutubeIcon className={className} strokeWidth={1.8} aria-hidden="true" />
+  return <InstagramIcon className={className} strokeWidth={1.8} aria-hidden="true" />
 }
 
 export const PLATFORM_META: Record<LpPlatform, { label: string; color: string }> = {
@@ -44,7 +33,7 @@ export function PlayButton({ size = 'md' }: { size?: 'md' | 'lg' }) {
         size === 'lg' ? 'h-[76px] w-[76px]' : 'h-14 w-14',
       )}
     >
-      <Play className={cn('fill-current', size === 'lg' ? 'ml-1 h-8 w-8' : 'ml-0.5 h-6 w-6')} />
+      <PlayIcon strokeWidth={2.4} className={cn(size === 'lg' ? 'ml-1 h-8 w-8' : 'ml-0.5 h-6 w-6')} />
     </span>
   )
 }
@@ -114,7 +103,7 @@ export function DriveVideo({
       {playing ? (
         <>
           <span className="absolute inset-0 grid place-items-center">
-            <Loader2 className="h-8 w-8 animate-spin text-white/40" />
+            <Loading01Icon className="h-8 w-8 animate-spin text-white/40" />
           </span>
           <iframe
             className="absolute inset-0 h-full w-full"

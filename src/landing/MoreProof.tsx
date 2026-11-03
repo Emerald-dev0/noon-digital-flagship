@@ -1,15 +1,15 @@
-import { Maximize2 } from 'lucide-react'
+import { ArrowUpRight01Icon } from 'hugeicons-react'
 import { LP } from '../data/landing'
-import { Reveal, SectionHead, shell } from './LpUi'
+import { Em, Reveal, SectionHead, shell } from './LpUi'
 import { cn } from '../utils/cn'
 
 export function MoreProof() {
   const { moreProof } = LP
 
   return (
-    <section id="proof" className="bg-navy-950 py-16 md:py-28">
+    <section id="proof" className="bg-navy-950 py-16 md:py-24">
       <div className={shell}>
-        <SectionHead dark label="The receipts" title="More proof" sub={moreProof.sub} />
+        <SectionHead dark label="The receipts" title={<>More <Em>proof.</Em></>} sub={moreProof.sub} />
 
         {/* Masonry wall. On mobile the wide shots span both columns so they
             stay readable, and every shot can be tapped open full size. */}
@@ -32,14 +32,14 @@ export function MoreProof() {
                     src={item.image}
                     alt={item.caption}
                     loading="lazy"
-                    className="block w-full rounded-xl ring-1 ring-white/10"
+                    className="block w-full rounded-xl ring-1 ring-white/10 transition duration-300 group-hover:brightness-110 group-hover:ring-white/25"
                   />
                   <span className="absolute bottom-2 right-2 rounded-full bg-black/55 p-1.5 text-white/85 lg:hidden">
-                    <Maximize2 className="h-3.5 w-3.5" />
+                    <ArrowUpRight01Icon size={14} strokeWidth={2.2} />
                   </span>
                 </a>
                 <figcaption className="mt-2 flex items-start gap-1.5 text-xs font-medium leading-snug text-white/50 sm:text-[13px] lg:mt-2.5 lg:gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-blush-500" />
                   {item.caption}
                 </figcaption>
               </figure>
