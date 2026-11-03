@@ -1,6 +1,6 @@
 import { Search } from 'lucide-react'
 import { LP } from '../data/landing'
-import { Em, Reveal, SectionHead, shell } from './LpUi'
+import { shell } from './LpUi'
 
 type Shot = (typeof LP.ranking.shots)[number]
 
@@ -10,13 +10,13 @@ function searchUrl(term: string) {
 
 function SerpCard({ shot }: { shot: Shot }) {
   return (
-    <article className="flex shrink-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white">
-      <div className="relative shrink-0">
+    <article className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white">
+      <div className="relative">
         <img
           src={shot.image}
           alt={`YouTube search results for "${shot.term}"`}
           loading="lazy"
-          className="block h-[240px] w-auto max-w-none sm:h-[380px]"
+          className="block w-full"
         />
         {shot.ring && (
           <>
@@ -49,53 +49,41 @@ function SerpCard({ shot }: { shot: Shot }) {
 
 export function Ranking() {
   const { ranking } = LP
-  const base = [...ranking.shots, ...ranking.shots]
-  const row = [...base, ...base]
 
   return (
-    <section id="ranking" className="bg-[#f6f8fc] py-16 md:py-28">
+    <section id="ranking" className="border-t border-slate-200 bg-white py-16 md:py-24">
       <div className={shell}>
-        <SectionHead label="Search" title={<>Videos ranking on <Em>search</Em></>} sub={ranking.sub} />
-      </div>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Search</p>
+        <h2 className="mt-3 font-helv text-[clamp(2.05rem,4.6vw,3.7rem)] font-bold leading-[1.02] tracking-[-0.03em] text-navy-900">
+          Videos ranking on search
+        </h2>
+        <p className="mt-3.5 max-w-2xl text-[15px] leading-relaxed text-slate-500 md:text-lg">{ranking.sub}</p>
 
-      <Reveal className="mt-10 md:mt-12" delay={0.05}>
-        <div
-          className="overflow-hidden"
-          style={{
-            maskImage: 'linear-gradient(90deg, transparent, black 4%, black 96%, transparent)',
-            WebkitMaskImage: 'linear-gradient(90deg, transparent, black 4%, black 96%, transparent)',
-          }}
-        >
-          <div className="flex w-max animate-marquee items-stretch gap-3.5 px-4 py-1 [--marquee-duration:80s] hover:[animation-play-state:paused] sm:gap-4">
-            {row.map((shot, i) => (
-              <SerpCard key={`${shot.term}-${i}`} shot={shot} />
-            ))}
-          </div>
+        <div className="mt-10 grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {ranking.shots.map((shot) => (
+            <SerpCard key={shot.term} shot={shot} />
+          ))}
         </div>
-      </Reveal>
 
-      <div className={shell}>
-        <Reveal className="mt-10 md:mt-12">
-          <p className="text-sm font-bold text-navy-900">Try it yourself:</p>
-          <div className="mt-4 flex flex-wrap gap-2.5 sm:gap-3">
-            {ranking.terms.map((t) => (
-              <a
-                key={t.term}
-                href={searchUrl(t.term)}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-2.5 rounded-full border border-slate-300 bg-white py-2.5 pl-4 pr-2.5 transition-colors hover:border-brand-400 sm:gap-3 sm:pl-5"
-              >
-                <span className="text-sm font-medium text-navy-900">{t.term}</span>
-                <Search className="h-4 w-4 text-slate-400" />
-                <span className="flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  {t.note}
-                </span>
-              </a>
-            ))}
-          </div>
-        </Reveal>
+        <p className="mt-12 text-sm font-bold text-navy-900">Try it yourself:</p>
+        <div className="mt-4 flex flex-wrap gap-2.5 sm:gap-3">
+          {ranking.terms.map((t) => (
+            <a
+              key={t.term}
+              href={searchUrl(t.term)}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2.5 rounded-full border border-slate-300 bg-white py-2.5 pl-4 pr-2.5 transition-colors hover:border-brand-400 sm:gap-3 sm:pl-5"
+            >
+              <span className="text-sm font-medium text-navy-900">{t.term}</span>
+              <Search className="h-4 w-4 text-slate-400" />
+              <span className="flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                {t.note}
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   )

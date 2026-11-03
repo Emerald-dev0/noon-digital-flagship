@@ -43,9 +43,10 @@ export const LP = {
     sub: 'Real channels, live now — tap through and check them yourself.',
     people: [
       {
-        name: 'Zak',
+        name: 'Zakariya',
         role: 'Tech sales coach',
         avatar: '/people/face-image2-0.png',
+        header: '/assets/channels/yt-zakariya.webp',
         platforms: [
           { p: 'youtube', v: '18.4K', href: 'https://www.youtube.com/@Zakariya.Tech-Sales' },
           { p: 'instagram', v: '5.0K', href: 'https://www.instagram.com/zakariya.insight/' },
@@ -56,6 +57,7 @@ export const LP = {
         name: 'Shaf',
         role: 'Arabic coach',
         avatar: '/people/face-image10-0.png',
+        header: '/assets/channels/yt-shaf.webp',
         platforms: [
           { p: 'youtube', v: '14.4K', href: 'https://www.youtube.com/@MarkazShafiee' },
           { p: 'instagram', v: '11K', href: 'https://www.instagram.com/markaz_shafiee/' },
@@ -65,6 +67,7 @@ export const LP = {
         name: 'Aqib',
         role: 'Appointment setting coach',
         avatar: '/people/face-image8-0.png',
+        header: '/assets/channels/yt-aqib.webp',
         platforms: [
           { p: 'youtube', v: '1.5K', href: 'https://www.youtube.com/@SaleswithAqib' },
           { p: 'instagram', v: '@saleswithaqib', href: 'https://www.instagram.com/saleswithaqib/' },
@@ -75,6 +78,7 @@ export const LP = {
         name: 'Yaseen',
         role: 'Boxing · personal brand coach',
         avatar: '/people/yaseen-ramsey.png',
+        header: '/assets/channels/yt-yaseen.webp',
         platforms: [
           { p: 'youtube', v: '15.8K', href: 'https://www.youtube.com/@yaseenramsey' },
           { p: 'instagram', v: '@yaseenramsey', href: 'https://www.instagram.com/yaseenramsey/' },
@@ -84,6 +88,7 @@ export const LP = {
         name: 'Faraz Ali',
         role: 'Tutoring',
         avatar: '/people/face-image1-0.png',
+        header: '',
         platforms: [
           { p: 'instagram', v: '@faraztutor', href: 'https://www.instagram.com/faraztutor/' },
         ],
@@ -92,6 +97,7 @@ export const LP = {
         name: 'Mousa',
         role: 'Closing coach',
         avatar: null,
+        header: '',
         platforms: [
           { p: 'instagram', v: '@abu.closing', href: 'https://www.instagram.com/abu.closing/' },
         ],
@@ -100,6 +106,7 @@ export const LP = {
         name: 'Ejon',
         role: 'Creator',
         avatar: null,
+        header: '',
         platforms: [
           { p: 'instagram', v: '@ejonalex', href: 'https://www.instagram.com/ejonalex/' },
         ],
@@ -108,6 +115,7 @@ export const LP = {
         name: 'Mikail',
         role: 'Creator',
         avatar: null,
+        header: '',
         platforms: [
           { p: 'instagram', v: '@mikailaminrose', href: 'https://www.instagram.com/mikailaminrose/' },
         ],
@@ -116,6 +124,7 @@ export const LP = {
         name: 'I Am Not A Scholar',
         role: 'Podcast',
         avatar: '/people/ians.jpg',
+        header: '',
         platforms: [
           { p: 'instagram', v: '@iamnotascholarpodcast', href: 'https://www.instagram.com/iamnotascholarpodcast/' },
         ],
@@ -137,7 +146,7 @@ export const LP = {
       {
         name: 'Aqib',
         role: 'Appointment setting coach',
-        result: '37 calls booked in a month',
+        result: '17K views on one course video',
         source: 'drive' as const,
         driveId: '1WevLGn4LpUsFDnRJADILJLGIlyHPCLMj',
         title: 'Aqib testimonial',
@@ -145,7 +154,7 @@ export const LP = {
       {
         name: 'Yaseen',
         role: 'Personal brand',
-        result: 'Inbound calls on autopilot',
+        result: '15.8K subs on The Chessboxer',
         source: 'drive' as const,
         driveId: '18Ym5h60DoeFHasZ-z2l9BKatf9ADwmMb',
         title: 'Yaseen testimonial',
@@ -168,6 +177,7 @@ export const LP = {
         ['£29,078 collected', ' in a single quarter, straight off the back of the videos'],
         ['£0 spent on ads', ' — every lead came from search'],
         ['Revenue-share client', ' — we only earn when he earns'],
+        ['Ranking next to Alex Hormozi', ' for "tech sales course" (screenshot further down this page)'],
       ],
       image: '/assets/chat/revshare-40k.webp',
       caption: 'Straight from his messages, June 2026',
@@ -189,6 +199,7 @@ export const LP = {
         ['47% close rate', ' — viewers arrive pre-sold by the videos'],
         ['25% pay in full', ' on the first call'],
         ['Every call tracked', ' back to the video that booked it'],
+        ['454,684 views', ' on the channel so far — subscribers 0 to 15K'],
       ],
       sheet: '/assets/proof/calls-sheet.webp',
       caption: 'His actual tracking sheet',
@@ -291,6 +302,7 @@ export const LP = {
       { image: '/assets/proof/calls-sheet.webp', caption: '37 calls · 47% close rate · 25% paid in full', wide: true },
       { image: '/assets/proof/analytics-insight.png', caption: '34.1K views, +1.3K subs from one video', wide: false },
       { image: '/assets/proof/analytics-appt.png', caption: '17,232 views on a 7-hour course video', wide: false },
+      { image: '/assets/proof/analytics-45k.webp', caption: '45,191 views, +1.3K subscribers — one video', wide: false },
     ],
   },
 

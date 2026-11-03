@@ -1,15 +1,18 @@
 import { LP } from '../data/landing'
-import { CountUp } from '../components/ui/CountUp'
-import { CtaButton, Reveal, SectionHead, shell } from './LpUi'
+import { CtaButton, shell } from './LpUi'
+import { cn } from '../utils/cn'
+
+// Case studies, written the way the client talks about them in his own
+// doc: headline number, full breakdown, his screenshot, CTA. No cards.
 
 function Points({ items }: { items: readonly (readonly string[])[] }) {
   return (
-    <ul className="space-y-2.5">
+    <ul className="space-y-3">
       {items.map(([lead, rest]) => (
-        <li key={lead} className="flex gap-2.5 text-[15px] leading-relaxed text-white/60">
-          <span aria-hidden className="font-bold text-brand-400">—</span>
+        <li key={lead} className="flex gap-2.5 text-base leading-relaxed text-slate-600">
+          <span aria-hidden className="font-bold text-navy-900">—</span>
           <p>
-            <strong className="font-bold text-white">{lead}</strong>
+            <strong className="font-bold text-navy-900">{lead}</strong>
             {rest}
           </p>
         </li>
@@ -18,109 +21,126 @@ function Points({ items }: { items: readonly (readonly string[])[] }) {
   )
 }
 
-function CardHeader({ avatar, name, meta, chip }: { avatar: string; name: string; meta: string; chip: string }) {
+function Who({ avatar, name, meta }: { avatar: string; name: string; meta: string }) {
   return (
-    <header className="flex items-center justify-between gap-3">
-      <div className="flex min-w-0 items-center gap-3">
-        <img src={avatar} alt={name} loading="lazy" className="h-11 w-11 rounded-full object-cover ring-1 ring-white/15" />
-        <div className="min-w-0">
-          <p className="truncate text-[15px] font-bold text-white">{name}</p>
-          <p className="truncate text-xs text-white/40">{meta}</p>
-        </div>
+    <div className="flex items-center gap-3">
+      <img src={avatar} alt={name} loading="lazy" className="h-12 w-12 rounded-full object-cover" />
+      <div>
+        <p className="text-lg font-bold leading-tight text-navy-900">{name}</p>
+        <p className="text-sm text-slate-400">{meta}</p>
       </div>
-      <span className="hidden shrink-0 rounded-full bg-emerald-400/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-300 ring-1 ring-emerald-300/25 min-[400px]:block">
-        {chip}
-      </span>
-    </header>
+    </div>
   )
 }
 
-// The rev-share line in this screenshot is pixelated in the image file itself.
-function CashScreenshot() {
-  const { cash } = LP.results
+function CtaRow() {
   return (
-    <figure>
-      <div className="relative overflow-hidden rounded-xl ring-1 ring-white/10">
-        <img src={cash.image} alt="Client confirming cash collected from the content" className="block w-full" loading="lazy" />
-      </div>
-      <figcaption className="mt-3 text-xs font-medium text-white/35">{cash.caption}</figcaption>
-    </figure>
+    <div className="mt-9 flex flex-wrap items-center gap-4">
+      <CtaButton href="#book">Book a call</CtaButton>
+      <p className="text-sm text-slate-500">Takes 30 seconds. We&apos;ll tell you straight if we can do this for you.</p>
+    </div>
   )
 }
 
-function CallsPanel() {
-  const { calls } = LP.results
-  return (
-    <figure>
-      <div className="rounded-xl bg-white p-4 sm:p-5">
-        <div className="grid grid-cols-3 divide-x divide-slate-100">
-          {calls.stats.map((s) => (
-            <div key={s.l} className="px-2 text-center first:pl-0 last:pr-0 sm:px-4">
-              <p className="font-helv text-[1.7rem] font-bold leading-none tracking-tight text-navy-900 sm:text-3xl md:text-4xl">
-                <CountUp value={s.v} />
-              </p>
-              <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.1em] text-slate-400 sm:text-[11px] sm:tracking-[0.12em]">{s.l}</p>
-            </div>
-          ))}
-        </div>
-        <img src={calls.sheet} alt="Tracking sheet: 37 calls booked, 47% close rate, 25% paid in full" className="mt-5 block w-full rounded-md ring-1 ring-slate-100" loading="lazy" />
-      </div>
-      <figcaption className="mt-3 text-xs font-medium text-white/35">{calls.caption}</figcaption>
-    </figure>
-  )
-}
+// Shaf's July tracking sheet, as a table (numbers from his sheet in the doc).
+const JULY: [string, string][] = [
+  ['YouTube', '35'],
+  ['Skool', '5'],
+  ['Referral', '1'],
+  ['Instagram', '0'],
+  ['TikTok', '0'],
+  ['Dialling', '0'],
+  ['Email', '0'],
+  ['Upsell', '0'],
+]
 
 export function LpResults() {
-  const { results } = LP
+  const { cash, calls } = LP.results
 
   return (
-    <section id="results" className="bg-navy-950 py-16 md:py-28">
+    <section id="results" className="border-t border-slate-200 bg-white py-16 md:py-24">
       <div className={shell}>
-        <SectionHead
-          dark
-          label="Client results"
-          title="Results"
-          sub="Numbers from the clients' own messages, dashboards and tracking sheets."
-        />
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Client results</p>
+        <h2 className="mt-3 font-helv text-[clamp(2.05rem,4.6vw,3.7rem)] font-bold leading-[1.02] tracking-[-0.03em] text-navy-900">
+          Results
+        </h2>
+        <p className="mt-3.5 max-w-2xl text-[15px] leading-relaxed text-slate-500 md:text-lg">
+          Two clients, broken down properly. Every screenshot below is the client&apos;s own — no mockups, no stock dashboards.
+        </p>
 
-        <div className="mt-10 grid gap-5 md:mt-12 lg:grid-cols-2">
-          <Reveal>
-            <article className="flex h-full flex-col rounded-3xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:p-6 md:p-8">
-              <CardHeader {...results.cash} />
-              <p className="mt-6 font-helv text-[3.4rem] font-bold leading-none tracking-tight text-white sm:mt-7 md:text-7xl">
-                <CountUp value={results.cash.metric} />
-              </p>
-              <p className="mt-2.5 text-base text-white/50">{results.cash.metricLabel}</p>
-              <div className="mt-6">
-                <Points items={results.cash.points} />
-              </div>
-              <div className="mt-auto pt-8">
-                <CashScreenshot />
-              </div>
-            </article>
-          </Reveal>
+        {/* ---------------- Case study 01 — Zakariya ---------------- */}
+        <article className="mt-14 border-t-2 border-navy-900 pt-8 md:mt-20">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Case study 01</p>
+          <div className="mt-5">
+            <Who avatar={cash.avatar} name={cash.name} meta={cash.meta} />
+          </div>
+          <h3 className="mt-6 max-w-3xl font-helv text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.05] tracking-[-0.02em] text-navy-900">
+            {cash.name}: {cash.metric} {cash.metricLabel}.
+          </h3>
 
-          <Reveal delay={0.1}>
-            <article className="flex h-full flex-col rounded-3xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:p-6 md:p-8">
-              <CardHeader {...results.calls} />
-              <p className="mt-6 font-helv text-[3.4rem] font-bold leading-none tracking-tight text-white sm:mt-7 md:text-7xl">
-                <CountUp value={results.calls.metric} />
-                <span className="ml-2.5 align-middle font-sans text-lg font-semibold text-white/40 sm:text-xl">{results.calls.metricSuffix}</span>
-              </p>
-              <p className="mt-2.5 text-base text-white/50">{results.calls.metricLabel}</p>
-              <div className="mt-6">
-                <Points items={results.calls.points} />
-              </div>
-              <div className="mt-auto pt-8">
-                <CallsPanel />
-              </div>
-            </article>
-          </Reveal>
-        </div>
+          <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">The breakdown</p>
+          <div className="mt-4 max-w-2xl">
+            <Points items={cash.points} />
+          </div>
 
-        <Reveal className="mt-10 text-center md:mt-12">
-          <CtaButton light href="#book">Book a call</CtaButton>
-        </Reveal>
+          <figure className="mt-8 max-w-2xl">
+            <img src={cash.image} alt="Client confirming cash collected from the content" loading="lazy" className="block w-full rounded-xl ring-1 ring-slate-200" />
+            <figcaption className="mt-2.5 text-xs font-medium text-slate-400">{cash.caption} — his words, his numbers.</figcaption>
+          </figure>
+
+          <CtaRow />
+        </article>
+
+        {/* ---------------- Case study 02 — Shaf ---------------- */}
+        <article className="mt-16 border-t-2 border-navy-900 pt-8 md:mt-24">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Case study 02</p>
+          <div className="mt-5">
+            <Who avatar={calls.avatar} name={calls.name} meta={calls.meta} />
+          </div>
+          <h3 className="mt-6 max-w-3xl font-helv text-[clamp(1.9rem,4vw,3rem)] font-bold leading-[1.05] tracking-[-0.02em] text-navy-900">
+            {calls.name}: {calls.metric} calls a month booked from YouTube.
+          </h3>
+
+          <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">The breakdown</p>
+          <div className="mt-4 max-w-2xl">
+            <Points items={calls.points} />
+          </div>
+
+          <div className="mt-9 grid items-start gap-6 lg:grid-cols-2 lg:gap-10">
+            <figure>
+              <div className="overflow-hidden rounded-xl border border-slate-200">
+                <table className="w-full text-left text-[15px]">
+                  <thead>
+                    <tr className="bg-slate-50 text-xs uppercase tracking-[0.1em] text-slate-400">
+                      <th className="px-4 py-3 font-bold">Source</th>
+                      <th className="px-4 py-3 text-right font-bold">Calls booked</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {JULY.map(([source, v], i) => (
+                      <tr key={source} className={cn('border-t border-slate-100', i === 0 ? 'font-bold text-navy-900' : 'text-slate-500')}>
+                        <td className="px-4 py-2.5">{source}</td>
+                        <td className="px-4 py-2.5 text-right tabular-nums">{v}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <figcaption className="mt-2.5 text-xs font-medium leading-relaxed text-slate-400">
+                His July tracking sheet, typed out. YouTube booked 35 of his 41 calls. Instagram and TikTok combined: zero.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <img src={calls.sheet} alt="Tracking sheet: 37 calls booked, 47% close rate, 25% paid in full" loading="lazy" className="block w-full rounded-xl ring-1 ring-slate-200" />
+              <figcaption className="mt-2.5 text-xs font-medium text-slate-400">
+                {calls.caption} — {calls.metric} calls, {calls.stats[1].v} close rate, {calls.stats[2].v} paid in full.
+              </figcaption>
+            </figure>
+          </div>
+
+          <CtaRow />
+        </article>
       </div>
     </section>
   )

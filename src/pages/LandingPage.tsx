@@ -1,4 +1,3 @@
-import { useSmoothScroll } from '../hooks/useSmoothScroll'
 import { LpNav } from '../landing/LpNav'
 import { LpHero } from '../landing/LpHero'
 import { Channels } from '../landing/Channels'
@@ -14,7 +13,6 @@ import { StickyMobileCta } from '../landing/StickyMobileCta'
 
 // VSL landing page. Section order follows the client's doc.
 export default function LandingPage() {
-  useSmoothScroll()
 
   return (
     <div className="lp min-h-screen bg-white pb-[92px] font-sans text-slate-500 antialiased lg:pb-0">

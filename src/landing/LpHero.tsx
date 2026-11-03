@@ -1,71 +1,45 @@
-import { motion } from 'framer-motion'
 import { LP } from '../data/landing'
-import { CtaButton, Em, Reveal, shell } from './LpUi'
+import { CtaButton, Em, shell } from './LpUi'
 import { PlayButton, YouTubeLite } from './VideoBits'
-import { CountUp } from '../components/ui/CountUp'
-import { cn } from '../utils/cn'
 
-const fade = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.55, delay, ease: 'easeOut' as const },
-})
-
-// The wall: all 24 real client thumbnails in three scrolling columns.
+// All 24 real client thumbnails (the doc's "Client Channels" block),
+// run as two raw full-bleed rows — no tilt, no fades, no chips.
 const sm = (n: number) => `/images/thumbnails/sm/image${n}.webp`
-const COLUMNS: { images: number[]; duration: string; reverse?: boolean }[] = [
-  { images: [8, 1, 15, 20, 6, 13, 22, 4], duration: '58s' },
-  { images: [2, 17, 10, 23, 5, 19, 12, 21], duration: '70s', reverse: true },
-  { images: [9, 3, 24, 11, 16, 7, 14, 18], duration: '64s' },
-]
+const ROW_A = [8, 1, 15, 20, 6, 13, 22, 4, 2, 17, 10, 23]
+const ROW_B = [5, 19, 12, 21, 9, 3, 24, 11, 16, 7, 14, 18]
 
-function ThumbWall() {
+function RiverRow({ images, reverse = false, duration }: { images: number[]; reverse?: boolean; duration: string }) {
+  const row = [...images, ...images]
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.9, delay: 0.2 }}
-      className="relative h-[300px] overflow-hidden sm:h-[460px] lg:h-[640px]"
-      aria-hidden="true"
+    <div
+      className="flex w-max animate-marquee gap-2 pr-2 hover:[animation-play-state:paused]"
+      style={{ '--marquee-duration': duration, animationDirection: reverse ? 'reverse' : undefined } as React.CSSProperties}
     >
-      <div className="flex h-full justify-center gap-2 [transform:perspective(1100px)_rotateY(-7deg)_rotateX(2deg)_scale(1.08)] md:gap-2.5 lg:[transform:perspective(1300px)_rotateY(-12deg)_rotateX(2.5deg)_scale(1.12)]">
-        {COLUMNS.map((col, ci) => (
-          <div
-            key={ci}
-            className="flex w-[31%] min-w-[126px] max-w-[250px] shrink-0 animate-marquee-y flex-col gap-2 sm:gap-2.5"
-            style={{
-              '--marquee-duration': col.duration,
-              animationDirection: col.reverse ? 'reverse' : undefined,
-            } as React.CSSProperties}
-          >
-            {[...col.images, ...col.images].map((n, i) => (
-              <img
-                key={`${n}-${i}`}
-                src={sm(n)}
-                alt=""
-                loading={i < 4 ? 'eager' : 'lazy'}
-                className="aspect-video w-full rounded-md object-cover shadow-[0_14px_30px_-12px_rgba(10,21,48,0.35)] ring-1 ring-black/10"
-              />
-            ))}
-          </div>
-        ))}
-      </div>
-    </motion.div>
+      {row.map((n, i) => (
+        <img
+          key={`${n}-${i}`}
+          src={sm(n)}
+          alt=""
+          loading="lazy"
+          className="aspect-video w-[228px] shrink-0 rounded-md object-cover ring-1 ring-black/10 sm:w-[284px]"
+        />
+      ))}
+    </div>
   )
 }
 
 function Vsl() {
   const { vsl } = LP
   return (
-    <Reveal className="mx-auto mt-14 max-w-4xl md:mt-24">
+    <div className="mt-12 max-w-4xl md:mt-16">
       <p className="mb-3.5 flex flex-wrap items-baseline gap-x-2 text-[15px] font-bold text-navy-900">
         {vsl.label}
         <span className="text-sm font-medium text-slate-400">— how the whole system works, in 9 minutes</span>
       </p>
       {vsl.youtubeId ? (
-        <YouTubeLite id={vsl.youtubeId} title="Watch this first" className="shadow-[0_30px_70px_-24px_rgba(10,21,48,0.5)]" />
+        <YouTubeLite id={vsl.youtubeId} title="Watch this first" className="ring-1 ring-black/10" />
       ) : (
-        <div className="group relative aspect-video w-full overflow-hidden rounded-2xl bg-navy-950 shadow-[0_30px_70px_-24px_rgba(10,21,48,0.5)]">
+        <div className="group relative aspect-video w-full overflow-hidden rounded-xl bg-navy-950 ring-1 ring-black/10">
           <img src={vsl.poster} alt="" className="absolute inset-0 h-full w-full object-cover" />
           <span className="absolute inset-0 bg-black/45" />
           <button type="button" className="absolute inset-0 grid w-full cursor-pointer place-items-center" aria-label="Play the video">
@@ -79,7 +53,7 @@ function Vsl() {
           </span>
         </div>
       )}
-    </Reveal>
+    </div>
   )
 }
 
@@ -87,66 +61,55 @@ export function LpHero() {
   const { hero } = LP
 
   return (
-    <section id="top" className="relative overflow-hidden bg-white">
-      <div className={`${shell} relative`}>
-        <div className="grid items-center gap-8 pt-[118px] sm:gap-10 lg:grid-cols-[1fr_1.02fr] lg:gap-6 lg:pt-[150px]">
-          <div className="relative z-10">
-            <motion.p {...fade(0)} className="text-[12px] font-bold uppercase tracking-[0.18em] text-slate-400 sm:text-[13px]">
-              {hero.kicker}
-            </motion.p>
+    <section id="top" className="overflow-hidden bg-white">
+      <div className={shell}>
+        <div className="pt-[122px] lg:pt-[160px]">
+          <p className="text-[13px] font-bold uppercase tracking-[0.16em] text-navy-900">{hero.kicker}:</p>
 
-            <motion.h1
-              {...fade(0.07)}
-              className="mt-5 font-helv text-[clamp(2.55rem,11.5vw,5.4rem)] font-bold leading-[0.97] tracking-[-0.035em] text-navy-900 sm:mt-6"
-            >
-              {hero.titleTop} <Em>{hero.titleAccent}</Em>
-            </motion.h1>
+          <h1 className="mt-4 max-w-4xl font-helv text-[clamp(2.7rem,7.5vw,5.3rem)] font-bold leading-[0.98] tracking-[-0.035em] text-navy-900">
+            {hero.titleTop} <Em>{hero.titleAccent}</Em>
+          </h1>
 
-            <motion.p {...fade(0.14)} className="mt-5 max-w-lg text-base leading-relaxed text-slate-600 sm:text-[17px]">
-              {hero.sub}
-            </motion.p>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">{hero.sub}</p>
 
-            <motion.div {...fade(0.21)} className="mt-7 flex flex-col gap-5 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
-              <CtaButton href={hero.cta.href} className="w-full px-8 py-4 text-base sm:w-auto">
-                {hero.cta.label}
-              </CtaButton>
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2.5">
-                  {hero.avatars.map((src) => (
-                    <img key={src} src={src} alt="" className="h-9 w-9 rounded-full object-cover ring-2 ring-white" />
-                  ))}
-                </div>
-                <p className="max-w-[160px] text-[13px] font-medium leading-tight text-slate-500">{hero.socialProof}</p>
+          <div className="mt-7 flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-center">
+            <CtaButton href={hero.cta.href} className="w-full px-8 py-4 text-base sm:w-auto">
+              {hero.cta.label}
+            </CtaButton>
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2.5">
+                {hero.avatars.map((src) => (
+                  <img key={src} src={src} alt="" className="h-9 w-9 rounded-full object-cover ring-2 ring-white" />
+                ))}
               </div>
-            </motion.div>
+              <p className="max-w-[210px] text-[13px] font-medium leading-tight text-slate-500">
+                Zakariya, Shaf, Aqib, Yaseen — four of the nine channels below
+              </p>
+            </div>
           </div>
 
-          <div className="relative -mx-5 sm:mx-0 lg:-mr-28">
-            <ThumbWall />
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-y border-slate-200 py-4">
+            {hero.stats.map((s) => (
+              <p key={s.label} className="text-[15px] text-slate-500">
+                <span className="font-helv text-xl font-bold tracking-tight text-navy-900">{s.value}</span> {s.label}
+              </p>
+            ))}
           </div>
         </div>
 
         <Vsl />
+      </div>
 
-        <Reveal className="mt-14 border-t border-slate-200 md:mt-24">
-          <div className="grid grid-cols-2 lg:grid-cols-4">
-            {hero.stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={cn(
-                  'py-6 md:py-9 lg:border-l lg:border-slate-200 lg:px-9 lg:first:border-l-0 lg:first:pl-0',
-                  i >= 2 && 'border-t border-slate-200 lg:border-t-0',
-                  i % 2 === 1 && 'pl-6',
-                )}
-              >
-                <p className="font-helv text-[2.5rem] font-bold leading-none tracking-tight text-navy-900 md:text-[3.4rem]">
-                  <CountUp value={s.value} />
-                </p>
-                <p className="mt-2 text-[13px] text-slate-400 sm:text-sm">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+      <div className="mt-14 md:mt-20">
+        <div className={shell}>
+          <p className="mb-4 text-sm font-bold text-navy-900">
+            Thumbnails from the channels — every one researched, scripted and designed by us:
+          </p>
+        </div>
+        <div className="space-y-2 overflow-hidden" aria-hidden="true">
+          <RiverRow images={ROW_A} duration="70s" />
+          <RiverRow images={ROW_B} duration="84s" reverse />
+        </div>
       </div>
     </section>
   )
