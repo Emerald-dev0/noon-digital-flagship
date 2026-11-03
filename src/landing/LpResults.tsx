@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { CheckmarkCircle01Icon } from 'hugeicons-react'
+import { Tick02Icon } from 'hugeicons-react'
 import { LP } from '../data/landing'
 import { CountUp } from '../components/ui/CountUp'
 import { CtaButton, Em, Mark, Reveal, SectionHead, shell } from './LpUi'
@@ -16,7 +16,7 @@ function Points({ items, dark = false }: { items: readonly (readonly string[])[]
       {items.map(([lead, rest]) => (
         <li key={lead} className={cn('flex gap-2.5 text-base leading-relaxed', dark ? 'text-white/65' : 'text-slate-600')}>
           <span className={cn('mt-0.5 shrink-0', dark ? 'text-blush-400' : 'text-brand-500')}>
-            <CheckmarkCircle01Icon size={20} strokeWidth={1.9} />
+            <Tick02Icon size={20} strokeWidth={2.4} />
           </span>
           <p>
             <strong className={cn('font-bold', dark ? 'text-white' : 'text-ink-900')}>{lead}</strong>
@@ -31,7 +31,7 @@ function Points({ items, dark = false }: { items: readonly (readonly string[])[]
 function Who({ avatar, name, meta, dark = false }: { avatar: string; name: string; meta: string; dark?: boolean }) {
   return (
     <div className="flex items-center gap-3">
-      <img src={avatar} alt={name} loading="lazy" className={cn('h-12 w-12 rounded-full object-cover ring-2', dark ? 'ring-white/15' : 'ring-ink-900/10')} />
+      <img src={avatar} alt={name} loading="lazy" className={cn('h-12 w-12 rounded-lg object-cover ring-2', dark ? 'ring-white/15' : 'ring-ink-900/10')} />
       <div>
         <p className={cn('text-lg font-bold leading-tight', dark ? 'text-white' : 'text-ink-900')}>{name}</p>
         <p className={cn('text-sm', dark ? 'text-white/45' : 'text-slate-400')}>{meta}</p>
@@ -103,7 +103,7 @@ export function LpResults() {
 
         {/* ---------------- Case study 01 — Zakariya ---------------- */}
         <Reveal className="mt-10 md:mt-14">
-          <article className="rounded-[28px] border border-ink-900/10 bg-paper p-5 shadow-[0_30px_60px_-32px_rgba(10,8,16,0.4)] sm:p-8 lg:p-10">
+          <article className="rounded-2xl border border-ink-900/10 bg-paper p-5 shadow-[0_30px_60px_-32px_rgba(10,8,16,0.4)] sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <Who avatar={cash.avatar} name={cash.name} meta={cash.meta} />
             </div>
@@ -137,7 +137,7 @@ export function LpResults() {
 
         {/* ---------------- Case study 02 — Shaf ---------------- */}
         <Reveal className="mt-6 md:mt-8">
-          <article className="rounded-[28px] bg-ink-900 p-5 text-white shadow-[0_36px_72px_-34px_rgba(10,8,16,0.7)] sm:p-8 lg:p-10">
+          <article className="rounded-2xl bg-ink-900 p-5 text-white shadow-[0_36px_72px_-34px_rgba(10,8,16,0.7)] sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <Who avatar={calls.avatar} name={calls.name} meta={calls.meta} dark />
             </div>

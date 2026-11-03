@@ -12,7 +12,7 @@ function searchUrl(term: string) {
 function SerpCard({ shot, index }: { shot: Shot; index: number }) {
   const isTop = shot.client.includes('#1')
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-ink-900/10 bg-paper shadow-[0_18px_40px_-26px_rgba(10,8,16,0.35)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_54px_-24px_rgba(122,62,238,0.45)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-ink-900/10 bg-paper shadow-[0_18px_40px_-26px_rgba(10,8,16,0.35)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_30px_54px_-24px_rgba(122,62,238,0.45)]">
       <div className="relative">
         <img
           src={shot.image}
@@ -43,7 +43,7 @@ function SerpCard({ shot, index }: { shot: Shot; index: number }) {
           </>
         )}
         {isTop && (
-          <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-blush-500 px-2.5 py-1 text-[11px] font-bold text-ink-900 shadow-md">
+          <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-md bg-blush-500 px-2.5 py-1 text-[11px] font-bold text-ink-900 shadow-md">
             <Crown02Icon size={13} strokeWidth={2.2} />
             Ranking #1
           </span>
@@ -100,7 +100,7 @@ export function Ranking() {
               >
                 <span className="text-sm font-medium text-ink-900">{t.term}</span>
                 <Search01Icon size={15} strokeWidth={2.2} className="text-slate-400" />
-                <span className="flex items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-1 text-[11px] font-bold text-brand-700">
+                <span className="flex items-center gap-1.5 rounded-md bg-brand-50 px-2.5 py-1 text-[11px] font-bold text-brand-700">
                   <span className="h-1.5 w-1.5 rounded-full bg-blush-500" />
                   {t.note}
                 </span>

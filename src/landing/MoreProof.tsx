@@ -34,7 +34,7 @@ export function MoreProof() {
                     loading="lazy"
                     className="block w-full rounded-xl ring-1 ring-white/10 transition duration-300 group-hover:brightness-110 group-hover:ring-white/25"
                   />
-                  <span className="absolute bottom-2 right-2 rounded-full bg-black/55 p-1.5 text-white/85 lg:hidden">
+                  <span className="absolute bottom-2 right-2 rounded-md bg-black/55 p-1.5 text-white/85 lg:hidden">
                     <ArrowUpRight01Icon size={14} strokeWidth={2.2} />
                   </span>
                 </a>

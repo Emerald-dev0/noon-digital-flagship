@@ -18,7 +18,7 @@ export function ClientStories() {
 
         {/* Shaf — featured, with his numbers beside the video */}
         <Reveal className="mt-10 md:mt-12">
-          <div className="relative rounded-[28px] border border-ink-900/10 bg-paper p-4 shadow-[0_30px_60px_-30px_rgba(122,62,238,0.4)] sm:p-6">
+          <div className="relative rounded-2xl border border-ink-900/10 bg-paper p-4 shadow-[0_30px_60px_-30px_rgba(122,62,238,0.4)] sm:p-6">
             <div className="grid items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-10">
               <div className="relative">
                 <YouTubeLite id={Shaf.youtubeId} title={Shaf.title} rounded="rounded-2xl" className="ring-1 ring-ink-900/10" />
@@ -53,7 +53,7 @@ export function ClientStories() {
         <div className="mt-6 grid gap-5 md:grid-cols-2">
           {[Aqib, Yaseen].map((item, i) => (
             <Reveal key={item.name} delay={i * 0.08}>
-              <article className="h-full rounded-[28px] border border-ink-900/10 bg-paper p-4 shadow-[0_24px_48px_-28px_rgba(10,8,16,0.35)] transition-transform duration-300 hover:-translate-y-1">
+              <article className="h-full rounded-2xl border border-ink-900/10 bg-paper p-4 shadow-[0_24px_48px_-28px_rgba(10,8,16,0.35)] transition-transform duration-300 hover:-translate-y-1">
                 <div className="overflow-hidden rounded-2xl">
                   <DriveVideo driveId={item.driveId} name={item.name} role={item.role} />
                 </div>
