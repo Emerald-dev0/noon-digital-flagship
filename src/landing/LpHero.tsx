@@ -105,10 +105,7 @@ function HeroVisual() {
         <div className="relative p-5 sm:p-7">
           <div className="flex items-center justify-between">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink-900/60">From the channels</p>
-            <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-ink-900/60">
-              <span className="h-1.5 w-1.5 rounded-full bg-blush-500" />
-              Live now
-            </p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink-900/60">9 channels</p>
           </div>
 
           <div className="relative mt-5 h-[292px] sm:h-[330px]">
@@ -212,7 +209,6 @@ function Vsl() {
             {vsl.label}
             <span className="font-medium text-slate-400">— how the whole system works, in 9 minutes</span>
           </p>
-          <p className="text-xs font-bold tabular-nums text-slate-400">{vsl.duration}</p>
         </div>
       </Reveal>
       <Reveal delay={0.08} className="max-w-4xl">
@@ -226,12 +222,6 @@ function Vsl() {
               <button type="button" className="absolute inset-0 grid w-full cursor-pointer place-items-center" aria-label="Play the video">
                 <PlayButton size="lg" />
               </button>
-              <span className="absolute bottom-0 left-0 right-0 flex items-center gap-3 px-5 pb-4">
-                <span className="relative h-1 flex-1 rounded-full bg-white/25">
-                  <span className="absolute inset-y-0 left-0 w-[4%] rounded-full bg-blush-500" />
-                </span>
-                <span className="text-xs font-semibold tabular-nums text-white/90">{vsl.duration}</span>
-              </span>
             </div>
           )}
         </div>
