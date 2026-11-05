@@ -7,11 +7,11 @@ export const LP = {
   email: 'hello@noondigital.net',
 
   hero: {
-    kicker: 'For coaches, consultants & service providers',
+    // Audience line from the Loom now leads the sub-copy (no eyebrow label).
     // TODO: client to confirm final headline — written in his voice for now
     titleTop: 'Booked calls from',
     titleAccent: 'YouTube search.',
-    sub: 'Your buyers are already typing their problems into YouTube. We find those searches, rank you at the top of them, and turn the views into calls on your calendar. One client booked 37 in a month. Zero ad spend.',
+    sub: 'For coaches, consultants and service providers — your buyers are already typing their problems into YouTube. We find those searches, rank you at the top of them, and turn the views into calls on your calendar. One client booked 37 in a month. Zero ad spend.',
     cta: { label: 'Book a free call', href: '#book' },
     socialProof: 'Working with 9+ channels right now',
     avatars: ['/people/avatar-image16.png', '/people/shaf-ig.png', '/people/avatar-image5.png', '/people/avatar-image8.png'],
@@ -36,21 +36,45 @@ export const LP = {
     duration: '9:12',
   },
 
-  // Follower counts checked against each handle on 5 Nov 2026 (exact figures
-  // in the comment on each line). Shown the way Instagram abbreviates them.
+  // Counts read off each live profile on 5 Nov 2026. Only platforms the
+  // person actually has are listed — nothing is guessed.
   // TODO (client): profile pics for Mousa, Ejon, Mikail.
   channels: {
     sub: 'Real channels, live now — tap through and check them yourself.',
     people: [
-      { name: 'Zakariya', role: 'Tech sales coach', handle: '@zakariya.insight', ig: '6,792', href: 'https://www.instagram.com/zakariya.insight/', avatar: '/people/avatar-image16.png' },  // 6,792 on 5 Nov 2026
-      { name: 'Shaf', role: 'Arabic coach', handle: '@markaz_shafiee', ig: '10.9K', href: 'https://www.instagram.com/markaz_shafiee/', avatar: '/people/shaf-ig.png' },  // 10,959 on 5 Nov 2026
-      { name: 'Aqib', role: 'Appointment setting coach', handle: '@saleswithaqib', ig: '1,957', href: 'https://www.instagram.com/saleswithaqib/', avatar: '/people/avatar-image5.png' },  // 1,957 on 5 Nov 2026
-      { name: 'Yaseen', role: 'Boxing · personal brand coach', handle: '@yaseenramsey', ig: '113K', href: 'https://www.instagram.com/yaseenramsey/', avatar: '/people/avatar-image8.png' },  // 112,890 on 5 Nov 2026
-      { name: 'Faraz Ali', role: 'Tutoring', handle: '@faraztutor', ig: '724', href: 'https://www.instagram.com/faraztutor/', avatar: '/people/face-image1-0.png' },  // 724 on 5 Nov 2026
-      { name: 'Mousa', role: 'Closing coach', handle: '@abu.closing', ig: '4,009', href: 'https://www.instagram.com/abu.closing/', avatar: null },  // 4,009 on 5 Nov 2026
-      { name: 'Ejon', role: 'Creator', handle: '@ejonalex', ig: '13.9K', href: 'https://www.instagram.com/ejonalex/', avatar: null },  // 13,894 on 5 Nov 2026
-      { name: 'Mikail', role: 'Creator', handle: '@mikailaminrose', ig: '32.5K', href: 'https://www.instagram.com/mikailaminrose/', avatar: null },  // 32,549 on 5 Nov 2026
-      { name: 'I Am Not A Scholar', role: 'Podcast', handle: '@iamnotascholarpodcast', ig: '7,927', href: 'https://www.instagram.com/iamnotascholarpodcast/', avatar: '/people/ians.jpg' },  // 7,927 on 5 Nov 2026
+      // ig / tiktok / yt are the live follower counts on 5 Nov 2026.
+      { name: 'Zakariya', role: 'Tech sales coach', handle: '@zakariya.insight', avatar: '/people/avatar-image16.png',
+        ig: '6,792', igUrl: 'https://www.instagram.com/zakariya.insight/',
+        tiktok: '17.3K', tiktokUrl: 'https://www.tiktok.com/@zakariya.insight',
+        yt: '608', ytUrl: 'https://www.youtube.com/@Zakariya.Tech-Sales' },
+      { name: 'Shaf', role: 'Arabic coach', handle: '@markaz_shafiee', avatar: '/people/shaf-ig.png',
+        ig: '10.9K', igUrl: 'https://www.instagram.com/markaz_shafiee/',
+        tiktok: '8.1K', tiktokUrl: 'https://www.tiktok.com/@markazshafiee',
+        yt: '21.2K', ytUrl: 'https://www.youtube.com/@MarkazShafiee' },
+      { name: 'Aqib', role: 'Appointment setting coach', handle: '@saleswithaqib', avatar: '/people/avatar-image5.png',
+        ig: '1,957', igUrl: 'https://www.instagram.com/saleswithaqib/',
+        tiktok: null,
+        yt: '2.28K', ytUrl: 'https://www.youtube.com/@SaleswithAqib' },
+      { name: 'Yaseen', role: 'Boxing · personal brand coach', handle: '@yaseenramsey', avatar: '/people/avatar-image8.png',
+        ig: '113K', igUrl: 'https://www.instagram.com/yaseenramsey/',
+        tiktok: null,
+        yt: '16.6K', ytUrl: 'https://www.youtube.com/@yaseenramsey' },
+      { name: 'Faraz Ali', role: 'Tutoring', handle: '@faraztutor', avatar: '/people/face-image1-0.png',
+        ig: '724', igUrl: 'https://www.instagram.com/faraztutor/',
+        tiktok: null,
+        yt: '532', ytUrl: 'https://www.youtube.com/@farazzeducation' },
+      { name: 'Mousa', role: 'Closing coach', handle: '@abu.closing', avatar: null,
+        ig: '4,009', igUrl: 'https://www.instagram.com/abu.closing/',
+        tiktok: null, yt: null },
+      { name: 'Ejon', role: 'Creator', handle: '@ejonalex', avatar: null,
+        ig: '13.9K', igUrl: 'https://www.instagram.com/ejonalex/',
+        tiktok: null, yt: null },
+      { name: 'Mikail', role: 'Creator', handle: '@mikailaminrose', avatar: null,
+        ig: '32.5K', igUrl: 'https://www.instagram.com/mikailaminrose/',
+        tiktok: null, yt: null },
+      { name: 'I Am Not A Scholar', role: 'Podcast', handle: '@iamnotascholarpodcast', avatar: '/people/ians.jpg',
+        ig: '7,927', igUrl: 'https://www.instagram.com/iamnotascholarpodcast/',
+        tiktok: null, yt: null },
     ],
   },
 
