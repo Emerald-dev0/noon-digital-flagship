@@ -37,7 +37,7 @@ export function OurWork() {
                 <YouTubeLite
                   id={id}
                   title={`Client video ${i + 1}`}
-                  rounded="rounded-xl"
+                  rounded="rounded-lg"
                   className="ring-1 ring-white/10"
                 />
                 {work.labels[id] && (
