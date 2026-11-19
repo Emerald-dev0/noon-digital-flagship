@@ -14,7 +14,7 @@ export const LP = {
     sub: 'For coaches, consultants and service providers — your buyers are already typing their problems into YouTube. We find those searches, rank you at the top of them, and turn the views into calls on your calendar. One client booked 37 in a month. Zero ad spend.',
     cta: { label: 'Book a free call', href: '#book' },
     socialProof: 'Working with 9+ channels right now',
-    avatars: ['/people/avatar-image16.png', '/people/shaf-ig.png', '/people/avatar-image5.png', '/people/avatar-image8.png'],
+    avatars: ['/people/avatar-image16.webp', '/people/shaf-ig.png', '/people/avatar-image5.webp', '/people/avatar-image8.webp'],
     chips: [
       { value: '37 calls booked', label: 'from YouTube last month' },
       { value: '237K views', label: 'on a single video' },
@@ -43,7 +43,7 @@ export const LP = {
     sub: 'Real channels, live now — tap through and check them yourself.',
     people: [
       // ig / tiktok / yt are the live follower counts on 5 Nov 2026.
-      { name: 'Zakariya', role: 'Tech sales coach', handle: '@zakariya.insight', avatar: '/people/avatar-image16.png',
+      { name: 'Zakariya', role: 'Tech sales coach', handle: '@zakariya.insight', avatar: '/people/avatar-image16.webp',
         ig: '6,792', igUrl: 'https://www.instagram.com/zakariya.insight/',
         tiktok: '17.3K', tiktokUrl: 'https://www.tiktok.com/@zakariya.insight',
         yt: '608', ytUrl: 'https://www.youtube.com/@Zakariya.Tech-Sales' },
@@ -51,15 +51,15 @@ export const LP = {
         ig: '10.9K', igUrl: 'https://www.instagram.com/markaz_shafiee/',
         tiktok: '8.1K', tiktokUrl: 'https://www.tiktok.com/@markazshafiee',
         yt: '21.2K', ytUrl: 'https://www.youtube.com/@MarkazShafiee' },
-      { name: 'Aqib', role: 'Appointment setting coach', handle: '@saleswithaqib', avatar: '/people/avatar-image5.png',
+      { name: 'Aqib', role: 'Appointment setting coach', handle: '@saleswithaqib', avatar: '/people/avatar-image5.webp',
         ig: '1,957', igUrl: 'https://www.instagram.com/saleswithaqib/',
         tiktok: null,
         yt: '2.28K', ytUrl: 'https://www.youtube.com/@SaleswithAqib' },
-      { name: 'Yaseen', role: 'Boxing · personal brand coach', handle: '@yaseenramsey', avatar: '/people/avatar-image8.png',
+      { name: 'Yaseen', role: 'Boxing · personal brand coach', handle: '@yaseenramsey', avatar: '/people/avatar-image8.webp',
         ig: '113K', igUrl: 'https://www.instagram.com/yaseenramsey/',
         tiktok: null,
         yt: '16.6K', ytUrl: 'https://www.youtube.com/@yaseenramsey' },
-      { name: 'Faraz Ali', role: 'Tutoring', handle: '@faraztutor', avatar: '/people/face-image1-0.png',
+      { name: 'Faraz Ali', role: 'Tutoring', handle: '@faraztutor', avatar: '/people/face-image1-0.webp',
         ig: '724', igUrl: 'https://www.instagram.com/faraztutor/',
         tiktok: null,
         yt: '532', ytUrl: 'https://www.youtube.com/@farazzeducation' },
@@ -112,7 +112,7 @@ export const LP = {
   // the bullets is verbatim from Zakariya's DM screenshot on the page.
   results: {
     cash: {
-      avatar: '/people/avatar-image16.png',
+      avatar: '/people/avatar-image16.webp',
       name: 'Zakariya',
       meta: 'Tech sales coach · @Zakariya.Tech-Sales',
       chip: 'Cash collected',
@@ -223,7 +223,7 @@ export const LP = {
         ring: { left: '2%', top: '10.5%', width: '30%', height: '35%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
-        image: '/assets/serp/serp-appointment.png',
+        image: '/assets/serp/serp-appointment.webp',
         term: 'appointment setting',
         client: 'Aqib — 17K views',
         ring: { left: '1.5%', top: '68.5%', width: '57%', height: '30%' } as null | { left: string; top: string; width: string; height: string },
@@ -235,7 +235,7 @@ export const LP = {
         ring: { left: '2%', top: '11%', width: '31%', height: '37.5%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
-        image: '/assets/serp/serp-techsales.png',
+        image: '/assets/serp/serp-techsales.webp',
         term: 'tech sales course',
         client: 'Zakariya — next to Alex Hormozi',
         ring: { left: '2%', top: '70%', width: '50%', height: '29%' } as null | { left: string; top: string; width: string; height: string },
@@ -255,13 +255,13 @@ export const LP = {
   moreProof: {
     sub: 'Straight out of YouTube Studio and the tracking sheets.',
     items: [
-      { image: '/assets/proof/views-454k.png', caption: '454,684 lifetime views, one channel', wide: true },
+      { image: '/assets/proof/views-454k.webp', caption: '454,684 lifetime views, one channel', wide: true },
       { image: '/assets/proof/dm-leads.webp', caption: 'One Miro video filled the inbox with leads', wide: false },
       { image: '/assets/proof/calls-july.webp', caption: 'Calls by source — YouTube 35, everything else 6', wide: false },
-      { image: '/assets/proof/analytics-arabic.png', caption: 'Arabic channel — search traffic compounding', wide: false },
+      { image: '/assets/proof/analytics-arabic.webp', caption: 'Arabic channel — search traffic compounding', wide: false },
       { image: '/assets/proof/calls-sheet.webp', caption: '37 calls · 47% close rate · 25% paid in full', wide: true },
-      { image: '/assets/proof/analytics-insight.png', caption: '34.1K views, +1.3K subs from one video', wide: false },
-      { image: '/assets/proof/analytics-appt.png', caption: '17,232 views on a 7-hour course video', wide: false },
+      { image: '/assets/proof/analytics-insight.webp', caption: '34.1K views, +1.3K subs from one video', wide: false },
+      { image: '/assets/proof/analytics-appt.webp', caption: '17,232 views on a 7-hour course video', wide: false },
       { image: '/assets/proof/analytics-45k.webp', caption: '45,191 views, +1.3K subscribers — one video', wide: false },
     ],
   },

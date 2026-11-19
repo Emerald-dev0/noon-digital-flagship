@@ -75,10 +75,10 @@ export function TrustStats() {
         <Reveal delay={0.1} className="mt-12 md:mt-16">
           <div className="no-bar snap-dope snap-peek -mx-5 flex gap-3 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
             {[
-              { src: '/assets/proof/views-454k.png', caption: 'Channel overview · 454K views', tag: 'Studio' },
-              { src: '/assets/proof/analytics-insight.png', caption: '34.1K views · +1.3K subs', tag: 'Analytics' },
-              { src: '/assets/proof/analytics-appt.png', caption: 'Evergreen course · 17.2K views', tag: 'Evergreen' },
-              { src: '/assets/proof/analytics-arabic.png', caption: 'Arabic series · breakout video', tag: 'Breakout' },
+              { src: '/assets/proof/views-454k.webp', caption: 'Channel overview · 454K views', tag: 'Studio' },
+              { src: '/assets/proof/analytics-insight.webp', caption: '34.1K views · +1.3K subs', tag: 'Analytics' },
+              { src: '/assets/proof/analytics-appt.webp', caption: 'Evergreen course · 17.2K views', tag: 'Evergreen' },
+              { src: '/assets/proof/analytics-arabic.webp', caption: 'Arabic series · breakout video', tag: 'Breakout' },
             ].map((p) => (
               <figure key={p.src} className="thumb-frame w-[240px] shrink-0 overflow-hidden rounded-xl bg-white sm:w-auto">
                 <div className="flex items-center gap-1.5 bg-ink-950 px-3 py-2">
