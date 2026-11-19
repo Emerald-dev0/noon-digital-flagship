@@ -13,7 +13,7 @@ export function MoreProof() {
 
         {/* Masonry wall. On mobile the wide shots span both columns so they
             stay readable, and every shot can be tapped open full size. */}
-        <div className="mt-10 columns-2 gap-3 md:mt-12 lg:columns-3 lg:gap-5 [&>*]:mb-3.5 lg:[&>*]:mb-5">
+        <div className="mt-10 columns-1 gap-3 sm:columns-2 md:mt-12 lg:columns-3 lg:gap-5 [&>*]:mb-3.5 lg:[&>*]:mb-5">
           {moreProof.items.map((item, i) => (
             <Reveal
               key={item.image}
