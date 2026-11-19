@@ -53,7 +53,7 @@ export function LpNav() {
         </nav>
         <a
           href={LP.hero.cta.href}
-          className="group inline-flex shrink-0 items-center gap-1.5 rounded-full bg-ink-900 px-4 py-2 text-[13px] font-bold text-white transition-colors duration-200 hover:bg-brand-600 sm:px-5 sm:py-2.5 sm:text-sm"
+          className="group inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-ink-900 px-4 py-2 text-[13px] font-bold text-white transition-colors duration-200 hover:bg-brand-600 sm:px-5 sm:py-2.5 sm:text-sm"
         >
           Book a call
           <ArrowUpRight01Icon size={16} strokeWidth={2.2} className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

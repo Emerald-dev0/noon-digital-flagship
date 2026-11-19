@@ -164,7 +164,7 @@ export function Hero() {
                       <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-400" /> 35 calls/mo
                     </span>
                   </div>
-                  <img src="/assets/proof/views-454k.png" alt="Client channel analytics showing 454K views" loading="lazy" decoding="async" className="img-proof mt-2 block w-full object-cover object-top" style={{ height: 86 }} />
+                  <img src="/assets/proof/views-454k.webp" alt="Client channel analytics showing 454K views" loading="lazy" decoding="async" className="img-proof mt-2 block w-full object-cover object-top" style={{ height: 86 }} />
                 </div>
               </Reveal>
 

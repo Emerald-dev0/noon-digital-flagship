@@ -1,11 +1,11 @@
-import { CalendarAdd01Icon, CheckmarkCircle01Icon, PlayCircleIcon, Search01Icon } from 'hugeicons-react'
+import { CalendarAdd01Icon, Tick02Icon, PlayCircleIcon, Search01Icon } from 'hugeicons-react'
 import { LP } from '../data/landing'
 import { CtaButton, Reveal, shell } from './LpUi'
 
 const POINTS = [
   { icon: CalendarAdd01Icon, text: 'Free 20-minute call' },
   { icon: Search01Icon, text: "We pull up your buyers' searches live" },
-  { icon: CheckmarkCircle01Icon, text: 'Straight yes or no — no pressure' },
+  { icon: Tick02Icon, text: 'Straight yes or no — no pressure' },
 ]
 
 export function Book() {
@@ -15,7 +15,7 @@ export function Book() {
     <section id="book" className="py-16 md:py-24">
       <div className={shell}>
         <Reveal>
-          <div className="relative overflow-hidden rounded-[32px] bg-brand-600 px-5 py-12 shadow-[0_40px_80px_-34px_rgba(122,62,238,0.65)] sm:px-10 md:p-14">
+          <div className="relative overflow-hidden rounded-2xl bg-brand-600 px-5 py-12 shadow-[0_40px_80px_-34px_rgba(122,62,238,0.65)] sm:px-10 md:p-14">
             <div
               aria-hidden="true"
               className="absolute inset-0 [background-image:radial-gradient(circle,rgba(255,255,255,0.22)_1.2px,transparent_1.2px)] [background-size:24px_24px]"
@@ -30,7 +30,7 @@ export function Book() {
 
               <div className="mt-7 flex flex-wrap gap-2.5">
                 {POINTS.map(({ icon: Icon, text }) => (
-                  <span key={text} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-2 text-[13px] font-semibold text-white ring-1 ring-white/15">
+                  <span key={text} className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-3.5 py-2 text-[13px] font-semibold text-white ring-1 ring-white/15">
                     <Icon size={16} strokeWidth={2} className="text-blush-400" />
                     {text}
                   </span>

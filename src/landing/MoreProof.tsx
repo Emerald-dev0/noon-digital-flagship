@@ -13,7 +13,7 @@ export function MoreProof() {
 
         {/* Masonry wall. On mobile the wide shots span both columns so they
             stay readable, and every shot can be tapped open full size. */}
-        <div className="mt-10 columns-2 gap-3 md:mt-12 lg:columns-3 lg:gap-5 [&>*]:mb-3.5 lg:[&>*]:mb-5">
+        <div className="mt-10 columns-1 gap-3 sm:columns-2 md:mt-12 lg:columns-3 lg:gap-5 [&>*]:mb-3.5 lg:[&>*]:mb-5">
           {moreProof.items.map((item, i) => (
             <Reveal
               key={item.image}
@@ -34,7 +34,7 @@ export function MoreProof() {
                     loading="lazy"
                     className="block w-full rounded-xl ring-1 ring-white/10 transition duration-300 group-hover:brightness-110 group-hover:ring-white/25"
                   />
-                  <span className="absolute bottom-2 right-2 rounded-full bg-black/55 p-1.5 text-white/85 lg:hidden">
+                  <span className="absolute bottom-2 right-2 rounded-md bg-black/55 p-1.5 text-white/85 lg:hidden">
                     <ArrowUpRight01Icon size={14} strokeWidth={2.2} />
                   </span>
                 </a>

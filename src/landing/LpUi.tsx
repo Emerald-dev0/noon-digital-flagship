@@ -87,7 +87,7 @@ export function CtaButton({
     <a
       href={href}
       className={cn(
-        'group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px] font-bold transition-all duration-200 hover:-translate-y-0.5',
+        'group inline-flex items-center justify-center gap-2 rounded-lg px-7 py-3.5 text-[15px] font-bold transition-all duration-200 hover:-translate-y-0.5',
         light
           ? 'bg-white text-ink-900 shadow-[0_14px_30px_-12px_rgba(0,0,0,0.45)] hover:bg-brand-50'
           : 'bg-brand-600 text-white shadow-[0_14px_30px_-10px_rgba(122,62,238,0.55)] hover:bg-brand-500',

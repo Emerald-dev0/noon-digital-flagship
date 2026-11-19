@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { InstagramIcon, Loading01Icon, PlayIcon, YoutubeIcon } from 'hugeicons-react'
 import { cn } from '../utils/cn'
 import type { LpPlatform } from '../data/landing'
@@ -23,7 +23,36 @@ export const PLATFORM_META: Record<LpPlatform, { label: string; color: string }>
   tiktok: { label: 'TikTok', color: 'text-slate-900' },
 }
 
-// Click-to-play: the iframe only loads once someone actually presses play.
+// Click-to-play. The YouTube player is only mounted on press, and if the
+// owner has embedding switched off YouTube reports it (101/150) — we then swap
+// to a poster that sends people to the video on YouTube instead of leaving a
+// dead black player on the page.
+type YTPlayer = {
+  destroy: () => void
+}
+declare global {
+  interface Window {
+    YT?: { Player: new (el: HTMLElement, opts: Record<string, unknown>) => YTPlayer }
+    onYouTubeIframeAPIReady?: () => void
+  }
+}
+
+let apiPromise: Promise<void> | null = null
+function loadYouTubeApi() {
+  if (window.YT?.Player) return Promise.resolve()
+  if (apiPromise) return apiPromise
+  apiPromise = new Promise<void>((resolve) => {
+    const prev = window.onYouTubeIframeAPIReady
+    window.onYouTubeIframeAPIReady = () => {
+      prev?.()
+      resolve()
+    }
+    const tag = document.createElement('script')
+    tag.src = 'https://www.youtube.com/iframe_api'
+    document.head.appendChild(tag)
+  })
+  return apiPromise
+}
 
 export function PlayButton({ size = 'md' }: { size?: 'md' | 'lg' }) {
   return (
@@ -49,21 +78,52 @@ export function YouTubeLite({
   className?: string
   rounded?: string
 }) {
-  const [playing, setPlaying] = useState(false)
+  const [state, setState] = useState<'idle' | 'playing' | 'blocked'>('idle')
+  const holder = useRef<HTMLDivElement | null>(null)
+  const watchUrl = `https://www.youtube.com/watch?v=${id}`
+
+  useEffect(() => {
+    if (state !== 'playing') return
+    let player: YTPlayer | null = null
+    let cancelled = false
+    loadYouTubeApi().then(() => {
+      if (cancelled || !holder.current) return
+      player = new window.YT!.Player(holder.current, {
+        videoId: id,
+        host: 'https://www.youtube-nocookie.com',
+        playerVars: { autoplay: 1, rel: 0, playsinline: 1 },
+        events: { onError: () => setState('blocked') },
+      })
+    })
+    return () => {
+      cancelled = true
+      player?.destroy()
+    }
+  }, [state, id])
+
   return (
     <div className={cn('group relative aspect-video w-full overflow-hidden bg-navy-950', rounded, className)}>
-      {playing ? (
-        <iframe
-          className="absolute inset-0 h-full w-full"
-          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+      {state === 'playing' ? (
+        <div ref={(el) => { holder.current = el }} className="absolute inset-0 h-full w-full [&>iframe]:h-full [&>iframe]:w-full" />
+      ) : state === 'blocked' ? (
+        <a
+          href={watchUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center"
+          title="This video plays on YouTube"
+        >
+          <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt={title} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+          <span className="absolute inset-0 bg-black/45" />
+          <span className="relative flex items-center gap-2 bg-white px-4 py-2.5 text-sm font-bold text-ink-900 shadow-lg">
+            <YoutubeIcon size={17} strokeWidth={2.2} className="text-[#ff0033]" />
+            Watch on YouTube
+          </span>
+        </a>
       ) : (
         <button
           type="button"
-          onClick={() => setPlaying(true)}
+          onClick={() => setState('playing')}
           className="absolute inset-0 h-full w-full cursor-pointer"
           aria-label={`Play video: ${title}`}
         >
