@@ -1,3 +1,4 @@
+import { ArrowRight01Icon } from 'hugeicons-react'
 import { useRef, type ReactNode } from 'react'
 import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion'
 import { cn } from '../../utils/cn'
@@ -71,16 +72,5 @@ export function MagneticButton({
 }
 
 export function ArrowGlyph({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" className={cn('h-[14px] w-[14px]', className)} aria-hidden>
-      <path
-        d="M2 8h11M9 4l4 4-4 4"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="transition-transform duration-300 group-hover:translate-x-[2px]"
-      />
-    </svg>
-  )
+  return <ArrowRight01Icon size={14} strokeWidth={1.8} className={cn('h-[14px] w-[14px]', className)} aria-hidden="true" />
 }

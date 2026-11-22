@@ -1,3 +1,4 @@
+import { ArrowRight01Icon } from 'hugeicons-react'
 import { RESULTS } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 import { CountUp } from '../components/ui/CountUp'
@@ -38,9 +39,7 @@ function Compare({ c }: { c: (typeof RESULTS.cases)[number] }) {
         <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/25">Metric</span>
         <span className="font-sans text-[10px] uppercase tracking-[0.18em] text-white/25">{c.before.label}</span>
         <span className="flex items-center gap-1.5 font-sans text-[10px] uppercase tracking-[0.18em] text-violet-200">
-          <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" aria-hidden>
-            <path d="M2 6h7M6.5 3 9.5 6l-3 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-          </svg>
+          <ArrowRight01Icon size={12} strokeWidth={1.8} aria-hidden="true" />
           {c.after.label}
         </span>
       </div>

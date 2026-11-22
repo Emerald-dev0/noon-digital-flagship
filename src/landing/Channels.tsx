@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react'
-import { ArrowUpRight01Icon, InstagramIcon, YoutubeIcon } from 'hugeicons-react'
+import { ArrowUpRight01Icon, InstagramIcon, TiktokIcon, YoutubeIcon } from 'hugeicons-react'
 import { LP, type LpChannel } from '../data/landing'
 import { Em, Reveal, SectionHead, shell } from './LpUi'
-import { TikTokIcon } from './VideoBits'
 
 // One chip per platform the person actually has, with the live follower count.
 function PlatformChip({ href, count, label, children }: { href: string; count: string; label: string; children: ReactNode }) {
@@ -54,7 +53,7 @@ function ChannelCard({ person }: { person: LpChannel }) {
         </PlatformChip>
         {person.tiktok && person.tiktokUrl && (
           <PlatformChip href={person.tiktokUrl} count={person.tiktok} label="TikTok">
-            <TikTokIcon className="h-3 w-3 text-slate-900" />
+            <TiktokIcon size={13} strokeWidth={1.9} className="text-slate-900" aria-hidden="true" />
           </PlatformChip>
         )}
         {person.yt && person.ytUrl && (

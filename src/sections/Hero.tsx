@@ -1,3 +1,4 @@
+import { Search01Icon } from 'hugeicons-react'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion, useMotionValue, useSpring } from 'framer-motion'
 import { HERO } from '../data/content'
@@ -102,10 +103,7 @@ export function Hero() {
               {/* search pill */}
               <Reveal delay={0.3} y={20} className="absolute left-0 top-0 z-30 w-[92%] sm:w-[86%]">
                 <div className="glow-ring surface flex items-center gap-3 rounded-full px-4 py-3">
-                  <svg viewBox="0 0 20 20" className="h-4 w-4 shrink-0 text-white/40" fill="none">
-                    <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
-                    <path d="M13.5 13.5 17 17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  </svg>
+                  <Search01Icon size={16} strokeWidth={1.8} className="shrink-0 text-white/40" aria-hidden="true" />
                   <span className="truncate font-sans text-[13.5px] text-white/80">
                     {QUERY}
                     {!reduced && (

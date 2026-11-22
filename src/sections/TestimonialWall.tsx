@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { TESTIMONIAL_WALL, type ChatCard } from '../data/content'
+import { InstagramIcon, Mail01Icon, Message01Icon, SlackIcon, TelegramIcon, WhatsappIcon } from 'hugeicons-react'
 import { Reveal } from '../components/ui/Reveal'
 
 /* ---------------------------------------------------------- platform chrome */
@@ -12,12 +13,7 @@ const PLATFORM: Record<
     dot: '#36C5F0',
     bubble: 'bg-white/[0.045]',
     badge: (
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden>
-        <path fill="#E01E5A" d="M5 15a2 2 0 1 1-2-2h2v2Zm1 0a2 2 0 1 1 4 0v5a2 2 0 1 1-4 0v-5Z" />
-        <path fill="#36C5F0" d="M9 5a2 2 0 1 1 2-2v2H9Zm0 1a2 2 0 1 1 0 4H4a2 2 0 1 1 0-4h5Z" />
-        <path fill="#2EB67D" d="M19 9a2 2 0 1 1 2 2h-2V9Zm-1 0a2 2 0 1 1-4 0V4a2 2 0 1 1 4 0v5Z" />
-        <path fill="#ECB22E" d="M15 19a2 2 0 1 1-2 2v-2h2Zm0-1a2 2 0 1 1 0-4h5a2 2 0 1 1 0 4h-5Z" />
-      </svg>
+      <SlackIcon size={14} strokeWidth={2} className="text-[#36C5F0]" />
     ),
   },
   whatsapp: {
@@ -25,12 +21,7 @@ const PLATFORM: Record<
     dot: '#25D366',
     bubble: 'bg-[#0f2d22]/80',
     badge: (
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden>
-        <path
-          fill="#25D366"
-          d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1a12 12 0 0 1-6.4-5.6c-.5-.9-.8-1.8-.3-2.6.2-.4.6-.8 1-.9.2 0 .5 0 .7.5l.7 1.6c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3 0 .6a8.6 8.6 0 0 0 3.5 3c.3.1.4.1.6-.1l.7-.8c.2-.2.3-.2.6-.1l1.6.8c.3.1.4.3.4.4 0 .2 0 .6-.1 1Z"
-        />
-      </svg>
+      <WhatsappIcon size={14} strokeWidth={2} className="text-[#25D366]" />
     ),
   },
   telegram: {
@@ -38,10 +29,7 @@ const PLATFORM: Record<
     dot: '#2AABEE',
     bubble: 'bg-[#102636]/80',
     badge: (
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden>
-        <circle cx="12" cy="12" r="10" fill="#2AABEE" />
-        <path fill="#fff" d="m6.5 12.2 10-3.9c.5-.2.9.1.7.8l-1.7 8c-.1.5-.5.7-1 .4l-2.7-2-1.3 1.3c-.2.2-.4.3-.7.2l.3-2.8 5-4.5c.2-.2 0-.3-.3-.1l-6.2 3.9-2.7-.8c-.6-.2-.6-.6.6-.9Z" />
-      </svg>
+      <TelegramIcon size={14} strokeWidth={2} className="text-[#2AABEE]" />
     ),
   },
   imessage: {
@@ -49,13 +37,7 @@ const PLATFORM: Record<
     dot: '#0A84FF',
     bubble: 'bg-[#13203a]/80',
     badge: (
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden>
-        <circle cx="12" cy="12" r="10" fill="#0A84FF" />
-        <path
-          fill="#fff"
-          d="M12 6.5c-3.3 0-6 2.1-6 4.8 0 1.5.9 2.9 2.3 3.8-.1.9-.6 1.7-.6 1.7s1.7-.3 2.7-1a7.6 7.6 0 0 0 1.6.2c3.3 0 6-2.1 6-4.7s-2.7-4.8-6-4.8Z"
-        />
-      </svg>
+      <Message01Icon size={14} strokeWidth={2} className="text-[#0A84FF]" />
     ),
   },
   instagram: {
@@ -63,18 +45,7 @@ const PLATFORM: Record<
     dot: '#E1306C',
     bubble: 'bg-[#2a1326]/80',
     badge: (
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden>
-        <defs>
-          <linearGradient id="igg" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="#FEDA75" />
-            <stop offset="40%" stopColor="#D62976" />
-            <stop offset="100%" stopColor="#962FBF" />
-          </linearGradient>
-        </defs>
-        <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igg)" />
-        <circle cx="12" cy="12" r="4.4" fill="none" stroke="#fff" strokeWidth="1.6" />
-        <circle cx="17.2" cy="6.8" r="1.2" fill="#fff" />
-      </svg>
+      <InstagramIcon size={14} strokeWidth={2} className="text-[#D62976]" />
     ),
   },
   email: {
@@ -82,10 +53,7 @@ const PLATFORM: Record<
     dot: '#a279ff',
     bubble: 'bg-white/[0.045]',
     badge: (
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" aria-hidden>
-        <rect x="2.5" y="5" width="19" height="14" rx="3" fill="#8b5cf6" />
-        <path d="m4.5 8 7.5 5 7.5-5" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-      </svg>
+      <Mail01Icon size={14} strokeWidth={2} className="text-[#a279ff]" />
     ),
   },
 }

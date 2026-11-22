@@ -1,3 +1,4 @@
+import { Clock01Icon } from 'hugeicons-react'
 import { TRUST } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 import { CountUp } from '../components/ui/CountUp'
@@ -61,10 +62,7 @@ export function TrustStats() {
 
             <Reveal delay={0.2}>
               <p className="mt-5 flex items-center gap-2.5 text-[12px] text-white/30">
-                <svg viewBox="0 0 14 14" className="h-3.5 w-3.5 shrink-0 text-violet-400" fill="none" aria-hidden>
-                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M7 4v3.4L9 9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                </svg>
+                <Clock01Icon size={14} strokeWidth={1.6} className="shrink-0 text-violet-400" aria-hidden="true" />
                 {TRUST.footnote}
               </p>
             </Reveal>

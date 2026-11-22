@@ -1,56 +1,26 @@
 import { CREATORS } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 
+import {
+  ArrowUpRight01Icon,
+  InstagramIcon,
+  Linkedin01Icon,
+  Mail01Icon,
+  NewTwitterIcon,
+  SkoolIcon,
+  TiktokIcon,
+  YoutubeIcon,
+} from 'hugeicons-react'
+
+// Brand marks come from Hugeicons; each keeps its own colour.
 const PLATFORM_ICON: Record<string, JSX.Element> = {
-  YouTube: (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden>
-      <path fill="#FF0033" d="M22 12c0-2.6-.2-4-.5-4.6a2.6 2.6 0 0 0-1.8-1.8C18.7 5.2 15.6 5 12 5s-6.7.2-7.7.6a2.6 2.6 0 0 0-1.8 1.8C2.2 8 2 9.4 2 12s.2 4 .5 4.6c.3.9 1 1.5 1.8 1.8 1 .4 4.1.6 7.7.6s6.7-.2 7.7-.6a2.6 2.6 0 0 0 1.8-1.8c.3-.6.5-2 .5-4.6Z" />
-      <path fill="#fff" d="m10 9.2 5 2.8-5 2.8V9.2Z" />
-    </svg>
-  ),
-  Instagram: (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden>
-      <defs>
-        <linearGradient id="igc" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0%" stopColor="#FEDA75" />
-          <stop offset="45%" stopColor="#D62976" />
-          <stop offset="100%" stopColor="#962FBF" />
-        </linearGradient>
-      </defs>
-      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="url(#igc)" />
-      <circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" strokeWidth="1.7" />
-      <circle cx="17.3" cy="6.8" r="1.2" fill="#fff" />
-    </svg>
-  ),
-  TikTok: (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden>
-      <path fill="#25F4EE" d="M15.5 3h2.2c.3 2 1.5 3.4 3.3 3.6v2.2c-1.3 0-2.5-.4-3.5-1.1v6.1a5.6 5.6 0 1 1-5.6-5.6c.3 0 .5 0 .8.1v2.3a3.3 3.3 0 1 0 2.5 3.2V3Z" />
-      <path fill="#FE2C55" d="M16.4 3h1.9c.3 2 1.4 3.3 3.2 3.5v2.1c-1.3 0-2.5-.4-3.5-1.1v6.1a5.6 5.6 0 0 1-8.7 4.6 5.6 5.6 0 0 0 8-5V3h-.9Z" opacity=".85" />
-    </svg>
-  ),
-  X: (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden>
-      <path fill="#fff" d="M3 3h4.3l4.4 6 5-6H20l-6.7 7.9L21 21h-4.3l-4.8-6.5L6.4 21H4l7.2-8.5L3 3Z" />
-    </svg>
-  ),
-  LinkedIn: (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden>
-      <rect x="2.5" y="2.5" width="19" height="19" rx="3.5" fill="#0A66C2" />
-      <path fill="#fff" d="M6 9.5h2.3V18H6V9.5ZM7.2 5.8a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8ZM10.2 9.5h2.2v1.2c.4-.7 1.3-1.4 2.6-1.4 2 0 2.9 1.2 2.9 3.4V18h-2.3v-4.7c0-1.2-.4-1.8-1.4-1.8s-1.7.7-1.7 1.9V18h-2.3V9.5Z" />
-    </svg>
-  ),
-  Skool: (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden>
-      <rect x="2.5" y="4.5" width="19" height="15" rx="3.5" fill="#f5c542" />
-      <path fill="#1a1a1a" d="M8 9h2.4l1.6 3 1.6-3H16l-3 5.2V17h-2v-2.8L8 9Z" />
-    </svg>
-  ),
-  Newsletter: (
-    <svg viewBox="0 0 24 24" className="h-3 w-3" aria-hidden>
-      <rect x="2.5" y="5" width="19" height="14" rx="3" fill="#a279ff" />
-      <path d="m5 8.5 7 4.6 7-4.6" stroke="#fff" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-    </svg>
-  ),
+  YouTube: <YoutubeIcon size={12} strokeWidth={2} className="text-[#FF0033]" />,
+  Instagram: <InstagramIcon size={12} strokeWidth={2} className="text-[#D62976]" />,
+  TikTok: <TiktokIcon size={12} strokeWidth={2} className="text-white" />,
+  X: <NewTwitterIcon size={12} strokeWidth={2} className="text-white" />,
+  LinkedIn: <Linkedin01Icon size={12} strokeWidth={2} className="text-[#0A66C2]" />,
+  Skool: <SkoolIcon size={12} strokeWidth={2} className="text-[#f5c542]" />,
+  Newsletter: <Mail01Icon size={12} strokeWidth={2} className="text-[#a279ff]" />,
 }
 
 export function Creators() {
@@ -86,9 +56,7 @@ export function Creators() {
                   </span>
                   <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-violet-500/90 px-2.5 py-1 font-sans text-[10px] font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     Watch
-                    <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3">
-                      <path d="M4 12 12 4M12 4H6M12 4v6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <ArrowUpRight01Icon size={12} strokeWidth={2} aria-hidden="true" />
                   </span>
                 </div>
 

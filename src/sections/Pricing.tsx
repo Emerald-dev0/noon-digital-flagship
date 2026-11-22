@@ -1,3 +1,4 @@
+import { CheckmarkCircle02Icon } from 'hugeicons-react'
 import { PRICING } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 import { MagneticButton, ArrowGlyph } from '../components/ui/MagneticButton'
@@ -73,17 +74,7 @@ export function Pricing() {
                   <ul className="relative space-y-2.5">
                     {tier.features.map((f) => (
                       <li key={f} className="flex items-start gap-2.5 text-[13px] leading-snug text-white/[0.62]">
-                        <svg viewBox="0 0 14 14" className="mt-[3px] h-3.5 w-3.5 shrink-0" aria-hidden>
-                          <circle cx="7" cy="7" r="6.4" fill={hot ? 'rgba(139,92,246,0.22)' : 'rgba(255,255,255,0.06)'} />
-                          <path
-                            d="m4.3 7.2 1.9 1.9 3.6-4"
-                            stroke={hot ? '#bda2ff' : 'rgba(255,255,255,0.45)'}
-                            strokeWidth="1.3"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                        <CheckmarkCircle02Icon size={14} strokeWidth={1.8} className="mt-[3px] shrink-0 text-violet-300" aria-hidden="true" />
                         {f}
                       </li>
                     ))}
