@@ -1,5 +1,5 @@
 /* ============================================================================
-   NOON DIGITAL — SINGLE SOURCE OF TRUTH FOR ALL PAGE CONTENT
+   NOON DIGITAL, SINGLE SOURCE OF TRUTH FOR ALL PAGE CONTENT
    ----------------------------------------------------------------------------
    Everything the landing page renders lives here.
 
@@ -42,7 +42,7 @@ export const HERO = {
   primary: { label: 'Book a strategy call', href: '#book' },
   secondary: { label: 'Walk the Garden', href: '#garden' },
   microCopy: 'Free 20 minutes. No pitch deck, no countdown timer, no "only 3 spots left".',
-  // REAL — pulled from client screenshots in /docs/brand2
+  // REAL - pulled from client screenshots in /docs/brand2
   stats: [
     { value: '454K', label: 'views on one client channel', tone: 'violet' },
     { value: '35 / 41', label: 'calls booked last month came from YouTube', tone: 'ember' },
@@ -131,7 +131,7 @@ export const GARDEN = {
       name: 'Plant',
       alias: 'The Fertilizer',
       headline: 'We plant where demand already lives.',
-      body: 'Before a single frame is shot we map what your buyers search, how often, and how beatable the results are. Then we build videos designed to own those exact queries — so discovery is engineered, not hoped for.',
+      body: 'Before a single frame is shot we map what your buyers search, how often, and how beatable the results are. Then we build videos designed to own those exact queries, so discovery is engineered, not hoped for.',
       bullets: ['Buyer-intent keyword map', 'Competitor SERP teardown', 'Title, thumbnail & hook packaging', 'Search-optimised scripting'],
       metric: { value: 'Top 3', label: 'rankings on 4 buyer keywords' },
       proof: {
@@ -174,7 +174,7 @@ export const GARDEN = {
       metric: { value: '35 calls', label: 'from YouTube in a single month' },
       proof: {
         type: 'attribution',
-        // REAL — from the client's own attribution sheet screenshot
+        // REAL - from the client's own attribution sheet screenshot
         rows: [
           { source: 'YouTube', calls: 35 },
           { source: 'Skool', calls: 5 },
@@ -189,7 +189,7 @@ export const GARDEN = {
 } as const
 
 /* --------------------------------------------------- 07 TESTIMONIAL WALL */
-// PLACEHOLDER — every chat card below is invented but realistic.
+// PLACEHOLDER - every chat card below is invented but realistic.
 // One real screenshot (chat-revshare) is included and flagged `real: true`.
 
 export type ChatCard = {
@@ -219,7 +219,7 @@ export const TESTIMONIAL_WALL: { eyebrow: string; title: string; sub: string; ca
       avatar: '/people/face-image2-0.png',
       real: true,
       image: '/assets/chat/chat-revshare.png',
-      messages: [{ from: 'them', text: 'Gone through all the numbers — this quarter is done.' }],
+      messages: [{ from: 'them', text: 'Gone through all the numbers, this quarter is done.' }],
     },
     {
       id: 'c2',
@@ -319,7 +319,7 @@ export const TESTIMONIAL_WALL: { eyebrow: string; title: string; sub: string; ca
       messages: [
         { from: 'them', text: 'Enrolment closed in 6 days this intake. Previous one took 5 weeks.' },
         { from: 'them', text: 'Same offer, same price. Only difference is the channel.' },
-        { from: 'us', text: 'congrats — do not raise prices yet, let us finish the harvest set first' },
+        { from: 'us', text: 'congrats, do not raise prices yet, let us finish the harvest set first' },
         { from: 'them', text: 'too late, already did 😅' },
       ],
     },
@@ -338,13 +338,13 @@ export const TESTIMONIAL_WALL: { eyebrow: string; title: string; sub: string; ca
 }
 
 /* --------------------------------------------------------- 08 CREATOR ROW */
-// PLACEHOLDER — names, companies and follower counts are illustrative.
+// PLACEHOLDER - names, companies and follower counts are illustrative.
 // Avatars are real frames from client thumbnails in /public/people.
 
 export const CREATORS = {
   eyebrow: 'What we produced',
   title: 'Channels we grew, people who run them.',
-  sub: 'Six real client channels. Tap any card to watch the work — these are live, not mockups.',
+  sub: 'Six real client channels. Tap any card to watch the work, these are live, not mockups.',
   // REAL: handles + hrefs come from docs/brand/04-client-channels.md and are verified.
   // PLACEHOLDER: `chips` follower counts and `role` wording still need Mubarak's confirmation.
   people: [
@@ -436,7 +436,7 @@ export const CREATORS = {
 } as const
 
 /* ---------------------------------------------------- 09 VIDEO TESTIMONIALS */
-// PLACEHOLDER — posters are real client thumbnails, quotes & names illustrative.
+// PLACEHOLDER - posters are real client thumbnails, quotes & names illustrative.
 
 export const VIDEO_TESTIMONIALS = {
   eyebrow: 'On the record',
@@ -575,7 +575,7 @@ export const PRICING = {
       note: 'Two client slots per quarter.',
     },
   ],
-  aside: 'Prefer coaching over done-for-you? Growth Consulting runs from $3,000 — weekly calls, roadmap, channel reviews, templates. Ask on the call.',
+  aside: 'Prefer coaching over done-for-you? Growth Consulting runs from $3,000, weekly calls, roadmap, channel reviews, templates. Ask on the call.',
 } as const
 
 /* ------------------------------------------------------------------ 12 FAQ */
@@ -598,7 +598,7 @@ export const FAQ = {
     },
     {
       q: 'What if the first video flops?',
-      a: 'Some will. That is why the $597 Test Video exists — it is a cheap, honest read on whether your market is searching. If the data says no, we will tell you and refund the strategy call coffee, metaphorically.',
+      a: 'Some will. That is why the $597 Test Video exists, it is a cheap, honest read on whether your market is searching. If the data says no, we will tell you and refund the strategy call coffee, metaphorically.',
     },
     {
       q: 'How is this different from hiring an editor?',

@@ -6,7 +6,7 @@ import { shell } from './LpUi'
 
 export function Wordmark() {
   return (
-    <a href="#top" aria-label="Noon Digital — back to top" className="block shrink-0">
+    <a href="#top" aria-label="Noon Digital, back to top" className="block shrink-0">
       <img src="/logo-dark.png" alt="Noon Digital" className="h-7 w-auto sm:h-8" />
     </a>
   )

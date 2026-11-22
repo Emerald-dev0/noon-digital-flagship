@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LP } from '../data/landing'
 
-// Mobile-only sticky booking bar — slides in once you're past the hero.
+// Mobile-only sticky booking bar - slides in once you're past the hero.
 export function StickyMobileCta() {
   const [show, setShow] = useState(false)
 

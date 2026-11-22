@@ -5,7 +5,7 @@ import { CtaButton, Reveal, shell } from './LpUi'
 const POINTS = [
   { icon: CalendarAdd01Icon, text: 'Free 20-minute call' },
   { icon: Search01Icon, text: "We pull up your buyers' searches live" },
-  { icon: Tick02Icon, text: 'Straight yes or no — no pressure' },
+  { icon: Tick02Icon, text: 'Straight yes or no, no pressure' },
 ]
 
 export function Book() {

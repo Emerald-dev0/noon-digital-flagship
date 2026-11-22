@@ -120,7 +120,7 @@ export function Hero() {
                 </div>
               </Reveal>
 
-              {/* stacked result cards — brighter, punchier */}
+              {/* stacked result cards, brighter, punchier */}
               {[
                 { src: '/images/thumbnails/image20.png', rot: -5, x: 4, yy: 104, z: 10, scale: 0.88, delay: 0.5 },
                 { src: '/images/thumbnails/image22.png', rot: 3, x: 46, yy: 244, z: 20, scale: 0.94, delay: 0.42 },
@@ -148,7 +148,7 @@ export function Hero() {
                 </motion.figure>
               ))}
 
-              {/* floating proof: faces + booked-calls chip — mobile visible */}
+              {/* floating proof: faces + booked-calls chip, mobile visible */}
               <Reveal delay={0.6} y={16} className="absolute bottom-2 right-0 z-30 w-[62%] sm:w-[54%]">
                 <div className="thumb-frame-warm overflow-hidden rounded-xl bg-ink-900/90 backdrop-blur-md">
                   <div className="flex items-center gap-2 px-3 pt-2.5">
@@ -172,7 +172,7 @@ export function Hero() {
               />
             </motion.div>
 
-            {/* mobile thumbnail strip — swipeable, bright */}
+            {/* mobile thumbnail strip, swipeable, bright */}
             <div className="no-bar snap-dope snap-peek -mx-5 mt-8 flex gap-2.5 overflow-x-auto px-5 pb-1 lg:hidden">
               {['/images/thumbnails/image1.png', '/images/thumbnails/image8.png', '/images/thumbnails/image14.png', '/images/thumbnails/image17.png', '/images/thumbnails/image24.png'].map((src) => (
                 <img key={src} src={src} alt="Client thumbnail" loading="lazy" decoding="async" className="img-bright thumb-frame h-[64px] w-[114px] shrink-0 rounded-lg object-cover" />

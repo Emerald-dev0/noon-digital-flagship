@@ -16,7 +16,7 @@ export function ClientStories() {
           sub={clientVideos.sub}
         />
 
-        {/* Shaf — featured, with his numbers beside the video */}
+        {/* Shaf, featured, with his numbers beside the video */}
         <Reveal className="mt-10 md:mt-12">
           <div className="relative rounded-2xl border border-ink-900/10 bg-paper p-4 shadow-[0_30px_60px_-30px_rgba(122,62,238,0.4)] sm:p-6">
             <div className="grid items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-10">

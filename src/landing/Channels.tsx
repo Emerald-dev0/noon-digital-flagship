@@ -10,7 +10,7 @@ function PlatformChip({ href, count, label, children }: { href: string; count: s
       href={href}
       target="_blank"
       rel="noreferrer"
-      title={`${label} — ${count} followers`}
+      title={`${label}, ${count} followers`}
       className="flex items-center gap-1.5 border border-ink-900/10 bg-white px-2 py-1 text-[11px] font-semibold tabular-nums text-ink-900 transition-colors duration-200 hover:border-brand-400 hover:bg-brand-50 hover:text-brand-700"
     >
       {children}

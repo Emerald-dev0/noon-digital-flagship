@@ -1,5 +1,5 @@
 // Landing page content. Structure follows Mubarak's Loom + Google Doc
-// ("Landing page", exported with images — see /public/assets).
+// ("Landing page", exported with images - see /public/assets).
 // TODOs marked where the client still owes assets/copy.
 
 export const LP = {
@@ -8,10 +8,10 @@ export const LP = {
 
   hero: {
     // Audience line from the Loom now leads the sub-copy (no eyebrow label).
-    // TODO: client to confirm final headline — written in his voice for now
+    // TODO: client to confirm final headline - written in his voice for now
     titleTop: 'Booked calls from',
     titleAccent: 'YouTube search.',
-    sub: 'For coaches, consultants and service providers — your buyers are already typing their problems into YouTube. We find those searches, rank you at the top of them, and turn the views into calls on your calendar. One client booked 37 in a month. Zero ad spend.',
+    sub: 'For coaches, consultants and service providers. Your buyers are already typing their problems into YouTube. We find those searches, rank you at the top of them, and turn the views into calls on your calendar. One client booked 37 in a month. Zero ad spend.',
     cta: { label: 'Book a free call', href: '#book' },
     socialProof: 'Working with 9+ channels right now',
     avatars: ['/people/avatar-image16.webp', '/people/shaf-ig.png', '/people/avatar-image5.webp', '/people/avatar-image8.webp'],
@@ -37,10 +37,10 @@ export const LP = {
   },
 
   // Counts read off each live profile on 5 Nov 2026. Only platforms the
-  // person actually has are listed — nothing is guessed.
+  // person actually has are listed - nothing is guessed.
   // TODO (client): profile pics for Mousa, Ejon, Mikail.
   channels: {
-    sub: 'Real channels, live now — tap through and check them yourself.',
+    sub: 'Real channels, live now. Tap through and check them yourself.',
     people: [
       // ig / tiktok / yt are the live follower counts on 5 Nov 2026.
       { name: 'Zakariya', role: 'Tech sales coach', handle: '@zakariya.insight', avatar: '/people/avatar-image16.webp',
@@ -120,8 +120,8 @@ export const LP = {
       metricLabel: 'generated from the marketing',
       points: [
         ['£29,078 collected', ' in a single quarter, straight off the back of the videos'],
-        ['£0 spent on ads', ' — every lead came from search'],
-        ['Revenue-share client', ' — we only earn when he earns'],
+        ['£0 spent on ads', ', every lead came from search'],
+        ['Revenue-share client', ', we only earn when he earns'],
         ['Ranking next to Alex Hormozi', ' for "tech sales course" (screenshot further down this page)'],
       ],
       image: '/assets/chat/revshare-40k.webp',
@@ -141,21 +141,21 @@ export const LP = {
         { v: '25%', l: 'paid in full' },
       ],
       points: [
-        ['47% close rate', ' — viewers arrive pre-sold by the videos'],
+        ['47% close rate', ', viewers arrive pre-sold by the videos'],
         ['25% pay in full', ' on the first call'],
         ['Every call tracked', ' back to the video that booked it'],
-        ['1M+ channel views', ' so far — subscribers 0 to 21K'],
+        ['1M+ channel views', '. Subscribers 0 to 21K'],
       ],
       sheet: '/assets/proof/calls-sheet.webp',
       caption: 'His actual tracking sheet',
     },
   },
 
-  // TODO: client sending final process copy — structure mirrors tikscale's
+  // TODO: client sending final process copy - structure mirrors tikscale's
   process: {
     steps: [
-      { n: '1', title: 'Research & ideation', body: 'We come up with video ideas that attract your exact buyers — starting with what they\'re already typing into YouTube search.' },
-      { n: '2', title: 'Scripting', body: 'We write your script, outline or word-for-word — whatever you\'re more comfortable with. Engineered for watch-time and conversions.' },
+      { n: '1', title: 'Research & ideation', body: 'We come up with video ideas that attract your exact buyers, starting with what they\'re already typing into YouTube search.' },
+      { n: '2', title: 'Scripting', body: 'We write your script, outline or word-for-word, whatever you\'re more comfortable with. Engineered for watch-time and conversions.' },
       { n: '3', title: 'Direction', body: 'We coach your delivery and make sure your camera setup looks the part. You just talk.' },
       { n: '4', title: 'Editing', body: 'Edited for the highest retention we can get, in the style your buyers already consume.' },
       { n: '5', title: 'Thumbnails', body: 'We design and split-test thumbnail variants to get you the highest click-through rate possible.' },
@@ -164,11 +164,11 @@ export const LP = {
   },
 
   work: {
-    note: '17 videos. Every one researched, scripted and shipped by us — press play on any of them.',
+    note: '17 videos. Every one researched, scripted and shipped by us. Press play on any of them.',
     stats: [
       { v: '1M+', l: 'views on one channel' },
       { v: '237K', l: 'views on a single video' },
-      { v: '17', l: 'videos below — all live on YouTube' },
+      { v: '17', l: 'videos below, all live on YouTube' },
     ],
     // Views pulled from YouTube; outlier = views / channel subscribers
     // (Social Blade). Both checked Nov 2026.
@@ -202,42 +202,42 @@ export const LP = {
   // SERP screenshots pulled from the client's doc (+ 2 already in the repo).
   // `ring` = highlight box over our client's result, % of the image.
   ranking: {
-    sub: 'Don\'t take our word for it — search these on YouTube right now.',
+    sub: 'Don\'t take our word for it. Search these on YouTube right now.',
     shots: [
       {
         image: '/assets/serp/serp-arabic-grammar-course.webp',
         term: 'arabic grammar course',
-        client: 'Shaf — 201K views',
+        client: 'Shaf, 201K views',
         ring: { left: '3%', top: '39%', width: '46.5%', height: '33%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
         image: '/assets/serp/serp-arabic-grammar.webp',
         term: 'arabic grammar',
-        client: 'Shaf — 201K views',
+        client: 'Shaf, 201K views',
         ring: { left: '2%', top: '58.5%', width: '31%', height: '39.5%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
         image: '/assets/serp/serp-miro.webp',
         term: 'how to make instagram miro boards',
-        client: 'Muba — ranking #1',
+        client: 'Muba, ranking #1',
         ring: { left: '2%', top: '10.5%', width: '30%', height: '35%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
         image: '/assets/serp/serp-appointment.webp',
         term: 'appointment setting',
-        client: 'Aqib — 17K views',
+        client: 'Aqib, 17K views',
         ring: { left: '1.5%', top: '68.5%', width: '57%', height: '30%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
         image: '/assets/serp/serp-arabic-verbs.webp',
         term: 'arabic verb forms',
-        client: 'Shaf — ranking #1',
+        client: 'Shaf, ranking #1',
         ring: { left: '2%', top: '11%', width: '31%', height: '37.5%' } as null | { left: string; top: string; width: string; height: string },
       },
       {
         image: '/assets/serp/serp-techsales.webp',
         term: 'tech sales course',
-        client: 'Zakariya — next to Alex Hormozi',
+        client: 'Zakariya, next to Alex Hormozi',
         ring: { left: '2%', top: '70%', width: '50%', height: '29%' } as null | { left: string; top: string; width: string; height: string },
       },
     ],
@@ -251,18 +251,18 @@ export const LP = {
     ],
   },
 
-  // TODO: client sending a bigger screenshot pack — add files to /assets/proof
+  // TODO: client sending a bigger screenshot pack - add files to /assets/proof
   moreProof: {
     sub: 'Straight out of YouTube Studio and the tracking sheets.',
     items: [
       { image: '/assets/proof/views-454k.webp', caption: '454,684 lifetime views, one channel', wide: true },
       { image: '/assets/proof/dm-leads.webp', caption: 'One Miro video filled the inbox with leads', wide: false },
-      { image: '/assets/proof/calls-july.webp', caption: 'Calls by source — YouTube 35, everything else 6', wide: false },
-      { image: '/assets/proof/analytics-arabic.webp', caption: 'Arabic channel — search traffic compounding', wide: false },
+      { image: '/assets/proof/calls-july.webp', caption: 'Calls by source, YouTube 35, everything else 6', wide: false },
+      { image: '/assets/proof/analytics-arabic.webp', caption: 'Arabic channel, search traffic compounding', wide: false },
       { image: '/assets/proof/calls-sheet.webp', caption: '37 calls · 47% close rate · 25% paid in full', wide: true },
       { image: '/assets/proof/analytics-insight.webp', caption: '34.1K views, +1.3K subs from one video', wide: false },
       { image: '/assets/proof/analytics-appt.webp', caption: '17,232 views on a 7-hour course video', wide: false },
-      { image: '/assets/proof/analytics-45k.webp', caption: '45,191 views, +1.3K subscribers — one video', wide: false },
+      { image: '/assets/proof/analytics-45k.webp', caption: '45,191 views, +1.3K subscribers, one video', wide: false },
     ],
   },
 

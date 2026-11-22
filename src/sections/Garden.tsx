@@ -12,7 +12,7 @@ import { GARDEN } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 
 /* The vine. Drawn in a 1000 x 2000 box and stretched to the canvas with
-   preserveAspectRatio="none" — strokes stay even thanks to non-scaling-stroke. */
+   preserveAspectRatio="none", strokes stay even thanks to non-scaling-stroke. */
 const VINE =
   'M500,0 C500,110 408,168 406,300 C404,432 604,470 606,620 C608,772 402,800 400,950 C398,1100 606,1140 608,1290 C610,1442 402,1470 402,1620 C402,1762 494,1852 500,2000'
 
@@ -106,7 +106,7 @@ function ProofPane({ stage }: { stage: (typeof GARDEN.stages)[number] }) {
             </motion.figure>
           ))}
         </div>
-        {/* extra unused thumbnails — bright strip */}
+        {/* extra unused thumbnails, bright strip */}
         <div className="no-bar mt-2.5 flex gap-2.5 overflow-x-auto pb-1">
           {['/images/thumbnails/image5.png', '/images/thumbnails/image7.png', '/images/thumbnails/image15.png', '/images/thumbnails/image18.png'].map((src) => (
             <img key={src} src={src} alt="More client thumbnails" loading="lazy" decoding="async" className="img-bright h-[52px] w-[92px] shrink-0 rounded-md border border-white/15 object-cover" />
@@ -395,7 +395,7 @@ export function Garden() {
             ))}
           </div>
 
-          {/* stage nodes on the vine (desktop only — they would collide on mobile) */}
+          {/* stage nodes on the vine (desktop only, they would collide on mobile) */}
           {samples.length > 0 &&
             GARDEN.stages.map((stage, i) => {
               const p = at(NODE_AT[i])

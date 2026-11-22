@@ -8,7 +8,7 @@ export function LpFooter() {
       <div className={shell}>
         <div className="flex flex-col gap-10 pb-12 pt-14 md:flex-row md:items-start md:justify-between md:pt-16">
           <div className="max-w-sm">
-            <a href="#top" aria-label="Noon Digital — back to top" className="block w-fit">
+            <a href="#top" aria-label="Noon Digital, back to top" className="block w-fit">
               <img src="/logo-light.png" alt="Noon Digital" className="h-8 w-auto" />
             </a>
             <p className="mt-4 text-sm leading-relaxed text-white/50">{LP.footer.blurb}</p>

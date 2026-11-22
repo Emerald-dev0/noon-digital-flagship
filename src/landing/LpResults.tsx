@@ -97,11 +97,11 @@ export function LpResults() {
     <section id="results" className="py-16 md:py-24">
       <div className={shell}>
         <SectionHead
-          title={<>Results, <Em>broken down.</Em></>}
-          sub="Two clients, broken down properly. Every screenshot below is the client's own — no mockups, no stock dashboards."
+          title={<>Results <Em>broken down.</Em></>}
+          sub="Two clients, broken down properly. Every screenshot below is the client's own, no mockups, no stock dashboards."
         />
 
-        {/* ---------------- Case study 01 — Zakariya ---------------- */}
+        {/* ---------------- Case study 01, Zakariya ---------------- */}
         <Reveal className="mt-10 md:mt-14">
           <article className="rounded-2xl border border-ink-900/10 bg-paper p-5 shadow-[0_30px_60px_-32px_rgba(10,8,16,0.4)] sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
@@ -129,13 +129,13 @@ export function LpResults() {
                 >
                   <img src={cash.image} alt="Client confirming cash collected from the content" loading="lazy" className="block w-full rounded-xl" />
                 </motion.div>
-                <figcaption className="mt-3 px-1 text-xs font-medium text-slate-400">{cash.caption} — his words, his numbers.</figcaption>
+                <figcaption className="mt-3 px-1 text-xs font-medium text-slate-400">{cash.caption}, his words, his numbers.</figcaption>
               </figure>
             </div>
           </article>
         </Reveal>
 
-        {/* ---------------- Case study 02 — Shaf ---------------- */}
+        {/* ---------------- Case study 02, Shaf ---------------- */}
         <Reveal className="mt-6 md:mt-8">
           <article className="rounded-2xl bg-ink-900 p-5 text-white shadow-[0_36px_72px_-34px_rgba(10,8,16,0.7)] sm:p-8 lg:p-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
@@ -177,7 +177,7 @@ export function LpResults() {
                     <img src={calls.sheet} alt="Tracking sheet: 37 calls booked, 47% close rate, 25% paid in full" loading="lazy" className="block w-full rounded-xl" />
                   </motion.div>
                   <figcaption className="mt-3 px-1 text-xs font-medium text-white/40">
-                    {calls.caption} — {calls.metric} calls, {calls.stats[1].v} close rate, {calls.stats[2].v} paid in full.
+                    {calls.caption}, {calls.metric} calls, {calls.stats[1].v} close rate, {calls.stats[2].v} paid in full.
                   </figcaption>
                 </figure>
 

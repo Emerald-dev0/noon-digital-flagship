@@ -23,7 +23,7 @@ export function LpProcess() {
       <div className={shell}>
         <SectionHead
           title={<>Completely done-for-you. <Em>Here&apos;s the rundown.</Em></>}
-          sub="1–2 videos a week. You record — we handle everything before and after that."
+          sub="1 to 2 videos a week. You record, we handle everything before and after that."
         />
 
         <ol className="mt-10 border-t border-ink-900/10 md:mt-14">

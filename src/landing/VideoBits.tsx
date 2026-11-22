@@ -16,7 +16,7 @@ export const PLATFORM_META: Record<LpPlatform, { label: string; color: string }>
 }
 
 // Click-to-play. The YouTube player is only mounted on press, and if the
-// owner has embedding switched off YouTube reports it (101/150) — we then swap
+// owner has embedding switched off YouTube reports it (101/150) - we then swap
 // to a poster that sends people to the video on YouTube instead of leaving a
 // dead black player on the page.
 type YTPlayer = {

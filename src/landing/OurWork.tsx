@@ -6,7 +6,7 @@ import { YouTubeLite } from './VideoBits'
 import { cn } from '../utils/cn'
 
 // The actual videos, laid out like a channel's videos tab.
-// Press play on any of them — they're all live on YouTube.
+// Press play on any of them - they're all live on YouTube.
 export function OurWork() {
   const { work } = LP
 
