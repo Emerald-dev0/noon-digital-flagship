@@ -97,7 +97,7 @@ export function Showcase() {
             </span>
           </h2>
           <p className="mx-auto mt-5 max-w-[32rem] text-[14.5px] leading-relaxed text-white/50">
-            Every tile below shipped on a real client channel. Same faces, same offers — repackaged to win the click before the video wins the call.
+            Every tile below shipped on a real client channel. Same faces, same offers, repackaged to win the click before the video wins the call.
           </p>
         </Reveal>
       </div>

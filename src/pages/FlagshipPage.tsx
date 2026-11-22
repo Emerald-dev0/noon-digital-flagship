@@ -16,7 +16,7 @@ import { Faq } from '../sections/Faq'
 import { FinalCta } from '../sections/FinalCta'
 import { StickyCta } from '../components/ui/StickyCta'
 
-/** Original dark "flagship" concept site — preserved at /flagship. */
+/** Original dark "flagship" concept site - preserved at /flagship. */
 export default function FlagshipPage() {
   useSmoothScroll()
 

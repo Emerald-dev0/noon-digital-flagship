@@ -23,7 +23,7 @@ export function LpProcess() {
       <div className={shell}>
         <SectionHead
           title={<>Completely done-for-you. <Em>Here&apos;s the rundown.</Em></>}
-          sub="1–2 videos a week. You record — we handle everything before and after that."
+          sub="1 to 2 videos a week. You record, we handle everything before and after that."
         />
 
         <ol className="mt-10 border-t border-ink-900/10 md:mt-14">
@@ -40,7 +40,7 @@ export function LpProcess() {
               >
                 <div className="flex items-center gap-4 md:contents">
                   <span className="font-helv text-lg font-bold tabular-nums text-brand-500">{step.n.padStart(2, '0')}</span>
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-50 text-brand-600 ring-1 ring-brand-100 transition-all duration-300 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-brand-50 text-brand-600 ring-1 ring-brand-100 transition-all duration-300 group-hover:bg-brand-600 group-hover:text-white group-hover:ring-brand-600">
                     <Icon size={22} strokeWidth={1.8} />
                   </span>
                 </div>

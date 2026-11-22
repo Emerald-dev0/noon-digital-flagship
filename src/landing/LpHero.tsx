@@ -144,7 +144,7 @@ function Vsl() {
           <p className="flex flex-wrap items-center gap-x-2.5 text-base font-bold text-ink-900">
             <PlayCircleIcon size={23} strokeWidth={1.9} className="text-brand-600" />
             {vsl.label}
-            <span className="font-medium text-slate-400">— how the whole system works, in 9 minutes</span>
+            <span className="font-medium text-slate-400">How the whole system works</span>
           </p>
         </div>
       </Reveal>
@@ -200,11 +200,11 @@ export function LpHero() {
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-2.5">
                     {hero.avatars.map((src) => (
-                      <img key={src} src={src} alt="" className="h-9 w-9 rounded-full object-cover ring-2 ring-cream" />
+                      <img key={src} src={src} alt="" className="h-9 w-9 rounded-lg object-cover ring-2 ring-cream" />
                     ))}
                   </div>
                   <p className="max-w-[210px] text-[13px] font-medium leading-tight text-slate-500">
-                    Zakariya, Shaf, Aqib, Yaseen — four of the nine channels below
+                    Zakariya, Shaf, Aqib and Yaseen, four of the nine channels below
                   </p>
                 </div>
               </div>
@@ -214,7 +214,7 @@ export function LpHero() {
               <div className="mt-9 max-w-xl">
                 <TypedSearch />
                 <p className="mt-2.5 text-[13px] text-slate-500">
-                  Search any of those — <strong className="font-bold text-ink-900">you&apos;ll find our clients.</strong>
+                  Search any of those. <strong className="font-bold text-ink-900">you&apos;ll find our clients.</strong>
                 </p>
               </div>
             </Reveal>

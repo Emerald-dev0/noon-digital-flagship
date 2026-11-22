@@ -1,3 +1,4 @@
+import { PlayIcon, QuoteDownIcon } from 'hugeicons-react'
 import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { VIDEO_TESTIMONIALS } from '../data/content'
@@ -52,9 +53,7 @@ export function VideoTestimonials() {
                         className="relative flex h-16 w-16 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md"
                       >
                         <span className="absolute inset-0 rounded-full bg-violet-500/25 blur-xl" />
-                        <svg viewBox="0 0 24 24" className="relative ml-1 h-5 w-5 fill-white" aria-hidden>
-                          <path d="M7 4.5 20 12 7 19.5v-15Z" />
-                        </svg>
+                        <PlayIcon size={20} strokeWidth={2.4} className="relative ml-0.5 text-white" aria-hidden="true" />
                       </motion.span>
                     </button>
 
@@ -67,9 +66,7 @@ export function VideoTestimonials() {
                   </div>
 
                   <div className="relative flex flex-1 flex-col justify-center p-5 md:p-6">
-                    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-violet-400/50" aria-hidden>
-                      <path d="M10 6v6H6.5c0 2.5 1.2 4 3.5 4.5V18C6 17.6 3.5 15 3.5 11V6H10Zm10.5 0v6H17c0 2.5 1.2 4 3.5 4.5V18c-4-.4-6.5-3-6.5-7V6h6.5Z" />
-                    </svg>
+                    <QuoteDownIcon size={20} strokeWidth={2} className="text-violet-400/50" aria-hidden="true" />
                     <p
                       className={`mt-3 font-display font-medium leading-[1.25] tracking-[-0.03em] text-white/[0.92] ${
                         featured ? 'text-[clamp(1.2rem,2.4vw,1.65rem)]' : 'text-[1.02rem]'

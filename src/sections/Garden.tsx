@@ -1,3 +1,4 @@
+import { Leaf02Icon, SparklesIcon } from 'hugeicons-react'
 import { useEffect, useRef, useState } from 'react'
 import {
   motion,
@@ -11,7 +12,7 @@ import { GARDEN } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 
 /* The vine. Drawn in a 1000 x 2000 box and stretched to the canvas with
-   preserveAspectRatio="none" — strokes stay even thanks to non-scaling-stroke. */
+   preserveAspectRatio="none", strokes stay even thanks to non-scaling-stroke. */
 const VINE =
   'M500,0 C500,110 408,168 406,300 C404,432 604,470 606,620 C608,772 402,800 400,950 C398,1100 606,1140 608,1290 C610,1442 402,1470 402,1620 C402,1762 494,1852 500,2000'
 
@@ -47,28 +48,17 @@ function useVinePoints() {
 
 /* ---------------------------------------------------------------- leaf art */
 function Leaf({ flip, tone }: { flip: boolean; tone: 'violet' | 'ember' }) {
+  // Hugeicons leaf, tinted per stage and mirrored for variety.
   return (
-    <svg
-      viewBox="0 0 48 30"
-      className={`h-[26px] w-[42px] md:h-[34px] md:w-[54px] ${flip ? '-scale-x-100' : ''}`}
+    <Leaf02Icon
+      size={34}
+      strokeWidth={1.5}
+      className={`h-[26px] w-[42px] md:h-[34px] md:w-[54px] ${flip ? '-scale-x-100' : ''} ${
+        tone === 'ember' ? 'text-[#ffa552]' : 'text-[#bda2ff]'
+      }`}
       style={{ filter: `drop-shadow(0 0 10px ${tone === 'ember' ? 'rgba(255,138,61,.5)' : 'rgba(139,92,246,.55)'})` }}
-      aria-hidden
-    >
-      <path
-        d="M2 26C6 8 22 1 46 2 44 20 28 29 2 26Z"
-        fill={tone === 'ember' ? 'rgba(255,138,61,0.16)' : 'rgba(139,92,246,0.18)'}
-        stroke={tone === 'ember' ? '#ffa552' : '#bda2ff'}
-        strokeWidth="1.1"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M4 25C16 19 32 11 45 3"
-        stroke={tone === 'ember' ? '#ffc98a' : '#d6c6ff'}
-        strokeWidth="0.8"
-        opacity="0.7"
-        fill="none"
-      />
-    </svg>
+      aria-hidden="true"
+    />
   )
 }
 
@@ -116,7 +106,7 @@ function ProofPane({ stage }: { stage: (typeof GARDEN.stages)[number] }) {
             </motion.figure>
           ))}
         </div>
-        {/* extra unused thumbnails — bright strip */}
+        {/* extra unused thumbnails, bright strip */}
         <div className="no-bar mt-2.5 flex gap-2.5 overflow-x-auto pb-1">
           {['/images/thumbnails/image5.png', '/images/thumbnails/image7.png', '/images/thumbnails/image15.png', '/images/thumbnails/image18.png'].map((src) => (
             <img key={src} src={src} alt="More client thumbnails" loading="lazy" decoding="async" className="img-bright h-[52px] w-[92px] shrink-0 rounded-md border border-white/15 object-cover" />
@@ -230,12 +220,7 @@ function StageCard({
         <ul className="relative mt-6 grid gap-2 sm:grid-cols-2">
           {stage.bullets.map((b) => (
             <li key={b} className="flex items-start gap-2.5 text-[12.8px] text-white/60">
-              <svg viewBox="0 0 12 12" className="mt-[5px] h-2.5 w-2.5 shrink-0" aria-hidden>
-                <path
-                  d="M6 1.5 7.4 4.6 10.5 6 7.4 7.4 6 10.5 4.6 7.4 1.5 6 4.6 4.6Z"
-                  fill={stage.key === 'harvest' ? '#ffa552' : '#a279ff'}
-                />
-              </svg>
+              <SparklesIcon size={12} strokeWidth={2} className={`mt-[5px] shrink-0 ${stage.key === 'harvest' ? 'text-[#ffa552]' : 'text-[#a279ff]'}`} aria-hidden="true" />
               {b}
             </li>
           ))}
@@ -410,7 +395,7 @@ export function Garden() {
             ))}
           </div>
 
-          {/* stage nodes on the vine (desktop only — they would collide on mobile) */}
+          {/* stage nodes on the vine (desktop only, they would collide on mobile) */}
           {samples.length > 0 &&
             GARDEN.stages.map((stage, i) => {
               const p = at(NODE_AT[i])

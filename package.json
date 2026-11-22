@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:static": "tsc && vite build && node scripts/prerender.mjs"
   },
   "dependencies": {
     "@solar-icons/react": "^2.3.3",

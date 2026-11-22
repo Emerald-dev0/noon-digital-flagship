@@ -1,3 +1,4 @@
+import { Search01Icon } from 'hugeicons-react'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useReducedMotion, useMotionValue, useSpring } from 'framer-motion'
 import { HERO } from '../data/content'
@@ -102,10 +103,7 @@ export function Hero() {
               {/* search pill */}
               <Reveal delay={0.3} y={20} className="absolute left-0 top-0 z-30 w-[92%] sm:w-[86%]">
                 <div className="glow-ring surface flex items-center gap-3 rounded-full px-4 py-3">
-                  <svg viewBox="0 0 20 20" className="h-4 w-4 shrink-0 text-white/40" fill="none">
-                    <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
-                    <path d="M13.5 13.5 17 17" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  </svg>
+                  <Search01Icon size={16} strokeWidth={1.8} className="shrink-0 text-white/40" aria-hidden="true" />
                   <span className="truncate font-sans text-[13.5px] text-white/80">
                     {QUERY}
                     {!reduced && (
@@ -122,7 +120,7 @@ export function Hero() {
                 </div>
               </Reveal>
 
-              {/* stacked result cards — brighter, punchier */}
+              {/* stacked result cards, brighter, punchier */}
               {[
                 { src: '/images/thumbnails/image20.png', rot: -5, x: 4, yy: 104, z: 10, scale: 0.88, delay: 0.5 },
                 { src: '/images/thumbnails/image22.png', rot: 3, x: 46, yy: 244, z: 20, scale: 0.94, delay: 0.42 },
@@ -150,7 +148,7 @@ export function Hero() {
                 </motion.figure>
               ))}
 
-              {/* floating proof: faces + booked-calls chip — mobile visible */}
+              {/* floating proof: faces + booked-calls chip, mobile visible */}
               <Reveal delay={0.6} y={16} className="absolute bottom-2 right-0 z-30 w-[62%] sm:w-[54%]">
                 <div className="thumb-frame-warm overflow-hidden rounded-xl bg-ink-900/90 backdrop-blur-md">
                   <div className="flex items-center gap-2 px-3 pt-2.5">
@@ -164,7 +162,7 @@ export function Hero() {
                       <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-400" /> 35 calls/mo
                     </span>
                   </div>
-                  <img src="/assets/proof/views-454k.png" alt="Client channel analytics showing 454K views" loading="lazy" decoding="async" className="img-proof mt-2 block w-full object-cover object-top" style={{ height: 86 }} />
+                  <img src="/assets/proof/views-454k.webp" alt="Client channel analytics showing 454K views" loading="lazy" decoding="async" className="img-proof mt-2 block w-full object-cover object-top" style={{ height: 86 }} />
                 </div>
               </Reveal>
 
@@ -174,7 +172,7 @@ export function Hero() {
               />
             </motion.div>
 
-            {/* mobile thumbnail strip — swipeable, bright */}
+            {/* mobile thumbnail strip, swipeable, bright */}
             <div className="no-bar snap-dope snap-peek -mx-5 mt-8 flex gap-2.5 overflow-x-auto px-5 pb-1 lg:hidden">
               {['/images/thumbnails/image1.png', '/images/thumbnails/image8.png', '/images/thumbnails/image14.png', '/images/thumbnails/image17.png', '/images/thumbnails/image24.png'].map((src) => (
                 <img key={src} src={src} alt="Client thumbnail" loading="lazy" decoding="async" className="img-bright thumb-frame h-[64px] w-[114px] shrink-0 rounded-lg object-cover" />

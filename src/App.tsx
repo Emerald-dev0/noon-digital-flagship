@@ -9,7 +9,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* The VSL landing page from the client's brief — the main deliverable */}
+        {/* The VSL landing page from the client's brief, the main deliverable */}
         <Route path="/" element={<LandingPage />} />
         {/* Earlier dark flagship concept, kept for reference */}
         <Route

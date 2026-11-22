@@ -6,7 +6,7 @@ import { YouTubeLite } from './VideoBits'
 import { cn } from '../utils/cn'
 
 // The actual videos, laid out like a channel's videos tab.
-// Press play on any of them — they're all live on YouTube.
+// Press play on any of them - they're all live on YouTube.
 export function OurWork() {
   const { work } = LP
 
@@ -37,7 +37,7 @@ export function OurWork() {
                 <YouTubeLite
                   id={id}
                   title={`Client video ${i + 1}`}
-                  rounded="rounded-xl"
+                  rounded="rounded-lg"
                   className="ring-1 ring-white/10"
                 />
                 {work.labels[id] && (

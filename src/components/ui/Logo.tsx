@@ -26,7 +26,7 @@ export function NoonMark({ className = 'h-9 w-9' }: { className?: string }) {
             <stop offset="100%" stopColor="#ffc98a" />
           </linearGradient>
         </defs>
-        {/* ن — crescent bowl + dot: noon, the Arabic letter, and a sunrise */}
+        {/* ن, crescent bowl + dot: noon, the Arabic letter, and a sunrise */}
         <path
           d="M5 13.5c0 6.8 4.9 11.2 11 11.2s11-4.4 11-11.2"
           fill="none"

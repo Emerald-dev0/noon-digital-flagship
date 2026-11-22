@@ -1,3 +1,4 @@
+import { Clock01Icon } from 'hugeicons-react'
 import { TRUST } from '../data/content'
 import { Reveal } from '../components/ui/Reveal'
 import { CountUp } from '../components/ui/CountUp'
@@ -61,10 +62,7 @@ export function TrustStats() {
 
             <Reveal delay={0.2}>
               <p className="mt-5 flex items-center gap-2.5 text-[12px] text-white/30">
-                <svg viewBox="0 0 14 14" className="h-3.5 w-3.5 shrink-0 text-violet-400" fill="none" aria-hidden>
-                  <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
-                  <path d="M7 4v3.4L9 9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                </svg>
+                <Clock01Icon size={14} strokeWidth={1.6} className="shrink-0 text-violet-400" aria-hidden="true" />
                 {TRUST.footnote}
               </p>
             </Reveal>
@@ -75,10 +73,10 @@ export function TrustStats() {
         <Reveal delay={0.1} className="mt-12 md:mt-16">
           <div className="no-bar snap-dope snap-peek -mx-5 flex gap-3 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-4">
             {[
-              { src: '/assets/proof/views-454k.png', caption: 'Channel overview · 454K views', tag: 'Studio' },
-              { src: '/assets/proof/analytics-insight.png', caption: '34.1K views · +1.3K subs', tag: 'Analytics' },
-              { src: '/assets/proof/analytics-appt.png', caption: 'Evergreen course · 17.2K views', tag: 'Evergreen' },
-              { src: '/assets/proof/analytics-arabic.png', caption: 'Arabic series · breakout video', tag: 'Breakout' },
+              { src: '/assets/proof/views-454k.webp', caption: 'Channel overview · 454K views', tag: 'Studio' },
+              { src: '/assets/proof/analytics-insight.webp', caption: '34.1K views · +1.3K subs', tag: 'Analytics' },
+              { src: '/assets/proof/analytics-appt.webp', caption: 'Evergreen course · 17.2K views', tag: 'Evergreen' },
+              { src: '/assets/proof/analytics-arabic.webp', caption: 'Arabic series · breakout video', tag: 'Breakout' },
             ].map((p) => (
               <figure key={p.src} className="thumb-frame w-[240px] shrink-0 overflow-hidden rounded-xl bg-white sm:w-auto">
                 <div className="flex items-center gap-1.5 bg-ink-950 px-3 py-2">
